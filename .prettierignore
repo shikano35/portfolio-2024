@@ -4,4 +4,6 @@ out/
 public/
 package-lock.json
 pnpm-lock.yaml
-next.config.ts
+
+*.config.ts
+next-env.d.ts
