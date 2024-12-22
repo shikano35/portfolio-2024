@@ -5,3 +5,4 @@ public/
 pnpm-lock.yaml
 *.config.ts
 next-env.d.ts
+postcss.config.mjs
