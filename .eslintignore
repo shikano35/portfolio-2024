@@ -3,5 +3,6 @@ node_modules/
 out/
 public/
 pnpm-lock.yaml
+postcss.config.mjs
 *.config.ts
 next-env.d.ts
