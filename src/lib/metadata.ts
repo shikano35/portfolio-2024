@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
+export const baseMetadata: Metadata = {
   title: "",
   description: "",
   keywords: "",
