@@ -35,7 +35,7 @@ export function Nav({
             key={item.label}
             label={item.label}
             href={item.href}
-            className="text-lg"
+            className="text-lg px-2 mx-3"
             activeClassName={activeClassName}
             hoverClassName={hoverClassName}
           />

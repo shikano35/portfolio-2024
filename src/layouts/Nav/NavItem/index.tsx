@@ -10,6 +10,7 @@ export type NavItemProps = {
   className?: string;
   activeClassName?: string;
   hoverClassName?: string;
+  onClick?: () => void;
 };
 
 export function NavItem({
@@ -18,20 +19,28 @@ export function NavItem({
   className,
   activeClassName = "font-semibold text-highlight",
   hoverClassName = "hover:text-highlight",
+  onClick,
 }: NavItemProps) {
   const segment = useSelectedLayoutSegment();
   const isActive =
     (segment === null && href === "/") ||
     segment === href.replace(/^\//, "").toLowerCase();
 
+  const handleClick = () => {
+    if (onClick) {
+      setTimeout(onClick, 200);
+    }
+  };
+
   return (
     <Link
       href={href}
       className={cn(
-        "relative block px-2 py-2 mx-3 transition-colors delay-50",
+        "relative block py-2 transition-colors delay-50",
         className,
         isActive ? activeClassName : `text-muted-foreground ${hoverClassName}`
       )}
+      onClick={handleClick}
     >
       <span>{label}</span>
     </Link>

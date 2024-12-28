@@ -8,11 +8,15 @@ export function Header() {
     <header>
       <nav>
         <div className="flex justify-between items-center mx-auto max-w-7xl py-16 px-16 md:px-32">
-          <Link href="/" className="flex items-center gap-8" aria-label="Home">
-            <Logo alt="My Logo" width={44} height={44} />
-          </Link>
-          <Nav />
-          <div className="md:hidden">
+          <div className="flex items-center w-full justify-between">
+            <Link
+              href="/"
+              className="flex items-center gap-8"
+              aria-label="Home"
+            >
+              <Logo alt="My Logo" width={44} height={44} />
+            </Link>
+            <Nav />
             <NavDrawer />
           </div>
         </div>
