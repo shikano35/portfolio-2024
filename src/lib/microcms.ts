@@ -1,4 +1,4 @@
-import { createClient } from "microcms-js-sdk";
+import { createClient, type MicroCMSQueries } from "microcms-js-sdk";
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
   throw new Error("MICROCMS_SERVICE_DOMAIN is required");
@@ -18,25 +18,19 @@ export type Skill = {
   name: string;
   level: number;
   description: string;
-  isFavorite?: boolean;
+  isFavorite: boolean;
 };
 
-export const getSkills = async (isFavorite?: boolean): Promise<Skill[]> => {
-  const response = await client.getList<Skill>({
+export const getSkills = async (
+  queries?: MicroCMSQueries
+): Promise<Skill[]> => {
+  const data = await client.getList<Skill>({
     endpoint: "skills",
-    queries: {
-      fields: ["id", "name", "level", "description", "isFavorite"],
-    },
+    queries,
     customRequestInit: {
       cache: "force-cache",
     },
   });
 
-  let skills = response.contents;
-
-  if (isFavorite !== undefined) {
-    skills = skills.filter((skill) => skill.isFavorite === isFavorite);
-  }
-
-  return skills;
+  return data.contents;
 };
