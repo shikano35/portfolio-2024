@@ -2,78 +2,71 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import React from "react";
+import { Bars3Icon, ChevronUpIcon } from "@heroicons/react/24/solid";
+import { navList } from "@/layouts/Nav";
+import { NavItem } from "@/layouts/Nav/NavItem";
+import { Logo } from "@/components/Logo";
 
-export function NavDrawer() {
+export function NavDrawer({
+  activeClassName = "font-semibold text-highlight",
+  hoverClassName = "hover:text-highlight",
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDrawer = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   return (
-    <>
-      {/* ボタン */}
+    <div className="relative z-50 md:hidden flex justify-center">
       <button
+        className="relative z-50 -m-2 inline-flex items-center rounded-lg p-2 hover:bg-gray-200/50"
+        aria-label="Toggle site navigation"
+        type="button"
+        aria-expanded={isOpen}
         onClick={toggleDrawer}
-        className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md"
       >
-        Open Drawer
+        {isOpen ? (
+          <ChevronUpIcon className="h-6 w-6 text-gray-900" aria-hidden="true" />
+        ) : (
+          <Bars3Icon className="h-6 w-6 text-gray-900" aria-hidden="true" />
+        )}
       </button>
 
-      {/* オーバーレイ */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black bg-opacity-50"
-          onClick={toggleDrawer}
+          className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-40"
+          onClick={() => setIsOpen(false)}
         >
-          {/* Drawerコンテンツ */}
           <div
-            className={`fixed left-0 top-0 w-64 h-full bg-white shadow-lg transform transition-transform ${
-              isOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
+            className="absolute top-0 pt-16 px-16 w-full bg-white shadow-md rounded-b-lg"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex justify-between p-4">
-              <h2 className="text-xl font-semibold">Menu</h2>
-              <button
-                onClick={toggleDrawer}
-                className="text-gray-600 hover:text-gray-900"
-              >
-                ✕
-              </button>
-            </div>
-            <ul className="p-4 space-y-4">
-              <li>
-                <Link
-                  href="/"
-                  className="text-lg text-gray-800 hover:text-blue-600"
-                  onClick={toggleDrawer} // Drawerを閉じる
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-lg text-gray-800 hover:text-blue-600"
-                  onClick={toggleDrawer}
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-lg text-gray-800 hover:text-blue-600"
-                  onClick={toggleDrawer}
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+            <Link
+              href="/"
+              className="flex items-center"
+              aria-label="Home"
+              onClick={() => setIsOpen(false)}
+              style={{ maxWidth: "44px" }}
+            >
+              <Logo alt="My Logo" width={44} height={44} />
+            </Link>
+            <nav className="flex flex-col gap-4 mt-8 py-4">
+              {navList.map((item) => (
+                <NavItem
+                  key={item.label}
+                  label={item.label}
+                  href={item.href}
+                  className="text-lg"
+                  activeClassName={activeClassName}
+                  hoverClassName={hoverClassName}
+                  onClick={() => setIsOpen(false)}
+                />
+              ))}
+            </nav>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

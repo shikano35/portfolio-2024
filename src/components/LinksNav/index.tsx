@@ -41,7 +41,7 @@ export function LinksNav({
             key={item.label}
             label={item.label}
             href={item.href}
-            className="text-base"
+            className="text-base  px-2 mx-3"
             activeClassName={activeClassName}
             hoverClassName={hoverClassName}
           />

@@ -9,7 +9,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-5xl font-semibold text-primary text-center md:text-start">
             Profile
           </h1>
-          <p className="text-start md:text-start mt-16 text-muted-foreground text-sm leading-8 md:text-base md:leading-10">
+          <p className="text-start sm:text-center md:text-start mt-16 text-muted-foreground text-sm leading-8 md:text-base md:leading-10">
             深く考えながら、少しずつ学びを積み重ねるエンジニアです。
             <br />
             私の作った作品が、少しでも誰かの生活に寄り添えたら嬉しいです。
