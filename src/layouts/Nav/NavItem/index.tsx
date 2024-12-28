@@ -28,7 +28,7 @@ export function NavItem({
 
   const handleClick = () => {
     if (onClick) {
-      setTimeout(onClick, 200);
+      onClick();
     }
   };
 

@@ -54,7 +54,7 @@ export function NavDrawer({
             <nav className="flex flex-col gap-4 mt-8 py-4">
               {navList.map((item) => (
                 <NavItem
-                  key={item.label}
+                  key={item.href}
                   label={item.label}
                   href={item.href}
                   className="text-lg"

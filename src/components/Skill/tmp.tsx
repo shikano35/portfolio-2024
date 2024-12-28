@@ -1,4 +1,4 @@
-import React, { cache } from "react";
+import React from "react";
 import { MySQLIcon } from "@/components/Icons/skills/MySQLIcon";
 import { CIcon } from "@/components/Icons/skills/CIcon";
 import { GithubActionsIcon } from "@/components/Icons/skills/GithubActionsIcon";
@@ -15,9 +15,9 @@ import { DockerIcon } from "@/components/Icons/skills/DockerIcon";
 import { GoIcon } from "@/components/Icons/skills/GoIcon";
 import { TSIcon } from "@/components/Icons/skills/TSIcon";
 import { getSkills } from "@/lib/microcms";
+import { cache } from "react";
 import Link from "next/link";
 import clsx from "clsx";
-import { FadeIn } from "../FadeIn";
 
 type Skill = {
   name: string;
@@ -66,26 +66,24 @@ export async function SkillList() {
   });
 
   return (
-    <FadeIn>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-        {allSkills.map((skill) => (
-          <div key={skill.name} className="flex flex-col items-center">
-            <Link
-              href={`/skills/${skill.id}`}
-              className={clsx(
-                "relative block aspect-[9/10] flex-none overflow-hidden rounded-xl bg-white/50 shadow-lg ring ring-gray-100 transition-all duration-300 hover:scale-105 hover:ring-gray-300 sm:rounded-2xl dark:bg-gray-600"
-              )}
-              aria-label={`${skill.name}へのリンク`}
-            >
-              <skill.icon className="h-full w-full object-cover p-2" />
-              <span className="sr-only">{skill.name}へのリンク</span>
-            </Link>
-            <div className="mt-2 text-center">
-              <p className="text-xs font-semibold">{skill.name}</p>
-            </div>
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      {allSkills.map((skill) => (
+        <div key={skill.name} className="flex flex-col items-center">
+          <Link
+            href={`/skills/${skill.id}`}
+            className={clsx(
+              "relative block aspect-[9/10] flex-none overflow-hidden rounded-xl bg-white/50 shadow-lg ring ring-gray-100 transition-all duration-300 hover:scale-105 hover:ring-gray-300 sm:rounded-2xl dark:bg-gray-600"
+            )}
+            aria-label={`${skill.name}へのリンク`}
+          >
+            <skill.icon className="h-full w-full object-cover p-2" />
+            <span className="sr-only">{skill.name}へのリンク</span>
+          </Link>
+          <div className="mt-2 text-center">
+            <p className="text-xs font-semibold">{skill.name}</p>
           </div>
-        ))}
-      </div>
-    </FadeIn>
+        </div>
+      ))}
+    </div>
   );
 }
