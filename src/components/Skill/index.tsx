@@ -66,10 +66,10 @@ export async function SkillList() {
   });
 
   return (
-    <FadeIn>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-        {allSkills.map((skill) => (
-          <div key={skill.name} className="flex flex-col items-center">
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      {allSkills.map((skill) => (
+        <FadeIn key={skill.name}>
+          <div className="flex flex-col items-center">
             <Link
               href={`/skills/${skill.id}`}
               className={clsx(
@@ -84,8 +84,8 @@ export async function SkillList() {
               <p className="text-xs font-semibold">{skill.name}</p>
             </div>
           </div>
-        ))}
-      </div>
-    </FadeIn>
+        </FadeIn>
+      ))}
+    </div>
   );
 }
