@@ -9,7 +9,6 @@ import { Logo } from "@/components/Logo";
 
 export function NavDrawer({
   activeClassName = "font-semibold text-highlight",
-  hoverClassName = "hover:text-highlight",
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -59,7 +58,6 @@ export function NavDrawer({
                   href={item.href}
                   className="text-lg"
                   activeClassName={activeClassName}
-                  hoverClassName={hoverClassName}
                   onClick={() => setIsOpen(false)}
                 />
               ))}
