@@ -30,10 +30,7 @@ const linksList: LinksNavProps[] = [
   },
 ];
 
-export function LinksNav({
-  activeClassName = "font-medium text-primary",
-  hoverClassName = "text-muted-foreground",
-}) {
+export function LinksNav({ activeClassName = "font-medium text-primary" }) {
   return (
     <div className="flex justify-between w-full flex-col md:flex-row">
       <div className="flex items-center justify-center md:justify-start">
@@ -44,7 +41,7 @@ export function LinksNav({
               href={item.href}
               className="text-base  px-2 mx-3"
               activeClassName={activeClassName}
-              hoverClassName={hoverClassName}
+              hoverClassName="hover:text-primary"
             />
           </FadeIn>
         ))}
