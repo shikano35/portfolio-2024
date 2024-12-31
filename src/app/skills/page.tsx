@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <div>
       <h1>Skill Page</h1>
-      <FadeInWithStagger speed={0.1}>
+      <FadeInWithStagger>
         <SkillList />
       </FadeInWithStagger>
     </div>
