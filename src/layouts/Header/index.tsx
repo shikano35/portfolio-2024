@@ -3,13 +3,14 @@ import { Logo } from "@/components/Logo";
 import { Nav } from "@/layouts/Nav";
 import { NavDrawer } from "@/layouts/Nav/NavDrawer";
 import { FadeInWithStagger } from "@/components/FadeIn";
+import { Container } from "@/components/Container";
 
 export function Header() {
   return (
     <header>
       <nav>
         <FadeInWithStagger>
-          <div className="flex justify-between items-center mx-auto max-w-7xl py-16 px-16 md:px-32">
+          <Container className="py-16">
             <div className="flex items-center w-full justify-between">
               <Link
                 href="/"
@@ -21,7 +22,7 @@ export function Header() {
               <Nav />
               <NavDrawer />
             </div>
-          </div>
+          </Container>
         </FadeInWithStagger>
       </nav>
     </header>
