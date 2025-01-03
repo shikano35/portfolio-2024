@@ -1,6 +1,6 @@
 import { Providers } from "@/layouts/Provider";
-import { Footer } from "./Footer";
-import { Header } from "./Header";
+import { Footer } from "@/layouts/Footer";
+import { Header } from "@/layouts/Header";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
