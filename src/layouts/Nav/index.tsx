@@ -1,3 +1,4 @@
+import { FadeIn } from "@/components/FadeIn";
 import { NavItem, NavItemProps } from "./NavItem";
 
 export const navList: NavItemProps[] = [
@@ -23,22 +24,19 @@ export const navList: NavItemProps[] = [
   },
 ];
 
-export function Nav({
-  activeClassName = "font-semibold text-highlight",
-  hoverClassName = "hover:text-highlight",
-}) {
+export function Nav({ activeClassName = "font-semibold text-highlight" }) {
   return (
     <div className="hidden md:block">
       <div className="flex">
         {navList.map((item) => (
-          <NavItem
-            key={item.label}
-            label={item.label}
-            href={item.href}
-            className="text-lg px-2 mx-3"
-            activeClassName={activeClassName}
-            hoverClassName={hoverClassName}
-          />
+          <FadeIn key={item.label}>
+            <NavItem
+              label={item.label}
+              href={item.href}
+              className="text-lg px-2 mx-3"
+              activeClassName={activeClassName}
+            />
+          </FadeIn>
         ))}
       </div>
     </div>

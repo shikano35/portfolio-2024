@@ -1,18 +1,23 @@
+import { Border } from "@/components/Border";
+import { FadeIn, FadeInWithStagger } from "@/components/FadeIn";
 import { LinksNav } from "@/components/LinksNav";
+import { Container } from "@/components/Container";
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col border-t border-border pb-16 pt-8 md:pb-10">
-          <div className="w-full flex justify-center md:justify-start">
+      <Container>
+        <Border className="flex flex-col" />
+        <FadeInWithStagger>
+          <div className="flex justify-center md:justify-start pb-16 pt-8 md:pb-10">
             <LinksNav activeClassName="font-medium text-primary" />
           </div>
-          <p className="mt-16 text-xs text-muted-foreground text-center">
-            &copy; {new Date().getFullYear()} Shin Takemura
-          </p>
-        </div>
-      </div>
+          <FadeIn className="mb-12 md:mt-8 text-xs text-muted-foreground text-center">
+            &copy; {currentYear} Shin Takemura
+          </FadeIn>
+        </FadeInWithStagger>
+      </Container>
     </footer>
   );
 }
