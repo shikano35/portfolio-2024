@@ -1,8 +1,6 @@
-"use client";
-
-import clsx from "clsx";
 import React from "react";
-import { FadeIn } from "../FadeIn";
+import { FadeIn } from "@/components/FadeIn";
+import { cn } from "@/lib/utils";
 
 type HeadingProps = {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -10,7 +8,7 @@ type HeadingProps = {
   className?: string;
 };
 
-const headingBaseStyle = "text-center text-primary font-bold";
+const headingBaseStyle = "text-center md:text-start text-primary font-bold";
 
 const headingSizes = {
   h1: "text-4xl md:text-5xl",
@@ -26,7 +24,7 @@ export function Heading({ as = "h1", children, className }: HeadingProps) {
 
   return (
     <Component
-      className={clsx(headingBaseStyle, headingSizes[Component], className)}
+      className={cn(headingBaseStyle, headingSizes[Component], className)}
     >
       <FadeIn>{children}</FadeIn>
     </Component>
