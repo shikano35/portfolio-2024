@@ -1,11 +1,11 @@
 import React, { ElementType, ReactNode, ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
-interface ContainerProps<T extends ElementType = "div"> {
+type ContainerProps<T extends ElementType = "div"> = {
   as?: T;
   children: ReactNode;
   className?: string;
-}
+};
 
 export function Container<T extends ElementType = "div">({
   as,
