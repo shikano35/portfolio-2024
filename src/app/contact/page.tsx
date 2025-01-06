@@ -5,7 +5,7 @@ import React from "react";
 export default function BlogsPage() {
   return (
     <HeadGroup>
-      <Heading>Blogs</Heading>
+      <Heading>Contact</Heading>
     </HeadGroup>
   );
 }

@@ -21,16 +21,10 @@ export type Skill = {
   isFavorite: boolean;
 };
 
-export const getSkills = async (
-  queries?: MicroCMSQueries
-): Promise<Skill[]> => {
+export async function getSkills(queries?: MicroCMSQueries): Promise<Skill[]> {
   const data = await client.getList<Skill>({
     endpoint: "skills",
     queries,
-    customRequestInit: {
-      cache: "force-cache",
-    },
   });
-
   return data.contents;
-};
+}

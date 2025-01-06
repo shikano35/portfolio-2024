@@ -1,5 +1,4 @@
 // 勉強後導入する
-
 "use client";
 
 import React from "react";
@@ -13,9 +12,9 @@ const FadeTransition = () => {
     <AnimatePresence mode="wait">
       <motion.div
         key={pathname}
-        initial={{ opacity: 1 }} // 初期状態を不透明に
-        animate={{ opacity: 0 }} // アニメーションで透明に
-        exit={{ opacity: 0 }} // 終了時に不透明に戻す
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
         style={{
           position: "fixed",

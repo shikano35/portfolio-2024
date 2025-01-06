@@ -1,13 +1,10 @@
-import Image from "next/image";
-import React, { ComponentPropsWithoutRef } from "react";
+import Image, { ImageProps } from "next/image";
 
 export function Logo({
   src = "/my-icon.webp",
   alt = "My Logo",
   className,
   ...props
-}: Omit<ComponentPropsWithoutRef<typeof Image>, "src"> & { src?: string } & {
-  alt?: string;
-}) {
+}: Partial<ImageProps>) {
   return <Image src={src} alt={alt} className={className} {...props} />;
 }

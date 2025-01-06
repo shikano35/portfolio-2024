@@ -1,14 +1,15 @@
-import { FadeInWithStagger } from "@/components/FadeIn";
+import { HeadGroup } from "@/components/HeadGroup";
+import { Heading } from "@/components/Heading";
 import { SkillList } from "@/components/Skill";
 import React from "react";
 
-export default function Page() {
+export default function SkillsPage() {
   return (
     <div>
-      <h1>Skill Page</h1>
-      <FadeInWithStagger>
-        <SkillList />
-      </FadeInWithStagger>
+      <HeadGroup className="mb-16">
+        <Heading>Skills</Heading>
+      </HeadGroup>
+      <SkillList />
     </div>
   );
 }

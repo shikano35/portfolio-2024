@@ -1,11 +1,37 @@
-// import React from "react";
-// import { Skills } from "@/components/Skill";
+import React from "react";
+import { fetchFavoriteSkills } from "@/components/Skill";
+import { FadeIn } from "@/components/FadeIn";
+import Link from "next/link";
+import clsx from "clsx";
+import { SkillCard } from "@/components/CardContainer";
 
-// export function FavoriteSkills() {
-//   // フィルタリングして好きなスキルだけを取得
-//   const favoriteSkills = Skills.filter(skill => skill.isFavorite);
+export async function FavoriteSkills({ className = "" }) {
+  const favoriteSkills = await fetchFavoriteSkills();
 
-//   return (
-
-//   );
-// }
+  return (
+    <div
+      className={clsx(
+        "grid grid-cols-3 gap-6 justify-items-center md:justify-items-start",
+        className
+      )}
+    >
+      {favoriteSkills.map((skill) => {
+        const Icon = skill.icon;
+        return (
+          <FadeIn key={skill.id}>
+            <Link
+              href={`/skills/${skill.id}`}
+              aria-label={`View details about ${skill.name}`}
+            >
+              <div className="flex flex-col items-center">
+                <SkillCard>
+                  <Icon className="w-12 h-12" />
+                </SkillCard>
+              </div>
+            </Link>
+          </FadeIn>
+        );
+      })}
+    </div>
+  );
+}

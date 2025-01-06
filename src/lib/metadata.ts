@@ -1,33 +1,31 @@
 import { Metadata } from "next";
 
 export const baseMetadata: Metadata = {
-  title: "",
-  description: "",
-  keywords: "",
-  authors: [{ name: "", url: "" }],
+  title: "Shin Takemura's Portfolio",
+  description: "This is Shin Takemura's portfolio.",
+  keywords: "Shin Takemura, Portfolio",
+  authors: [{ name: "Shin Takemura", url: "https://example.com" }],
   generator: "Next.js",
-  applicationName: "",
+  applicationName: "Shin Takemura's Portfolio",
   openGraph: {
-    title: "",
-    description: "",
+    title: "Shin Takemura's Portfolio",
+    description: "This is Shin Takemura's portfolio.",
     type: "website",
-    url: "",
-    siteName: "",
+    url: "https://example.com",
+    siteName: "Shin Takemura's Portfolio",
     locale: "ja_JP",
     images: [
       {
-        url: "",
+        url: "https://example.com",
         width: 1200,
         height: 630,
-        alt: "",
+        alt: "Shin Takemura's Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary",
-    title: "",
-    description: "",
-    images: [""],
-    creator: "",
+    title: "Shin Takemura's Portfolio",
+    description: "This is Shin Takemura's portfolio.",
   },
 };

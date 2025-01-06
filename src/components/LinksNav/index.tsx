@@ -3,10 +3,10 @@ import { CosenseIcon } from "@/components/Icons/social/CosenseIcon";
 import { ZennIcon } from "@/components/Icons/social/ZennIcon";
 import { GithubIcon } from "@/components/Icons/social/GithubIcon";
 import { navList } from "@/layouts/Nav";
-import Link from "next/link";
-import { FadeIn } from "../FadeIn";
+import { FadeIn } from "@/components/FadeIn";
+import { ThemeDependentLinks } from "./ThemeDependentLinks";
 
-export type LinksNavProps = {
+type LinksNavProps = {
   label: string;
   href: string;
   icon: React.FC<{ width: number; height: number; className?: string }>;
@@ -39,27 +39,14 @@ export function LinksNav({ activeClassName = "font-medium text-primary" }) {
             <NavItem
               label={item.label}
               href={item.href}
-              className="text-base  px-2 mx-3"
+              className="text-sm lg:text-base px-2 mx-3"
               activeClassName={activeClassName}
               hoverClassName="hover:text-primary"
             />
           </FadeIn>
         ))}
       </div>
-
-      <div className="flex mt-6 md:mt-0 justify-center md:justify-start">
-        {linksList.map((item) => (
-          <Link key={item.label} href={item.href} className="px-2 py-2 mx-3">
-            <FadeIn>
-              <item.icon
-                width={32}
-                height={32}
-                className="md:w-8 md:h-8 w-6 h-6"
-              />
-            </FadeIn>
-          </Link>
-        ))}
-      </div>
+      <ThemeDependentLinks linksList={linksList} />
     </div>
   );
 }

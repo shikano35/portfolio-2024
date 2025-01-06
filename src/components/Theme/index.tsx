@@ -1,28 +1,79 @@
 "use client";
 
-import { SunIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "next-themes";
-import React, { useEffect, useState } from "react";
-// import { MoonIcon } from "@/components/icons/MoonIcon";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { FadeIn } from "../FadeIn";
 
-export function ToggleTheme() {
-  const [mounted, setMounted] = useState(false);
+export function ThemeButton() {
   const { theme, setTheme } = useTheme();
-  const oppositionTheme = theme === "dark" ? "light" : "dark";
+  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <button
-      aria-label={
-        mounted ? `${oppositionTheme} mode に切り替える` : "読み込み中..."
-      }
-      className="relative z-10 rounded-full bg-white p-1.5 shadow-lg ring-1 ring-gray-900/5 hover:ring-gray-800/20 md:p-2 dark:border-gray-700 dark:bg-gray-800 dark:hover:ring-gray-700"
-      onClick={() => setTheme(oppositionTheme)}
-      type="button"
+      className="float-end md:block"
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
-      <SunIcon className="h-5 w-5 fill-sky-400 md:h-6 md:w-6 dark:hidden" />
-      {/* <MoonIcon className="hidden h-5 w-5 stroke-teal-400 md:h-6 md:w-6 dark:block" /> */}
+      <SunIcon className="fill-muted-foreground hover:fill-highlight h-6 w-6 dark:hidden" />
+      <MoonIcon className="fill-muted-foreground hover:fill-highlight h-6 w-6 hidden dark:block" />
     </button>
+  );
+}
+
+export function ThemeSwitcher() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  const toggleClasses = "flex items-center justify-center w-9 h-9 rounded-full";
+
+  return (
+    <FadeIn
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, margin: "0px 0px -100px" }}
+    >
+      <div className="flex items-center space-x-1 p-1 border-border border rounded-full">
+        <motion.button
+          className={`${toggleClasses} ${
+            theme === "light"
+              ? "bg-border text-muted-foreground"
+              : "bg-popover text-muted-foreground"
+          }`}
+          onClick={() => setTheme("light")}
+          whileTap={{ scale: 0.9 }}
+        >
+          <SunIcon className="h-5 w-5" />
+        </motion.button>
+
+        <motion.button
+          className={`${toggleClasses} ${
+            theme === "dark"
+              ? "bg-muted-foreground text-popover"
+              : "bg-background text-muted-foreground"
+          }`}
+          onClick={() => setTheme("dark")}
+          whileTap={{ scale: 0.9 }}
+        >
+          <MoonIcon className="h-5 w-5" />
+        </motion.button>
+      </div>
+    </FadeIn>
   );
 }
