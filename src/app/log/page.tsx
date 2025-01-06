@@ -2,10 +2,10 @@ import { HeadGroup } from "@/components/HeadGroup";
 import { Heading } from "@/components/Heading";
 import React from "react";
 
-export default function BlogsPage() {
+export default function LogPage() {
   return (
     <HeadGroup>
-      <Heading>Blogs</Heading>
+      <Heading>Log</Heading>
     </HeadGroup>
   );
 }
