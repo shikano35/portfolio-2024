@@ -1,5 +1,6 @@
 import { FadeIn } from "@/components/FadeIn";
 import { NavItem, NavItemProps } from "./NavItem";
+import { ThemeButton } from "@/components/Theme";
 
 export const navList: NavItemProps[] = [
   {
@@ -22,22 +23,29 @@ export const navList: NavItemProps[] = [
     label: "Blogs",
     href: "/blogs",
   },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
 ];
 
 export function Nav({ activeClassName = "font-semibold text-highlight" }) {
   return (
     <div className="hidden md:block">
-      <div className="flex">
+      <div className="flex items-center">
         {navList.map((item) => (
           <FadeIn key={item.label}>
             <NavItem
               label={item.label}
               href={item.href}
-              className="text-lg px-2 mx-3"
+              className="text-base px-3 mx-3"
               activeClassName={activeClassName}
             />
           </FadeIn>
         ))}
+        <div className="border-l border-border ml-2 pl-6">
+          <ThemeButton />
+        </div>
       </div>
     </div>
   );
