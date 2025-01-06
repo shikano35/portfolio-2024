@@ -29,7 +29,7 @@ const linksList: LinksNavProps[] = [
   },
   {
     label: "Github",
-    href: "https://github.com/shiitake05",
+    href: "https://github.com/shikano35",
     icon: GithubIcon,
   },
 ];
