@@ -16,22 +16,23 @@ import { GoIcon } from "@/components/Icons/skills/GoIcon";
 import { TSIcon } from "@/components/Icons/skills/TSIcon";
 import { getSkills } from "@/lib/microcms";
 import Link from "next/link";
-import clsx from "clsx";
 import { FadeIn } from "../FadeIn";
+import { Stars } from "../Stars";
+import { SkillCard } from "../CardContainer";
 
 type Skill = {
   name: string;
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
 };
 
-export const Skills: Skill[] = [
+const Skills: Skill[] = [
   { name: "HTML", icon: HTMLIcon },
   { name: "CSS", icon: CSSIcon },
   { name: "JavaScript", icon: JSIcon },
   { name: "TypeScript", icon: TSIcon },
   { name: "React", icon: ReactIcon },
   { name: "Next.js", icon: NextjsIcon },
-  { name: "Tailwind", icon: TailwindIcon },
+  { name: "Tailwind CSS", icon: TailwindIcon },
   { name: "Prisma", icon: PrismaIcon },
   { name: "Node.js", icon: NodejsIcon },
   { name: "Go", icon: GoIcon },
@@ -42,50 +43,71 @@ export const Skills: Skill[] = [
   { name: "MySQL", icon: MySQLIcon },
 ];
 
-async function fetchSkills({ skills }: { skills: string[] }) {
-  const contents = await getSkills({
+type MergedSkill = {
+  id: string;
+  name: string;
+  level: number;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  isFavorite: boolean;
+};
+
+const fetchSkills = cache(async (): Promise<MergedSkill[]> => {
+  const cmsSkills = await getSkills({
     limit: 50,
-    fields: ["id", "name", "level"],
+    fields: "id,name,level,isFavorite",
   });
 
-  const filtered = Skills.filter((skill) => skills.includes(skill.name));
+  return cmsSkills.map((cmsSkill) => {
+    const skill = Skills.find((s) => s.name === cmsSkill.name);
 
-  const result = filtered.map((skill) => {
-    const find = contents.find((s) => s.name === skill.name);
-    return { ...skill, id: find?.id ?? "", level: find?.level ?? 0 };
+    return {
+      id: cmsSkill.id,
+      name: cmsSkill.name,
+      level: cmsSkill.level,
+      icon:
+        skill?.icon ||
+        (() => (
+          <div
+            className="w-6 h-6 bg-gray-200 rounded-full"
+            aria-hidden="true"
+          />
+        )),
+      isFavorite: cmsSkill.isFavorite,
+    };
   });
+});
 
-  return result;
-}
-
-const selectedSkills = cache(fetchSkills);
+const fetchMergedSkills = cache(async (): Promise<MergedSkill[]> => {
+  const allSkills = await fetchSkills();
+  return allSkills;
+});
 
 export async function SkillList() {
-  const allSkills = await selectedSkills({
-    skills: Skills.map((skill) => skill.name),
-  });
+  const allSkills = await fetchMergedSkills();
 
   return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-3 md:grid-cols-5 gap-16 mb-16 justify-items-center">
       {allSkills.map((skill) => (
-        <FadeIn key={skill.name}>
-          <div className="flex flex-col items-center">
-            <Link
-              href={`/skills/${skill.id}`}
-              className={clsx(
-                "relative block aspect-[9/10] flex-none overflow-hidden rounded-xl bg-white/50 shadow-lg ring ring-gray-100 transition-all duration-300 hover:scale-105 hover:ring-gray-300 sm:rounded-2xl dark:bg-gray-600"
-              )}
-              aria-label={`${skill.name}へのリンク`}
-            >
-              <skill.icon className="h-full w-full object-cover p-2" />
-              <span className="sr-only">{skill.name}へのリンク</span>
-            </Link>
-            <div className="mt-2 text-center">
-              <p className="text-xs font-semibold">{skill.name}</p>
+        <FadeIn key={skill.id}>
+          <Link
+            href={`/skills/${skill.id}`}
+            aria-label={`View details about ${skill.name}`}
+          >
+            <div className="flex flex-col items-center">
+              <SkillCard>
+                <skill.icon className="w-24 h-24" />
+              </SkillCard>
+              <span className="mt-2 text-sm font-medium">{skill.name}</span>
+              <Stars level={skill.level} />
             </div>
-          </div>
+          </Link>
         </FadeIn>
       ))}
     </div>
   );
 }
+
+export const fetchFavoriteSkills = cache(async (): Promise<MergedSkill[]> => {
+  const allSkills = await fetchSkills();
+  return allSkills.filter((skill) => skill.isFavorite);
+});
