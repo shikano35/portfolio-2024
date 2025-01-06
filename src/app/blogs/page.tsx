@@ -1,47 +1,11 @@
-import { FadeIn, FadeInWithStagger } from "@/components/FadeIn";
-import { Border } from "@/components/Border";
+import { HeadGroup } from "@/components/HeadGroup";
+import { Heading } from "@/components/Heading";
 import React from "react";
 
-export default function Page() {
+export default function BlogsPage() {
   return (
-    <FadeInWithStagger>
-      <Border />
-      <FadeIn>Item 1</FadeIn>
-      <FadeIn>Item 2</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-      <FadeIn>Item 3</FadeIn>
-    </FadeInWithStagger>
+    <HeadGroup>
+      <Heading>Blogs</Heading>
+    </HeadGroup>
   );
 }
