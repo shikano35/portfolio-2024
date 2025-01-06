@@ -1,19 +1,19 @@
 import { HeadGroup } from "@/components/HeadGroup";
 import { Heading } from "@/components/Heading";
-import { baseMetadata } from "@/lib/metadata";
+import { baseMetadata } from "@/lib/metadata.ts";
 import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
   ...baseMetadata,
-  title: "Contact",
-  description: "お問い合わせページです。",
+  title: "Log",
+  description: "記事と学習記録一覧です。",
 };
 
-export default function BlogsPage() {
+export default function LogPage() {
   return (
     <HeadGroup>
-      <Heading>Contact</Heading>
+      <Heading>Log</Heading>
     </HeadGroup>
   );
 }

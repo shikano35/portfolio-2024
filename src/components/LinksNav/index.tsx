@@ -1,10 +1,14 @@
+"use client";
+
 import { NavItem } from "@/layouts/Nav/NavItem";
 import { CosenseIcon } from "@/components/Icons/social/CosenseIcon";
 import { ZennIcon } from "@/components/Icons/social/ZennIcon";
 import { GithubIcon } from "@/components/Icons/social/GithubIcon";
 import { navList } from "@/layouts/Nav";
 import { FadeIn } from "@/components/FadeIn";
-import { ThemeDependentLinks } from "./ThemeDependentLinks";
+import { useTheme } from "next-themes";
+import Link from "next/link";
+import { SkillCard } from "../CardContainer";
 
 type LinksNavProps = {
   label: string;
@@ -31,6 +35,8 @@ const linksList: LinksNavProps[] = [
 ];
 
 export function LinksNav({ activeClassName = "font-medium text-primary" }) {
+  const { theme } = useTheme();
+
   return (
     <div className="flex justify-between w-full flex-col md:flex-row">
       <div className="flex items-center justify-center md:justify-start">
@@ -46,7 +52,33 @@ export function LinksNav({ activeClassName = "font-medium text-primary" }) {
           </FadeIn>
         ))}
       </div>
-      <ThemeDependentLinks linksList={linksList} />
+      <div className="flex mt-6 md:mt-0 justify-center md:justify-start">
+        {linksList.map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            className="px-2 py-2 mx-3 dark:mx-1"
+          >
+            <FadeIn>
+              {theme === "dark" ? (
+                <SkillCard>
+                  <item.icon
+                    width={32}
+                    height={32}
+                    className="md:w-7 md:h-7 w-6 h-6"
+                  />
+                </SkillCard>
+              ) : (
+                <item.icon
+                  width={32}
+                  height={32}
+                  className="md:w-8 md:h-8 w-6 h-6"
+                />
+              )}
+            </FadeIn>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

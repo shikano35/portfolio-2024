@@ -19,13 +19,14 @@ export function ThemeButton() {
   }
 
   return (
-    <button
+    <motion.button
       className="float-end md:block"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      whileTap={{ scale: 0.9 }}
     >
       <SunIcon className="fill-muted-foreground hover:fill-highlight h-6 w-6 dark:hidden" />
       <MoonIcon className="fill-muted-foreground hover:fill-highlight h-6 w-6 hidden dark:block" />
-    </button>
+    </motion.button>
   );
 }
 
@@ -54,7 +55,7 @@ export function ThemeSwitcher() {
           className={`${toggleClasses} ${
             theme === "light"
               ? "bg-border text-muted-foreground"
-              : "bg-popover text-muted-foreground"
+              : "text-muted-foreground"
           }`}
           onClick={() => setTheme("light")}
           whileTap={{ scale: 0.9 }}
@@ -64,9 +65,7 @@ export function ThemeSwitcher() {
 
         <motion.button
           className={`${toggleClasses} ${
-            theme === "dark"
-              ? "bg-muted-foreground text-popover"
-              : "bg-background text-muted-foreground"
+            theme === "dark" ? "bg-muted-foreground text-background" : ""
           }`}
           onClick={() => setTheme("dark")}
           whileTap={{ scale: 0.9 }}

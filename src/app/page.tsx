@@ -12,13 +12,10 @@ export default function Home() {
         <HeadGroup className="relative z-10 md:col-span-6">
           <Heading>Profile</Heading>
           <FadeIn>
-            <p className="text-center md:text-start mt-16 text-muted-foreground text-sm leading-8 md:text-base md:leading-10">
-              深く考えながら、少しずつ学びを積み重ねるエンジニアです。
-            </p>
-          </FadeIn>
-          <FadeIn>
-            <p className="text-center md:text-start text-muted-foreground text-sm mt-2 leading-8 md:text-base md:leading-10">
-              私の作った作品が、少しでも誰かの生活に寄り添えたら嬉しいです。
+            <p className="text-center md:text-start text-muted-foreground text-sm leading-8 md:leading-10">
+              こんにちは。エンジニアです。
+              <br />
+              深く考えながら、少しずつ学んでいます。
             </p>
           </FadeIn>
         </HeadGroup>
