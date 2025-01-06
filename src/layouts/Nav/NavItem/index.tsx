@@ -36,7 +36,7 @@ export function NavItem({
     <Link
       href={href}
       className={cn(
-        "relative block py-2 transition-colors delay-50",
+        "relative block py-2 transition",
         className,
         isActive ? activeClassName : `text-muted-foreground ${hoverClassName}`
       )}
