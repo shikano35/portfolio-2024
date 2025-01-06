@@ -21,7 +21,6 @@ export function NavDrawer({
 
   return (
     <div className="relative z-50 md:hidden flex justify-center">
-      {/* トグルボタン */}
       <button
         className="relative z-50 -m-2 inline-flex items-center rounded-lg p-2 hover:bg-gray-200/50"
         aria-label="Toggle site navigation"
@@ -42,7 +41,6 @@ export function NavDrawer({
         )}
       </button>
 
-      {/* NavDrawer本体 */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -92,7 +90,6 @@ export function NavDrawer({
                 />
               </Link>
 
-              {/* ナビゲーションリンク */}
               <motion.nav
                 className="flex flex-col gap-4 mt-12"
                 initial={{ opacity: 0, y: 20 }}
@@ -111,7 +108,6 @@ export function NavDrawer({
                 ))}
                 <Border />
 
-                {/* テーマスイッチャー */}
                 <div className="flex items-center space-x-8">
                   <p className="my-4 text-muted-foreground">Theme</p>
                   <ThemeSwitcher />
