@@ -3,7 +3,6 @@ import React from "react";
 export function MyIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 816.37732 1145.1973"
       height="1145.1973"
       width="816.37732"
