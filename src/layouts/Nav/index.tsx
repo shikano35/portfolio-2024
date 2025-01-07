@@ -23,10 +23,6 @@ export const navList: NavItemProps[] = [
     label: "Log",
     href: "/log",
   },
-  {
-    label: "Contact",
-    href: "/contact",
-  },
 ];
 
 export function Nav({ activeClassName = "font-semibold text-highlight" }) {
