@@ -1,9 +1,9 @@
 import React from "react";
-import { fetchFavoriteSkills } from "@/components/Skill";
-import { FadeIn } from "@/components/FadeIn";
 import Link from "next/link";
 import clsx from "clsx";
-import { SkillCard } from "@/components/CardContainer";
+import { fetchFavoriteSkills } from "@/components/Skill";
+import { FadeIn } from "@/components/FadeIn";
+import { SkillCard } from "@/components/Card/SkillCard";
 
 export async function FavoriteSkills({ className = "" }) {
   const favoriteSkills = await fetchFavoriteSkills();
