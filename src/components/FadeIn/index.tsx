@@ -5,7 +5,7 @@ import React, {
   useContext,
   ComponentPropsWithoutRef,
 } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "motion/react";
 
 const StaggerContext = createContext<boolean>(false);
 
