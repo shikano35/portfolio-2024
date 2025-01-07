@@ -2,16 +2,7 @@ import React from "react";
 
 export function ZennIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      x="0px"
-      y="0px"
-      viewBox="0 0 88.3 88.3"
-      xmlSpace="preserve"
-      {...props}
-    >
+    <svg viewBox="0 0 88.3 88.3" {...props}>
       <g fill="#3EA8FF">
         <path
           d="M3.9,83.3h17c0.9,0,1.7-0.5,2.2-1.2L69.9,5.2c0.6-1-0.1-2.2-1.3-2.2H52.5c-0.8,0-1.5,0.4-1.9,1.1L3.1,81.9

@@ -1,4 +1,5 @@
 import React, { cache } from "react";
+import Link from "next/link";
 import { MySQLIcon } from "@/components/Icons/skills/MySQLIcon";
 import { CIcon } from "@/components/Icons/skills/CIcon";
 import { GithubActionsIcon } from "@/components/Icons/skills/GithubActionsIcon";
@@ -15,10 +16,9 @@ import { DockerIcon } from "@/components/Icons/skills/DockerIcon";
 import { GoIcon } from "@/components/Icons/skills/GoIcon";
 import { TSIcon } from "@/components/Icons/skills/TSIcon";
 import { getSkills } from "@/lib/microcms";
-import Link from "next/link";
-import { FadeIn } from "../FadeIn";
-import { Stars } from "../Stars";
-import { SkillCard } from "../CardContainer";
+import { FadeIn } from "@/components/FadeIn";
+import { Stars } from "@/components/Stars";
+import { SkillCard } from "@/components/Card/SkillCard";
 
 type Skill = {
   name: string;
@@ -68,7 +68,7 @@ const fetchSkills = cache(async (): Promise<MergedSkill[]> => {
         skill?.icon ||
         (() => (
           <div
-            className="w-6 h-6 bg-gray-200 rounded-full"
+            className="w-16 h-16 bg-gray-200 rounded-full"
             aria-hidden="true"
           />
         )),
@@ -95,7 +95,7 @@ export async function SkillList() {
           >
             <div className="flex flex-col items-center">
               <SkillCard>
-                <skill.icon className="w-24 h-24" />
+                <skill.icon className="w-16 h-16" />
               </SkillCard>
               <span className="mt-2 text-sm font-medium">{skill.name}</span>
               <Stars level={skill.level} />

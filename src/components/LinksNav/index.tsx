@@ -8,7 +8,7 @@ import { navList } from "@/layouts/Nav";
 import { FadeIn } from "@/components/FadeIn";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { SkillCard } from "../CardContainer";
+import { SkillCard } from "@/components/Card/SkillCard";
 
 type LinksNavProps = {
   label: string;
@@ -29,7 +29,7 @@ const linksList: LinksNavProps[] = [
   },
   {
     label: "Github",
-    href: "https://github.com/shiitake05",
+    href: "https://github.com/shikano35",
     icon: GithubIcon,
   },
 ];

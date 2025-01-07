@@ -2,7 +2,7 @@ import React from "react";
 
 export function GoIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 254.5 225" {...props}>
+    <svg viewBox="0 0 254.5 225" {...props}>
       <style>
         {`.st0{fill:#2DBCAF;}
           .st1{fill:#5DC9E1;}

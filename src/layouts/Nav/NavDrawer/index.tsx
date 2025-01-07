@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Bars3Icon, ChevronUpIcon } from "@heroicons/react/24/solid";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { navList } from "@/layouts/Nav";
 import { NavItem } from "@/layouts/Nav/NavItem";
 import { Logo } from "@/components/Logo";

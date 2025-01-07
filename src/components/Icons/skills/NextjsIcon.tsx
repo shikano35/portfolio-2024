@@ -2,12 +2,7 @@ import React from "react";
 
 export function NextjsIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      viewBox="0 0 180 180"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 180 180" {...props}>
       <mask
         id="mask0_408_139"
         style={{ maskType: "alpha" }}

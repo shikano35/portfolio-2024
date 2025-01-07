@@ -7,12 +7,18 @@ type StarsProps = {
 
 export function Stars({ level }: StarsProps) {
   const totalStars = 5;
+  const starColor =
+    level <= 2
+      ? "text-yellow-400"
+      : level <= 4
+        ? "text-orange-400"
+        : "text-red-400";
   return (
     <div className="flex">
       {[...Array(totalStars)].map((_, index) => (
         <StarIcon
           key={index}
-          className={`h-4 w-4 mx-0.5 ${index < level ? "text-yellow-400" : "text-gray-300"}`}
+          className={`h-3 w-3 mx-0.5 ${index < level ? starColor : "text-gray-300"}`}
         />
       ))}
     </div>

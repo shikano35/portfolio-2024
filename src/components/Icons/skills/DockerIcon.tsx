@@ -2,13 +2,7 @@ import React from "react";
 
 export function DockerIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      id="Layer_1"
-      data-name="Layer 1"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 756.26 596.9"
-      {...props}
-    >
+    <svg viewBox="0 0 756.26 596.9" {...props}>
       <defs>
         <style>{`.cls-1 { fill: #1d63ed; stroke-width: 0px; }`}</style>
       </defs>

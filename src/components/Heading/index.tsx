@@ -1,5 +1,4 @@
 import React from "react";
-import { FadeIn } from "@/components/FadeIn";
 import { cn } from "@/lib/utils";
 
 type HeadingProps = {
@@ -8,11 +7,10 @@ type HeadingProps = {
   className?: string;
 };
 
-const headingBaseStyle =
-  "text-center md:text-start text-primary font-bold mb-16";
+const headingBaseStyle = "text-center md:text-start text-primary font-bold";
 
 const headingSizes = {
-  h1: "text-4xl md:text-5xl",
+  h1: "text-4xl md:text-5xl mb-16",
   h2: "text-3xl md:text-4xl",
   h3: "text-2xl md:text-3xl",
   h4: "text-xl md:text-2xl",
@@ -27,7 +25,7 @@ export function Heading({ as = "h1", children, className }: HeadingProps) {
     <Component
       className={cn(headingBaseStyle, headingSizes[Component], className)}
     >
-      <FadeIn>{children}</FadeIn>
+      {children}
     </Component>
   );
 }

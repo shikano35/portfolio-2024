@@ -2,12 +2,7 @@ import React from "react";
 
 export function TSIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      fill="none"
-      viewBox="0 0 512 512"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 512 512" {...props}>
       <rect fill="#3178c6" height="512" rx="50" width="512" />
       <rect fill="#3178c6" height="512" rx="50" width="512" />
       <path
