@@ -12,7 +12,7 @@ import { Border } from "@/components/Border";
 
 export default function Home() {
   return (
-    <div className="overflow-hidden">
+    <>
       <div className="md:grid md:grid-cols-12">
         <HeadGroup className="relative z-10 md:col-span-6">
           <Heading>Profile</Heading>
@@ -22,13 +22,14 @@ export default function Home() {
             深く考えながら、少しずつ学んでいます。
           </p>
         </HeadGroup>
-        <div className="relative z-0 md:col-span-5 md:flex md:items-center">
+        <div className="relative -z-50 md:col-span-5 md:flex md:items-center">
           <div className="absolute top-2/3 transform -translate-y-1/2 -translate-x-48 sm:-translate-x-32 md:-translate-x-64 lg:-translate-x-48 opacity-30 md:opacity-50">
             <MyIcon />
           </div>
         </div>
       </div>
-      <div className="md:grid md:grid-cols-12 pt-6 mb-16">
+
+      <div className="md:grid md:grid-cols-12 mt-32 mb-16">
         <div className="relative z-20 md:col-span-5 mt-32 md:mt-16">
           <FadeIn>
             <p className="text-center md:text-start text-base font-semibold text-primary">
@@ -38,22 +39,23 @@ export default function Home() {
           </FadeIn>
         </div>
         <div className="relative z-20 md:col-span-5 mt-32 md:mt-[104px] md:col-start-8">
-          <Link href="https://github.com/shikano35">
-            <Card className="hover:bg-input">
-              <FadeIn>
-                <header className="flex items-center">
+          <Card>
+            <FadeIn>
+              <Link href="https://github.com/shikano35">
+                <header className="flex items-center justify-center p-1 rounded-lg w-32 hover:bg-input">
                   <GithubIcon className="w-8 h-8" />
                   <Heading as="h6" className="font-semibold text-primary ml-4">
                     Github
                   </Heading>
                 </header>
-              </FadeIn>
-              <ContributionGraph />
-            </Card>
-          </Link>
+              </Link>
+            </FadeIn>
+            <ContributionGraph />
+          </Card>
         </div>
       </div>
+
       <Border className="mb-16" />
-    </div>
+    </>
   );
 }
