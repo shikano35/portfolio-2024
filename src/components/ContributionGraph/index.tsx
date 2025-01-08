@@ -8,7 +8,7 @@ import {
   groupByWeek,
   getStartOfWeek,
 } from "@/lib/github";
-import { FadeIn } from "@/components/FadeIn";
+import { FadeIn } from "../FadeIn";
 
 export function ContributionGraph(): React.ReactElement {
   const [contributions, setContributions] = useState<Contribution[]>([]);
@@ -71,7 +71,7 @@ export function ContributionGraph(): React.ReactElement {
   const weeks = groupByWeek(filteredContributions); // 週ごとにデータをグループ化
 
   return (
-    <div className="mt-8">
+    <div className="mt-4 px-4">
       {filteredContributions.length > 0 ? (
         <div>
           <FadeIn>
@@ -85,11 +85,9 @@ export function ContributionGraph(): React.ReactElement {
                 </div>
               ))}
             </div>
-          </FadeIn>
-          <FadeIn>
-            <div className="grid grid-cols-12">
+            <div className="grid grid-cols-12 gap-2">
               {weeks.map((week, index) => (
-                <div key={index} className="flex flex-col gap-1">
+                <div key={index} className="flex flex-col gap-2">
                   {week.map((contribution, dayIndex) => (
                     <div
                       key={dayIndex}
