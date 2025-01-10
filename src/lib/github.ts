@@ -1,18 +1,29 @@
 export type Contribution = {
   date: string;
   count: number;
+  level: ContributionLevel;
+};
+
+type ContributionLevel =
+  | "FIRST_QUARTILE"
+  | "FOURTH_QUARTILE"
+  | "NONE"
+  | "SECOND_QUARTILE"
+  | "THIRD_QUARTILE";
+
+type ContributionDay = {
+  date: string;
+  contributionLevel: ContributionLevel;
+  contributionCount: number;
 };
 
 type Week = {
   contributionDays: ContributionDay[];
 };
 
-type ContributionDay = {
-  date: string;
-  contributionCount: number;
-};
-
 type ContributionCalendar = {
+  months: { name: string }[];
+  totalContributions: number;
   weeks: Week[];
 };
 
@@ -24,37 +35,45 @@ type UserContributions = {
 
 type Result = {
   data: {
-    viewer: UserContributions;
+    user: UserContributions;
   };
 };
 
+const query = `
+  query {
+    user(login: "shikano35") {
+      contributionsCollection {
+        contributionCalendar {
+          months {
+            name
+          }
+          totalContributions
+          weeks {
+            contributionDays {
+              date
+              contributionLevel
+              contributionCount
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const fetchContributions = async (
   token: string
-): Promise<Contribution[]> => {
+): Promise<{
+  days: Contribution[];
+  totalContributions: number;
+}> => {
   const response = await fetch("https://api.github.com/graphql", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `bearer ${token}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      query: `
-          query {
-            viewer {
-              contributionsCollection {
-                contributionCalendar {
-                  weeks {
-                    contributionDays {
-                      date
-                      contributionCount
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `,
-    }),
+    body: JSON.stringify({ query }),
   });
 
   if (!response.ok) {
@@ -63,27 +82,39 @@ export const fetchContributions = async (
 
   const data = (await response.json()) as Result;
 
-  const days =
-    data.data.viewer.contributionsCollection.contributionCalendar.weeks
-      .flatMap((week: Week) => week.contributionDays)
-      .map((day: ContributionDay) => ({
-        date: day.date,
-        count: day.contributionCount,
-      }));
+  const contributionCalendar =
+    data.data.user.contributionsCollection.contributionCalendar;
 
-  return days;
+  const days = contributionCalendar.weeks
+    .flatMap((week: Week) => week.contributionDays)
+    .map((day: ContributionDay) => ({
+      date: day.date,
+      count: day.contributionCount,
+      level: day.contributionLevel,
+    }));
+
+  return {
+    days,
+    totalContributions: contributionCalendar.totalContributions,
+  };
 };
 
-// 色を設定するヘルパー関数
-export const getColor = (count: number): string => {
-  if (count === 0) return "#ebedf0";
-  if (count < 5) return "#9be9a8";
-  if (count < 10) return "#40c463";
-  if (count < 20) return "#30a14e";
-  return "#216e39";
+export const getColorClass = (level: ContributionLevel): string => {
+  switch (level) {
+    case "FIRST_QUARTILE":
+      return "bg-[#9be9a8] dark:bg-[#0e4429]";
+    case "SECOND_QUARTILE":
+      return "bg-[#40c463] dark:bg-[#006d32]";
+    case "THIRD_QUARTILE":
+      return "bg-[#30a14e] dark:bg-[#26a641]";
+    case "FOURTH_QUARTILE":
+      return "bg-[#216e39] dark:bg-[#39d353]";
+    case "NONE":
+    default:
+      return "bg-[#ebedf0] dark:bg-[#161b22]";
+  }
 };
 
-// 週ごとにデータをグループ化する関数
 export const groupByWeek = (contributions: Contribution[]) => {
   const weeks: Contribution[][] = [];
   let week: Contribution[] = [];
@@ -101,14 +132,4 @@ export const groupByWeek = (contributions: Contribution[]) => {
   }
 
   return weeks;
-};
-
-// 週の始まり（月曜日）の日付を取得するヘルパー関数
-export const getStartOfWeek = (date: Date): Date => {
-  const startOfWeek = new Date(date);
-  const day = startOfWeek.getDay();
-  const diff = day === 0 ? 6 : day - 1; // 日曜日の場合は6, それ以外は月曜日までの日数
-  startOfWeek.setDate(startOfWeek.getDate() - diff);
-  startOfWeek.setHours(0, 0, 0, 0);
-  return startOfWeek;
 };
