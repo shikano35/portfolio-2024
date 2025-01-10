@@ -1,6 +1,7 @@
+import { Container } from "@/components/Container";
 import { HeadGroup } from "@/components/HeadGroup";
 import { Heading } from "@/components/Heading";
-import { baseMetadata } from "@/lib/metadata.ts";
+import { baseMetadata } from "@/lib/metadata";
 import { Metadata } from "next";
 import React from "react";
 
@@ -12,8 +13,12 @@ export const metadata: Metadata = {
 
 export default function LogPage() {
   return (
-    <HeadGroup>
-      <Heading>Log</Heading>
-    </HeadGroup>
+    <div>
+      <Container>
+        <HeadGroup>
+          <Heading>Log</Heading>
+        </HeadGroup>
+      </Container>
+    </div>
   );
 }
