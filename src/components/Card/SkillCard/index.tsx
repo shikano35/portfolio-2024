@@ -19,7 +19,7 @@ export function SkillCard<T extends ElementType = "div">({
     <AnimatedCard>
       <Component
         className={cn(
-          "p-2 border-2 shadow-sm hover:shadow-md border-muted hover:border-border bg-popover rounded-xl transition",
+          "p-2 border-2 shadow-sm hover:shadow-md border-muted hover:border-border bg-background rounded-xl transition",
           className
         )}
       >

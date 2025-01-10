@@ -3,6 +3,7 @@ import { HeadGroup } from "@/components/HeadGroup";
 import { Heading } from "@/components/Heading";
 import { baseMetadata } from "@/lib/metadata";
 import { Metadata } from "next";
+import { Container } from "@/components/Container";
 
 export const metadata: Metadata = {
   ...baseMetadata,
@@ -13,9 +14,11 @@ export const metadata: Metadata = {
 export default function WorksPage() {
   return (
     <div>
-      <HeadGroup>
-        <Heading>Works</Heading>
-      </HeadGroup>
+      <Container>
+        <HeadGroup>
+          <Heading>Works</Heading>
+        </HeadGroup>
+      </Container>
     </div>
   );
 }
