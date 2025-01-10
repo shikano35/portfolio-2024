@@ -8,16 +8,9 @@ const viewport = { once: true, margin: "0px 0px -100px" };
 
 type BorderProps = {
   className?: string;
-  slow?: boolean;
-  speed?: number;
 } & React.ComponentPropsWithoutRef<typeof motion.div>;
 
-export function Border({
-  className,
-  slow = false,
-  speed,
-  ...props
-}: BorderProps) {
+export function Border({ className }: BorderProps) {
   const shouldReduceMotion = useReducedMotion();
 
   const variants = {
@@ -36,11 +29,10 @@ export function Border({
       whileInView="visible"
       variants={variants}
       transition={{
-        duration: speed ?? (slow ? 2 : 1),
+        duration: 1,
         ease: "easeInOut",
       }}
       viewport={viewport}
-      {...props}
     />
   );
 }
