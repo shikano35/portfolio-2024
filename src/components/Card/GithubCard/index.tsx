@@ -4,23 +4,19 @@ import React, { ElementType, ReactNode, ComponentPropsWithoutRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-type CardProps<T extends ElementType = "div"> = {
-  as?: T;
+type GithubCardProps<T extends ElementType = "div"> = {
   children: ReactNode;
+  as?: T;
   className?: string;
-  slow?: boolean;
-  speed?: number;
 };
 
 const viewport = { once: true, margin: "0px 0px -100px" };
 
-export function Card<T extends ElementType = "div">({
+export function GithubCard<T extends ElementType = "div">({
   as,
   children,
   className,
-  slow = false,
-  speed,
-}: CardProps<T> & ComponentPropsWithoutRef<T>) {
+}: GithubCardProps<T> & ComponentPropsWithoutRef<T>) {
   const Component = as || "div";
   const shouldReduceMotion = useReducedMotion();
 
@@ -38,14 +34,14 @@ export function Card<T extends ElementType = "div">({
   return (
     <motion.div
       className={cn(
-        "p-4 border border-border bg-popover rounded-xl",
+        "p-4 border border-border bg-background rounded-xl md:mx-0 h-[278px]",
         className
       )}
       initial="hidden"
       whileInView="visible"
       variants={variants}
       transition={{
-        duration: speed ?? (slow ? 2 : 1),
+        duration: 1,
         ease: "easeInOut",
       }}
       viewport={viewport}
