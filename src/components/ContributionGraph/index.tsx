@@ -28,7 +28,7 @@ export async function ContributionGraph() {
   const today = new Date();
   const cutoffDate = new Date(today);
   cutoffDate.setMonth(today.getMonth() - 3);
-  cutoffDate.setDate(today.getDate() - 18);
+  cutoffDate.setDate(today.getDate() - 19);
 
   const contributions = days.filter((contribution) => {
     const contributionDate = new Date(contribution.date);
@@ -66,7 +66,7 @@ function ContributionGraphContent({
           <Link href="https://github.com/shikano35">
             <Heading
               as="h6"
-              className="font-semibold text-primary ml-2 px-2 rounded hover:bg-hover"
+              className="font-semibold text-primary ml-2 px-2 rounded-md hover:bg-hover"
             >
               Github
             </Heading>
