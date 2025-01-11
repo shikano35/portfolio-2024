@@ -17,30 +17,32 @@ import { Container } from "@/components/Container";
 export default function Home() {
   return (
     <>
-      <Container className="relative flex flex-col min-h-screen">
+      <Container className="relative flex flex-col">
         <div className="md:grid md:grid-cols-12">
-          <HeadGroup className="relative z-10 md:col-span-6">
+          <HeadGroup className="relative z-10 md:col-span-7">
             <Heading>Profile</Heading>
             <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
-              こんにちは。エンジニアになりたい人です。
+              こんにちは。駆け出しエンジニアです。
               <br />
               深く考えながら、少しずつ学んでいます。
+              <br />
+              Next.jsやTypeScriptなど、フロントエンド技術を中心に学んでいます。
             </p>
           </HeadGroup>
-          <HeroImage className="-translate-x-48 sm:-translate-x-32 md:-translate-x-64 lg:-translate-x-48 opacity-30 md:opacity-50">
+          <HeroImage className="-translate-x-[14rem] sm:-translate-x-24 md:-translate-x-80 lg:-translate-x-64 opacity-30 md:opacity-50">
             <MyIcon />
           </HeroImage>
         </div>
 
-        <div className="flex flex-auto w-full justify-center ">
+        <div className="flex flex-1 justify-center">
           <div className="md:grid md:grid-cols-12 mt-32 md:mr-8">
-            <div className="md:col-span-5 mx-16 md:my-6 md:mx-8 lg:mx-0">
+            <div className="md:col-span-5 lg:mx-0">
               <FadeIn>
                 <Heading as="h6">My Favorite Tech Stack</Heading>
                 <FavoriteSkills className="mt-8" />
               </FadeIn>
             </div>
-            <div className="md:flex md:flex-auto lg:col-start-8 mt-32 md:mt-0 ">
+            <div className="md:flex md:flex-auto md:-ml-8 lg:ml-0 md:col-start-7 lg:col-start-8 mt-32 md:mt-0 ">
               <GithubCard>
                 <ContributionGraph />
               </GithubCard>
