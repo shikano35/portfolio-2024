@@ -46,8 +46,6 @@ export function FadeIn(props: ComponentPropsWithoutRef<typeof motion.div>) {
 }
 
 export function FadeInWithStagger({
-  slow = false,
-  speed,
   ...props
 }: ComponentPropsWithoutRef<typeof motion.div> & {
   slow?: boolean;
@@ -60,7 +58,7 @@ export function FadeInWithStagger({
         whileInView="visible"
         viewport={viewportSettings}
         transition={{
-          staggerChildren: speed ?? (slow ? 0.2 : 0.1),
+          staggerChildren: 0.1,
           ease: "easeInOut",
         }}
         {...props}
