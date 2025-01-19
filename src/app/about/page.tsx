@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { Blackhole } from "@/components/Icons/Blackhole";
 import React from "react";
 import { Container } from "@/components/Container";
+import { FadeIn } from "@/components/FadeIn";
 
 export const metadata: Metadata = {
   ...baseMetadata,
@@ -22,13 +23,14 @@ export default function AboutPage() {
             <p className="text-start text-muted-foreground text-base leading-8 md:leading-10">
               駆け出しエンジニアです。
               <br />
+              Next.jsやTypeScriptなど、Web技術を学んでいます。
+              <br />
+              また、CI/CDの構築やバックエンドの知識も学んでいます。
+            </p>
+            <p className="text-start text-muted-foreground text-base leading-8 md:leading-10 mt-8">
+              シンプルなデザイン、アニメーションが好きです。
+              <br />
               好きなことに没頭する際の集中力と、新しい技術や知識を学び続ける探究心は自信があります。
-              <br />
-              Next.jsやTypeScriptなど、フロントエンド技術を中心に学んでいます。
-              <br />
-              直感的で使いやすいUI/UXデザインやユーザー目線の心地よいシンプルなデザイン、アニメーションが好きです。
-              <br />
-              また、CI/CDの構築やバックエンドの設計、インフラ構築なども興味があります。
             </p>
           </HeadGroup>
         </div>
@@ -38,8 +40,8 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <Heading as="h4" className="mt-32">
-          Experience
+        <Heading as="h3" className="mt-16">
+          <FadeIn>Experience</FadeIn>
         </Heading>
       </Container>
     </>
