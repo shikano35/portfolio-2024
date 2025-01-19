@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import { FadeIn } from "../FadeIn";
 
 type HeadingProps = {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -25,7 +26,7 @@ export function Heading({ as = "h1", children, className }: HeadingProps) {
     <Component
       className={cn(headingBaseStyle, headingSizes[Component], className)}
     >
-      {children}
+      <FadeIn>{children}</FadeIn>
     </Component>
   );
 }
