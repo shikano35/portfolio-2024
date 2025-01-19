@@ -22,19 +22,18 @@ export default function Home() {
           <HeadGroup className="relative z-10 md:col-span-7">
             <Heading>Profile</Heading>
             <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
-              こんにちは。駆け出しエンジニアです。
+              こんにちは。
+              <br />
+              駆け出しエンジニアです。
               <br />
               深く考えながら、少しずつ学んでいます。
-              <br />
-              Next.jsやTypeScriptなど、フロントエンド技術を中心に学んでいます。
             </p>
           </HeadGroup>
-          <HeroImage className="-translate-x-[14rem] sm:-translate-x-24 md:-translate-x-80 lg:-translate-x-64 opacity-30 md:opacity-50">
+          <HeroImage className="absolute -translate-x-[14rem] sm:-translate-x-24 md:-translate-x-80 lg:-translate-x-64 opacity-30 md:opacity-50">
             <MyIcon />
           </HeroImage>
         </div>
-
-        <div className="flex flex-1 justify-center">
+        <div className="flex flex-1 justify-center mt-8">
           <div className="md:grid md:grid-cols-12 mt-32 md:mr-8">
             <div className="md:col-span-5 lg:mx-0">
               <FadeIn>
@@ -52,7 +51,7 @@ export default function Home() {
       </Container>
       <div>
         <Container>
-          <Border className="my-16" />
+          <Border className="my-24" />
           <div>
             <FadeIn>
               <Heading as="h2" className="mb-8">
