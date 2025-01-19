@@ -9,8 +9,8 @@ export function AnimatedCard(
 ) {
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.995 }}
+      whileHover={{ scale: 1.025 }}
+      whileTap={{ scale: 0.975 }}
       transition={{ duration: 0.1, ease: "easeInOut" }}
       {...props}
     />
