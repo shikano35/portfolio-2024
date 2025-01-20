@@ -40,10 +40,16 @@ export async function ContributionGraph() {
     return date.toLocaleString("en-US", { month: "short" });
   }).reverse();
 
+  const currentMonthIndex = today.getMonth();
+  const adjustedMonths = [
+    ...months.slice(currentMonthIndex),
+    ...months.slice(0, currentMonthIndex),
+  ];
+
   return (
     <ContributionGraphContent
       contributions={contributions}
-      months={months}
+      months={adjustedMonths}
       totalContributions={totalContributions}
     />
   );
@@ -97,7 +103,7 @@ function ContributionGraphContent({
                         key={dayIndex}
                         aria-label={`${week[dayIndex]?.date || "No data"} contributions`}
                         className={clsx(
-                          "h-4 w-4 rounded-sm border border-border",
+                          "h-4 w-4 rounded-sm",
                           getColorClass(week[dayIndex]?.level || "NONE")
                         )}
                         title={
