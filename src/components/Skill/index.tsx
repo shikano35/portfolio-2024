@@ -108,7 +108,9 @@ export async function SkillList() {
               <SkillCard>
                 <skill.icon className="w-16 h-16" />
               </SkillCard>
-              <span className="mt-2 text-sm font-medium">{skill.name}</span>
+              <span className="mt-2 text-sm text-muted-foreground font-medium">
+                {skill.name}
+              </span>
               <Stars level={skill.level} />
             </div>
           </Link>
