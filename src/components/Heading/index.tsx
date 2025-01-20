@@ -8,7 +8,8 @@ type HeadingProps = {
   className?: string;
 };
 
-const headingBaseStyle = "text-center md:text-start text-primary font-bold";
+const headingBaseStyle =
+  "text-center md:text-start text-primary font-bold tracking-wide";
 
 const headingSizes = {
   h1: "text-4xl md:text-5xl mb-16",
