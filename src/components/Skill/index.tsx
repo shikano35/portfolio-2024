@@ -1,7 +1,9 @@
 import React, { cache } from "react";
 import Link from "next/link";
 import { MySQLIcon } from "@/components/Icons/skills/MySQLIcon";
+import { PostgreSQLIcon } from "@/components/Icons/skills/PostgreSQLIcon";
 import { CIcon } from "@/components/Icons/skills/CIcon";
+import { SassIcon } from "@/components/Icons/skills/SassIcon";
 import { GithubActionsIcon } from "@/components/Icons/skills/GithubActionsIcon";
 import { NodejsIcon } from "@/components/Icons/skills/NodejsIcon";
 import { JSIcon } from "@/components/Icons/skills/JSIcon";
@@ -28,6 +30,7 @@ type Skill = {
 const Skills: Skill[] = [
   { name: "HTML", icon: HTMLIcon },
   { name: "CSS", icon: CSSIcon },
+  { name: "Sass", icon: SassIcon },
   { name: "JavaScript", icon: JSIcon },
   { name: "TypeScript", icon: TSIcon },
   { name: "React", icon: ReactIcon },
@@ -41,6 +44,7 @@ const Skills: Skill[] = [
   { name: "Github Actions", icon: GithubActionsIcon },
   { name: "C", icon: CIcon },
   { name: "MySQL", icon: MySQLIcon },
+  { name: "PostgreSQL", icon: PostgreSQLIcon },
 ];
 
 type MergedSkill = {
@@ -51,36 +55,43 @@ type MergedSkill = {
   isFavorite: boolean;
 };
 
-const fetchSkills = cache(async (): Promise<MergedSkill[]> => {
+function DefaultIcon() {
+  return (
+    <div className="w-16 h-16 bg-gray-200 rounded-full" aria-hidden="true" />
+  );
+}
+
+async function fetchSkills(): Promise<MergedSkill[]> {
   const cmsSkills = await getSkills({
     limit: 50,
     fields: "id,name,level,isFavorite",
   });
 
-  return cmsSkills.map((cmsSkill) => {
-    const skill = Skills.find((s) => s.name === cmsSkill.name);
+  const skillMap = new Map(Skills.map((s) => [s.name, s]));
 
-    return {
-      id: cmsSkill.id,
-      name: cmsSkill.name,
-      level: cmsSkill.level,
-      icon:
-        skill?.icon ||
-        (() => (
-          <div
-            className="w-16 h-16 bg-gray-200 rounded-full"
-            aria-hidden="true"
-          />
-        )),
-      isFavorite: cmsSkill.isFavorite,
-    };
-  });
-});
+  return cmsSkills
+    .filter((cmsSkill) => skillMap.has(cmsSkill.name))
+    .map((cmsSkill) => {
+      const skill = skillMap.get(cmsSkill.name);
 
-const fetchMergedSkills = cache(async (): Promise<MergedSkill[]> => {
-  const allSkills = await fetchSkills();
-  return allSkills;
-});
+      return {
+        ...cmsSkill,
+        icon: skill?.icon || DefaultIcon,
+      };
+    });
+}
+
+const fetchMergedSkills = cache(
+  async (skillNames?: string[]): Promise<MergedSkill[]> => {
+    const allSkills = await fetchSkills();
+
+    if (skillNames && skillNames.length > 0) {
+      return allSkills.filter((skill) => skillNames.includes(skill.name));
+    }
+
+    return allSkills;
+  }
+);
 
 export async function SkillList() {
   const allSkills = await fetchMergedSkills();
@@ -97,7 +108,9 @@ export async function SkillList() {
               <SkillCard>
                 <skill.icon className="w-16 h-16" />
               </SkillCard>
-              <span className="mt-2 text-sm font-medium">{skill.name}</span>
+              <span className="mt-2 text-sm text-muted-foreground font-medium">
+                {skill.name}
+              </span>
               <Stars level={skill.level} />
             </div>
           </Link>
@@ -108,6 +121,6 @@ export async function SkillList() {
 }
 
 export const fetchFavoriteSkills = cache(async (): Promise<MergedSkill[]> => {
-  const allSkills = await fetchSkills();
+  const allSkills = await fetchMergedSkills();
   return allSkills.filter((skill) => skill.isFavorite);
 });
