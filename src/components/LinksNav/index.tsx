@@ -61,7 +61,7 @@ export function LinksNav({ activeClassName = "font-medium text-primary" }) {
           >
             <FadeIn>
               {theme === "dark" ? (
-                <SkillCard>
+                <SkillCard className="bg-background">
                   <item.icon
                     width={32}
                     height={32}
