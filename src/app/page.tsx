@@ -1,5 +1,4 @@
 import React from "react";
-import { MyIcon } from "@/components/Icons/MyIcon";
 import { FadeIn } from "@/components/FadeIn";
 import { Heading } from "@/components/Heading";
 import { FavoriteSkills } from "@/components/Skill/FavoriteSkills";
@@ -7,12 +6,13 @@ import { HeadGroup } from "@/components/HeadGroup";
 import { GithubCard } from "@/components/Card/GithubCard";
 import { ContributionGraph } from "@/components/ContributionGraph";
 import { Border } from "@/components/Border";
-import { HeroImage } from "@/components/HeroImage";
 import { WorkProjects } from "@/components/WorkProjects";
 import { PersonalProjects } from "@/components/PersonalProjects";
 import { Zenn } from "@/components/Log/Zenn";
 import { Notion } from "@/components/Log/Notion";
 import { Container } from "@/components/Container";
+import { HeroImage } from "@/components/HeroImage";
+import { MyIcon } from "@/components/Icons/MyIcon";
 
 export default function Home() {
   return (
@@ -23,13 +23,13 @@ export default function Home() {
             <Heading>Profile</Heading>
             <FadeIn>
               <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
-                エンジニアです。
+                駆け出しエンジニアです。
                 <br />
                 深く考えながら、少しずつ学んでいます。
               </p>
             </FadeIn>
           </HeadGroup>
-          <HeroImage className="absolute -translate-x-[14rem] sm:-translate-x-24 md:-translate-x-80 lg:-translate-x-64 opacity-30 md:opacity-50">
+          <HeroImage className="absolute top-2/3 -translate-y-1/2 -translate-x-[14rem] sm:-translate-x-24 md:-translate-x-80 lg:-translate-x-64 opacity-30 md:opacity-50">
             <MyIcon />
           </HeroImage>
         </div>
