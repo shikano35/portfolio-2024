@@ -7,7 +7,7 @@ export default function SkillsPage() {
   return (
     <div>
       <HeadGroup className="mb-32">
-        <Heading className="mb-16">Skills</Heading>
+        <Heading>Skills</Heading>
         <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
           disctiption
         </p>
