@@ -1,6 +1,6 @@
 "use client";
 
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "motion/react";
 import React from "react";
 
@@ -24,7 +24,7 @@ export function Border({ className }: BorderProps) {
 
   return (
     <motion.div
-      className={clsx("h-px bg-border", className)}
+      className={cn("h-px bg-border", className)}
       initial="hidden"
       whileInView="visible"
       variants={variants}
