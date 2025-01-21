@@ -2,7 +2,6 @@ import { HeadGroup } from "@/components/HeadGroup";
 import { Heading } from "@/components/Heading";
 import { baseMetadata } from "@/lib/metadata";
 import { Metadata } from "next";
-import { Blackhole } from "@/components/Icons/Blackhole";
 import React from "react";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
@@ -10,7 +9,7 @@ import { Border } from "@/components/Border";
 import { FavoriteSkills } from "@/components/Skill/FavoriteSkills";
 import { GithubCard } from "@/components/Card/GithubCard";
 import { ContributionGraph } from "@/components/ContributionGraph";
-import { HeroImage } from "@/components/HeroImage";
+import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
   ...baseMetadata,
@@ -58,26 +57,46 @@ export default function AboutPage() {
         <div className="md:grid md:grid-cols-12">
           <HeadGroup className="relative z-10 md:col-span-12">
             <Heading>About</Heading>
+            <div className="flex items-center justify-center md:justify-start mb-8">
+              <FadeIn>
+                <Logo
+                  alt="My Logo"
+                  width={96}
+                  height={96}
+                  className="dark:hidden h-16 w-16 border border-border rounded-full"
+                />
+                <Logo
+                  alt="My Logo"
+                  width={96}
+                  height={96}
+                  src="/my-icon-dark.webp"
+                  className="hidden dark:block h-16 w-16 border border-border rounded-full"
+                />
+              </FadeIn>
+              <Heading as="h3" className="tracking-wide m-4 whitespace-nowrap">
+                Shin Takemura
+              </Heading>
+            </div>
             <FadeIn>
               <p className="text-start text-muted-foreground text-base leading-8 md:leading-10">
-                駆け出しエンジニアです。
+                エンジニアです。
                 <br />
-                Next.jsやTypeScriptなど、Web技術を学んでいます。
+                モダンなWeb技術を中心に学んでいます。
                 <br />
-                CI/CDの構築やバックエンドの技術も少しずつ勉強しています。
+                CI/CDの構築やバックエンド開発についても少しずつ勉強しています。
+                <br />
+                シンプルなデザイン、アニメーションが好きです。
               </p>
             </FadeIn>
             <FadeIn>
               <p className="text-start text-muted-foreground text-base leading-8 md:leading-10 mt-8">
-                シンプルなデザイン、アニメーションが好きです。
+                Next.jsによるモダンなWebアプリケーション開発やTypeScriptによる型安全なコードの記述ができます。
                 <br />
+                また、Node.jsによるAPIの開発やDockerによる環境構築も行うことができます。
               </p>
             </FadeIn>
           </HeadGroup>
         </div>
-        <HeroImage className="absolute -translate-y-[80%] md:-translate-y-[60%] translate-x-5 sm:translate-x-40 md:translate-x-80 lg:translate-x-[32rem] opacity-5 md:opacity-10 -rotate-12 scale-150">
-          <Blackhole className="h-96 w-96" />
-        </HeroImage>
         <Border className="my-16" />
         <Heading as="h3" className="my-16">
           Experience
@@ -122,7 +141,7 @@ export default function AboutPage() {
           </ol>
         </section>
         <Border className="my-16" />
-        <Heading as="h3" className="my-16">
+        <Heading as="h3" className="my-12">
           Tech
         </Heading>
         <div className="flex flex-1 justify-center">
