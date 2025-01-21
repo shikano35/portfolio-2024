@@ -1,6 +1,6 @@
 import React, { ElementType, ReactNode, ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
-import { AnimatedCard } from "@/components/AnimatedCard";
+import { ClickMotion } from "@/components/ClickMotion";
 
 type CardProps<T extends ElementType = "div"> = {
   as?: T;
@@ -16,7 +16,7 @@ export function SkillCard<T extends ElementType = "div">({
   const Component = as || "div";
 
   return (
-    <AnimatedCard>
+    <ClickMotion>
       <Component
         className={cn(
           "p-2 border-2 shadow-sm hover:shadow-md border-muted hover:border-border bg-popover rounded-xl transition active:shadow-sm",
@@ -25,6 +25,6 @@ export function SkillCard<T extends ElementType = "div">({
       >
         {children}
       </Component>
-    </AnimatedCard>
+    </ClickMotion>
   );
 }
