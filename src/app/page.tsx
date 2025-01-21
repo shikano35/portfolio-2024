@@ -20,9 +20,8 @@ export default function Home() {
       <Container className="relative flex flex-col">
         <div className="md:grid md:grid-cols-12">
           <HeadGroup className="relative z-10 md:col-span-7">
-            <Heading className="mb-16">Profile</Heading>
+            <Heading>Profile</Heading>
             <FadeIn>
-              <div></div>
               <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
                 エンジニアです。
                 <br />
