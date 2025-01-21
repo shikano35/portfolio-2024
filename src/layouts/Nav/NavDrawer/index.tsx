@@ -9,6 +9,7 @@ import { NavItem } from "@/layouts/Nav/NavItem";
 import { Logo } from "@/components/Logo";
 import { Border } from "@/components/Border";
 import { ThemeSwitcher } from "@/components/Theme";
+import { cn } from "@/lib/utils";
 
 export function NavDrawer({
   activeClassName = "font-semibold text-highlight",
@@ -22,7 +23,10 @@ export function NavDrawer({
   return (
     <div className="relative z-50 md:hidden flex justify-center">
       <button
-        className="relative z-50 -m-2 inline-flex items-center rounded-lg p-2 hover:bg-gray-200/50"
+        className={cn(
+          "z-50 inline-flex items-center rounded-lg p-2 hover:bg-gray-200/50",
+          isOpen ? "fixed mr-6 -mt-5" : "relative -m-2"
+        )}
         aria-label="Toggle site navigation"
         type="button"
         aria-expanded={isOpen}
@@ -108,7 +112,7 @@ export function NavDrawer({
                 ))}
                 <Border />
 
-                <div className="flex items-center space-x-8">
+                <div className="flex items-center space-x-8 mb-2">
                   <p className="my-4 text-muted-foreground">Theme</p>
                   <ThemeSwitcher />
                 </div>
