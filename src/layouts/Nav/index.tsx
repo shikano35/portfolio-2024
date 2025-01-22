@@ -16,8 +16,8 @@ export const navList: NavItemProps[] = [
     href: "/skills",
   },
   {
-    label: "Works",
-    href: "/works",
+    label: "Projects",
+    href: "/projects",
   },
   {
     label: "Log",
