@@ -33,7 +33,7 @@ const timelineData: TimelineItem[] = [
     year: "2021",
     month: "4月 - 12月",
     description:
-      "UnrealEngine4とC++を使用して、卒業研究「3Dゲーム開発とゲームAIの制作」を行う",
+      "UnrealEngine4を使用して、卒業研究「3Dゲーム開発とゲームAIの制作」を行う",
   },
   {
     id: 5,
@@ -63,14 +63,14 @@ export default function AboutPage() {
                   alt="My Logo"
                   width={96}
                   height={96}
-                  className="dark:hidden h-16 w-16 border border-border rounded-full"
+                  className="dark:hidden h-12 w-12 md:h-16 md:w-16 border border-border rounded-full"
                 />
                 <Logo
                   alt="My Logo"
                   width={96}
                   height={96}
                   src="/my-icon-dark.webp"
-                  className="hidden dark:block h-16 w-16 border border-border rounded-full"
+                  className="hidden dark:block h-12 w-12 md:h-16 md:w-16 border border-border rounded-full"
                 />
               </FadeIn>
               <Heading as="h3" className="tracking-wide m-4 whitespace-nowrap">
@@ -78,18 +78,18 @@ export default function AboutPage() {
               </Heading>
             </div>
             <FadeIn>
-              <p className="text-start text-muted-foreground text-base leading-8 md:leading-10">
+              <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
                 エンジニアです。
                 <br />
                 モダンなWeb技術を中心に学んでいます。
                 <br />
-                CI/CDの構築やバックエンド開発についても少しずつ勉強しています。
+                CI/CDの構築やバックエンド開発も勉強しています。
                 <br />
                 シンプルなデザイン、アニメーションが好きです。
               </p>
             </FadeIn>
             <FadeIn>
-              <p className="text-start text-muted-foreground text-base leading-8 md:leading-10 mt-8">
+              <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10 mt-8">
                 Next.jsによるモダンなWebアプリケーション開発やTypeScriptによる型安全なコードの記述ができます。
                 <br />
                 また、Node.jsによるAPIの開発やDockerによる環境構築も行うことができます。
@@ -164,7 +164,7 @@ export default function AboutPage() {
           Hobbies
         </Heading>
         <FadeIn>
-          <p className="text-start text-muted-foreground text-sm leading-6">
+          <p className="text-center md:text-start text-muted-foreground text-sm leading-6">
             趣味は読書、プログラミング、勉強です。
             <br />
             長期的な休みは、一人旅やキャンプなどのアウトドアも楽しみます。
