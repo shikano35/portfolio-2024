@@ -4,7 +4,8 @@ import { cn } from "@/lib/utils";
 import { fetchFavoriteSkills } from "@/components/Skill";
 import { FadeIn } from "@/components/FadeIn";
 import { SkillCard } from "@/components/Card/SkillCard";
-import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
+import { ChevronRightIcon } from "@heroicons/react/24/solid";
+import { ClickMotion } from "@/components/ClickMotion";
 
 export async function FavoriteSkills({ className = "" }) {
   const favoriteSkills = await fetchFavoriteSkills();
@@ -26,9 +27,11 @@ export async function FavoriteSkills({ className = "" }) {
                 aria-label={`View details about ${skill.name}`}
               >
                 <div className="flex flex-col items-center">
-                  <SkillCard>
-                    <Icon className="w-12 h-12" />
-                  </SkillCard>
+                  <ClickMotion>
+                    <SkillCard>
+                      <Icon className="w-12 h-12" />
+                    </SkillCard>
+                  </ClickMotion>
                 </div>
               </Link>
             </FadeIn>
@@ -42,7 +45,7 @@ export async function FavoriteSkills({ className = "" }) {
             className="flex items-center text-sm p-1 text-muted-foreground hover:text-highlight transition"
           >
             その他のスキルを見る
-            <ArrowLongRightIcon className="w-4 h-4 ml-1" />
+            <ChevronRightIcon className="w-6 h-3 ml-1" />
           </Link>
         </div>
       </FadeIn>
