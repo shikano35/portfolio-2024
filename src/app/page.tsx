@@ -6,8 +6,7 @@ import { HeadGroup } from "@/components/HeadGroup";
 import { GithubCard } from "@/components/Card/GithubCard";
 import { ContributionGraph } from "@/components/ContributionGraph";
 import { Border } from "@/components/Border";
-import { WorkProjects } from "@/components/WorkProjects";
-import { PersonalProjects } from "@/components/PersonalProjects";
+import { PersonalProjects } from "@/components/Projects";
 import { Zenn } from "@/components/Log/Zenn";
 import { Notion } from "@/components/Log/Notion";
 import { Container } from "@/components/Container";
@@ -53,12 +52,6 @@ export default function Home() {
         <Container>
           <Border className="my-24" />
           <div>
-            <FadeIn>
-              <Heading as="h2" className="mb-8">
-                WorkProjects
-              </Heading>
-            </FadeIn>
-            <WorkProjects />
             <FadeIn>
               <Heading as="h2" className="mt-16 mb-8">
                 PersonalProjects
