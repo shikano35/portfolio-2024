@@ -6,7 +6,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Providers>
       <Header />
-      <main className="flex-auto">{children}</main>
+      <main className="flex-auto overflow-hidden">{children}</main>
       <Footer />
     </Providers>
   );
