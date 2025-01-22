@@ -17,10 +17,13 @@ import { NextjsIcon } from "@/components/Icons/skills/NextjsIcon";
 import { DockerIcon } from "@/components/Icons/skills/DockerIcon";
 import { GoIcon } from "@/components/Icons/skills/GoIcon";
 import { TSIcon } from "@/components/Icons/skills/TSIcon";
+import { MicroCMSIcon } from "@/components/Icons/skills/MicroCMSIcon";
 import { getSkills } from "@/lib/microcms";
 import { FadeIn } from "@/components/FadeIn";
 import { Stars } from "@/components/Stars";
 import { SkillCard } from "@/components/Card/SkillCard";
+import { cn } from "@/lib/utils";
+import { ClickMotion } from "../ClickMotion";
 
 type Skill = {
   name: string;
@@ -37,14 +40,15 @@ const Skills: Skill[] = [
   { name: "Next.js", icon: NextjsIcon },
   { name: "Tailwind CSS", icon: TailwindIcon },
   { name: "Prisma", icon: PrismaIcon },
+  { name: "microCMS", icon: MicroCMSIcon },
   { name: "Node.js", icon: NodejsIcon },
   { name: "Go", icon: GoIcon },
-  { name: "Rust", icon: RustIcon },
   { name: "Docker", icon: DockerIcon },
   { name: "Github Actions", icon: GithubActionsIcon },
-  { name: "C", icon: CIcon },
   { name: "MySQL", icon: MySQLIcon },
   { name: "PostgreSQL", icon: PostgreSQLIcon },
+  { name: "Rust", icon: RustIcon },
+  { name: "C", icon: CIcon },
 ];
 
 type MergedSkill = {
@@ -57,7 +61,7 @@ type MergedSkill = {
 
 function DefaultIcon() {
   return (
-    <div className="w-16 h-16 bg-gray-200 rounded-full" aria-hidden="true" />
+    <div className="w-16 h-16 bg-popover rounded-full" aria-hidden="true" />
   );
 }
 
@@ -82,38 +86,64 @@ async function fetchSkills(): Promise<MergedSkill[]> {
 }
 
 const fetchMergedSkills = cache(
-  async (skillNames?: string[]): Promise<MergedSkill[]> => {
+  async ({ skills }: { skills?: string[] } = {}): Promise<MergedSkill[]> => {
     const allSkills = await fetchSkills();
 
-    if (skillNames && skillNames.length > 0) {
-      return allSkills.filter((skill) => skillNames.includes(skill.name));
+    if (skills && skills.length > 0) {
+      return allSkills.filter((skill) => skills.includes(skill.name));
     }
 
     return allSkills;
   }
 );
 
-export async function SkillList() {
-  const allSkills = await fetchMergedSkills();
-
+export async function SkillList({
+  skills,
+  showName = true,
+  showStars = true,
+  showBorder = true,
+  iconSize = "w-16 h-16",
+  className = "",
+  showClickMotion = true,
+}: {
+  skills?: string[];
+  showName?: boolean;
+  showStars?: boolean;
+  showBorder?: boolean;
+  iconSize?: string;
+  className?: string;
+  showClickMotion?: boolean;
+}) {
+  const allSkills = await fetchMergedSkills({ skills });
   return (
-    <div className="grid grid-cols-3 md:grid-cols-5 gap-16 mb-16 justify-items-center">
+    <div className={cn("grid gap-2", className)}>
       {allSkills.map((skill) => (
         <FadeIn key={skill.id}>
-          <Link
-            href={`/skills/${skill.id}`}
-            aria-label={`View details about ${skill.name}`}
-          >
-            <div className="flex flex-col items-center">
-              <SkillCard>
-                <skill.icon className="w-16 h-16" />
-              </SkillCard>
-              <span className="mt-2 text-sm text-muted-foreground font-medium">
-                {skill.name}
-              </span>
-              <Stars level={skill.level} />
-            </div>
-          </Link>
+          <div className="flex flex-col items-center">
+            <Link
+              href={`/skills/${skill.id}`}
+              aria-label={`View details about ${skill.name}`}
+              className="rounded-lg"
+            >
+              {showClickMotion ? (
+                <ClickMotion>
+                  <SkillCard showBorder={showBorder}>
+                    <skill.icon className={iconSize} />
+                  </SkillCard>
+                </ClickMotion>
+              ) : (
+                <SkillCard showBorder={showBorder}>
+                  <skill.icon className={iconSize} />
+                </SkillCard>
+              )}
+              {showName && (
+                <span className="mt-2 text-sm text-muted-foreground font-medium">
+                  {skill.name}
+                </span>
+              )}
+              {showStars && <Stars level={skill.level} />}
+            </Link>
+          </div>
         </FadeIn>
       ))}
     </div>
