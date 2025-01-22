@@ -17,7 +17,7 @@ export default function SkillsPage() {
       <HeadGroup className="mb-16">
         <Heading>Skills</Heading>
       </HeadGroup>
-      <SkillList />
+      <SkillList className="grid-cols-3 md:grid-cols-5 gap-16 mb-16 justify-items-center" />
     </div>
   );
 }

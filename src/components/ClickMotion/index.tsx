@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef } from "react";
 import { motion } from "motion/react";
 import React from "react";
 
-export function AnimatedCard(
+export function ClickMotion(
   props: ComponentPropsWithoutRef<typeof motion.div> & {
     smallAnimation?: boolean;
   }

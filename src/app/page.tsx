@@ -6,13 +6,12 @@ import { HeadGroup } from "@/components/HeadGroup";
 import { GithubCard } from "@/components/Card/GithubCard";
 import { ContributionGraph } from "@/components/ContributionGraph";
 import { Border } from "@/components/Border";
-import { WorkProjects } from "@/components/WorkProjects";
-import { PersonalProjects } from "@/components/PersonalProjects";
+import { PersonalProjects } from "@/components/Projects";
 import { Zenn } from "@/components/Log/Zenn";
 import { Notion } from "@/components/Log/Notion";
 import { Container } from "@/components/Container";
 import { HeroImage } from "@/components/HeroImage";
-import { MyIcon } from "@/components/Icons/MyIcon";
+import { HeroMyIcon } from "@/components/Icons/HeroMyIcon";
 
 export default function Home() {
   return (
@@ -23,14 +22,14 @@ export default function Home() {
             <Heading>Profile</Heading>
             <FadeIn>
               <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
-                駆け出しエンジニアです。
+                エンジニアです。
                 <br />
                 深く考えながら、少しずつ学んでいます。
               </p>
             </FadeIn>
           </HeadGroup>
           <HeroImage className="absolute top-2/3 -translate-y-1/2 -translate-x-[14rem] sm:-translate-x-24 md:-translate-x-80 lg:-translate-x-64 opacity-30 md:opacity-50">
-            <MyIcon />
+            <HeroMyIcon />
           </HeroImage>
         </div>
         <div className="flex flex-1 justify-center mt-24">
@@ -53,12 +52,6 @@ export default function Home() {
         <Container>
           <Border className="my-24" />
           <div>
-            <FadeIn>
-              <Heading as="h2" className="mb-8">
-                WorkProjects
-              </Heading>
-            </FadeIn>
-            <WorkProjects />
             <FadeIn>
               <Heading as="h2" className="mt-16 mb-8">
                 PersonalProjects

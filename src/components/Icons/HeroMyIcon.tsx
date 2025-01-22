@@ -1,6 +1,6 @@
 import React from "react";
 
-export function MyIcon(props: React.SVGProps<SVGSVGElement>) {
+export function HeroMyIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 816.37732 1145.1973"

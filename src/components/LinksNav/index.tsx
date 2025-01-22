@@ -9,6 +9,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { SkillCard } from "@/components/Card/SkillCard";
+import { ClickMotion } from "../ClickMotion";
 
 type LinksNavProps = {
   label: string;
@@ -19,7 +20,7 @@ type LinksNavProps = {
 const linksList: LinksNavProps[] = [
   {
     label: "Cosense",
-    href: "https://scrapbox.io/5hintakemura/",
+    href: "https://scrapbox.io/shikano35/",
     icon: CosenseIcon,
   },
   {
@@ -61,13 +62,15 @@ export function LinksNav({ activeClassName = "font-medium text-primary" }) {
           >
             <FadeIn>
               {theme === "dark" ? (
-                <SkillCard className="bg-background">
-                  <item.icon
-                    width={32}
-                    height={32}
-                    className="md:w-7 md:h-7 w-6 h-6"
-                  />
-                </SkillCard>
+                <ClickMotion>
+                  <SkillCard className="bg-background">
+                    <item.icon
+                      width={32}
+                      height={32}
+                      className="md:w-7 md:h-7 w-6 h-6"
+                    />
+                  </SkillCard>
+                </ClickMotion>
               ) : (
                 <item.icon
                   width={32}
