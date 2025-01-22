@@ -17,7 +17,7 @@ import { NextjsIcon } from "@/components/Icons/skills/NextjsIcon";
 import { DockerIcon } from "@/components/Icons/skills/DockerIcon";
 import { GoIcon } from "@/components/Icons/skills/GoIcon";
 import { TSIcon } from "@/components/Icons/skills/TSIcon";
-import { MicroCMSIcon } from "@/components/Icons/skills/MicroCMSIcon";
+import { MicroCMSIcon } from "@/components/Icons/skills/microCMSIcon";
 import { getSkills } from "@/lib/microcms";
 import { FadeIn } from "@/components/FadeIn";
 import { Stars } from "@/components/Stars";
