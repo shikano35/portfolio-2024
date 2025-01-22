@@ -19,11 +19,15 @@ import { GoIcon } from "@/components/Icons/skills/GoIcon";
 import { TSIcon } from "@/components/Icons/skills/TSIcon";
 import { MicroCMSIcon } from "@/components/Icons/skills/microCMSIcon";
 import { getSkills } from "@/lib/microcms";
-import { FadeIn } from "@/components/FadeIn";
 import { Stars } from "@/components/Stars";
 import { SkillCard } from "@/components/Card/SkillCard";
 import { cn } from "@/lib/utils";
 import { ClickMotion } from "../ClickMotion";
+import { CPlusIcon } from "../Icons/skills/CPlusIcon";
+import { CSharpIcon } from "../Icons/skills/CSharpIcon";
+import { UnityIcon } from "../Icons/skills/UnityIcon";
+import { ArduinoIcon } from "../Icons/skills/ArduinoIcon";
+import { FadeIn } from "../FadeIn";
 
 type Skill = {
   name: string;
@@ -49,6 +53,10 @@ const Skills: Skill[] = [
   { name: "PostgreSQL", icon: PostgreSQLIcon },
   { name: "Rust", icon: RustIcon },
   { name: "C", icon: CIcon },
+  { name: "C++", icon: CPlusIcon },
+  { name: "C#", icon: CSharpIcon },
+  { name: "Unity", icon: UnityIcon },
+  { name: "Arduino", icon: ArduinoIcon },
 ];
 
 type MergedSkill = {
@@ -118,8 +126,8 @@ export async function SkillList({
   return (
     <div className={cn("grid gap-2", className)}>
       {allSkills.map((skill) => (
-        <FadeIn key={skill.id}>
-          <div className="flex flex-col items-center">
+        <div key={skill.id} className="flex flex-col items-center">
+          <FadeIn>
             <Link
               href={`/skills/${skill.id}`}
               aria-label={`View details about ${skill.name}`}
@@ -143,8 +151,8 @@ export async function SkillList({
               )}
               {showStars && <Stars level={skill.level} />}
             </Link>
-          </div>
-        </FadeIn>
+          </FadeIn>
+        </div>
       ))}
     </div>
   );
