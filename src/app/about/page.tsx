@@ -6,10 +6,10 @@ import React from "react";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { Border } from "@/components/Border";
-import { FavoriteSkills } from "@/components/Skill/FavoriteSkills";
 import { GithubCard } from "@/components/Card/GithubCard";
 import { ContributionGraph } from "@/components/ContributionGraph";
 import { Logo } from "@/components/Logo";
+import { SkillList } from "@/components/Skill";
 
 export const metadata: Metadata = {
   ...baseMetadata,
@@ -53,10 +53,10 @@ const timelineData: TimelineItem[] = [
 export default function AboutPage() {
   return (
     <>
-      <Container className="mb-16">
+      <Container>
         <div className="md:grid md:grid-cols-12">
           <HeadGroup className="relative z-10 md:col-span-12">
-            <Heading>About</Heading>
+            <Heading className="mb-12">About</Heading>
             <div className="flex items-center justify-center md:justify-start mb-8">
               <FadeIn>
                 <Logo
@@ -86,13 +86,6 @@ export default function AboutPage() {
                 CI/CDの構築やバックエンド開発も勉強しています。
                 <br />
                 シンプルなデザイン、アニメーションが好きです。
-              </p>
-            </FadeIn>
-            <FadeIn>
-              <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10 mt-8">
-                Next.jsによるモダンなWebアプリケーション開発やTypeScriptによる型安全なコードの記述ができます。
-                <br />
-                また、Node.jsによるAPIの開発やDockerによる環境構築も行うことができます。
               </p>
             </FadeIn>
           </HeadGroup>
@@ -149,7 +142,13 @@ export default function AboutPage() {
             <div className="md:col-span-5 lg:mx-0">
               <FadeIn>
                 <Heading as="h6">My Favorite Tech Stack</Heading>
-                <FavoriteSkills className="mt-8" />
+                <SkillList
+                  className="mt-8 grid grid-cols-3 gap-6 justify-items-center md:justify-items-start"
+                  showName={false}
+                  showStars={false}
+                  iconSize="w-12 h-12"
+                  useFavorite={true}
+                />
               </FadeIn>
             </div>
             <div className="md:flex md:flex-auto md:-ml-8 lg:ml-0 md:col-start-7 lg:col-start-8 mt-32 md:mt-0 ">
@@ -168,6 +167,14 @@ export default function AboutPage() {
             趣味は読書、プログラミング、勉強です。
             <br />
             長期的な休みは、一人旅やキャンプなどのアウトドアも楽しみます。
+          </p>
+        </FadeIn>
+        <Heading as="h4" className="mt-12 mb-4">
+          Curiosity
+        </Heading>
+        <FadeIn>
+          <p className="text-center md:text-start text-muted-foreground text-sm leading-6">
+            新しい知識を得たり、物事を深く考えることに幸せを感じます。
           </p>
         </FadeIn>
       </Container>

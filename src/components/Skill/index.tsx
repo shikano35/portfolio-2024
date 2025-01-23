@@ -105,6 +105,11 @@ const fetchMergedSkills = cache(
   }
 );
 
+export const fetchFavoriteSkills = cache(async (): Promise<MergedSkill[]> => {
+  const allSkills = await fetchMergedSkills();
+  return allSkills.filter((skill) => skill.isFavorite);
+});
+
 export async function SkillList({
   skills,
   showName = true,
@@ -113,6 +118,7 @@ export async function SkillList({
   iconSize = "w-16 h-16",
   className = "",
   showClickMotion = true,
+  useFavorite = false,
 }: {
   skills?: string[];
   showName?: boolean;
@@ -121,8 +127,11 @@ export async function SkillList({
   iconSize?: string;
   className?: string;
   showClickMotion?: boolean;
+  useFavorite?: boolean;
 }) {
-  const allSkills = await fetchMergedSkills({ skills });
+  const allSkills = useFavorite
+    ? await fetchFavoriteSkills()
+    : await fetchMergedSkills({ skills });
   return (
     <div className={cn("grid gap-2", className)}>
       {allSkills.map((skill) => (
@@ -131,7 +140,7 @@ export async function SkillList({
             <Link
               href={`/skills/${skill.id}`}
               aria-label={`View details about ${skill.name}`}
-              className="rounded-lg"
+              className="rounded-lg text-center"
             >
               {showClickMotion ? (
                 <ClickMotion>
@@ -157,8 +166,3 @@ export async function SkillList({
     </div>
   );
 }
-
-export const fetchFavoriteSkills = cache(async (): Promise<MergedSkill[]> => {
-  const allSkills = await fetchMergedSkills();
-  return allSkills.filter((skill) => skill.isFavorite);
-});

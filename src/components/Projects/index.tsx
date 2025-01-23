@@ -1,5 +1,5 @@
 import { getWorks } from "@/lib/microcms";
-import WorkCard from "@/components/Card/WorkCard";
+import PersonalProjectCard from "@/components/Card/PersonalProjectCard";
 
 export async function WorkProjects() {
   const works = await getWorks();
@@ -7,7 +7,7 @@ export async function WorkProjects() {
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
       {works.map((work) => (
-        <WorkCard
+        <PersonalProjectCard
           key={work.id}
           imageSrc={work.thumbnail.url}
           title={work.title}
@@ -28,7 +28,7 @@ export async function PersonalProjects() {
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
       {works.map((work) => (
-        <WorkCard
+        <PersonalProjectCard
           key={work.id}
           imageSrc={work.thumbnail.url}
           title={work.title}

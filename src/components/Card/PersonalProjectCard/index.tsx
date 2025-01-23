@@ -1,4 +1,3 @@
-// src/components/Card/WorkCard/index.tsx
 import { FadeIn } from "@/components/FadeIn";
 import { Heading } from "@/components/Heading";
 import { SkillList } from "@/components/Skill";
@@ -15,7 +14,7 @@ type WorkCardProps = {
   skills: string[];
 };
 
-export default function WorkCard({
+export default function PersonalProjectCard({
   imageSrc,
   title,
   description,
@@ -26,7 +25,7 @@ export default function WorkCard({
 }: WorkCardProps) {
   return (
     <FadeIn>
-      <div className="group relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 dark:bg-gray-800 dark:ring-white/15">
+      <div className="group relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 dark:bg-gray-800 dark:ring-white/15 h-full">
         <div className="relative h-80 shrink-0">
           <Image
             alt={`${title}'s thumbnail`}
@@ -39,7 +38,7 @@ export default function WorkCard({
         </div>
         <div
           aria-hidden="true"
-          className="absolute inset-0 rounded-3xl bg-gradient-to-t from-background ring-1 ring-inset ring-border from-50%"
+          className="absolute inset-0 rounded-3xl bg-gradient-to-t from-background ring-1 ring-inset ring-border from-55%"
         ></div>
         <figure className="relative p-10">
           <blockquote className="font-semibold">
@@ -65,9 +64,9 @@ export default function WorkCard({
                 </div>
               </div>
             </FadeIn>
-            <FadeIn>
+            <FadeIn className="">
               <div
-                className="mt-4 mb-8 max-w-[600px] text-sm text-gray-600 dark:text-gray-400 h-20"
+                className="mt-4 mb-8 max-w-[600px] text-sm text-muted-foreground md:h-28 lg:h-20"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             </FadeIn>
@@ -78,7 +77,7 @@ export default function WorkCard({
               showBorder={false}
               showClickMotion={false}
               iconSize="h-7 w-7"
-              className="grid-cols-5 gap-2"
+              className="grid-cols-5 gap-2 mt-14"
             />
           </figcaption>
         </figure>

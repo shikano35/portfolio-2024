@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer>
       <Container>
-        <Border className="flex flex-col" />
+        <Border className="flex flex-col mt-16" />
         <FadeInWithStagger>
           <div className="flex justify-center md:justify-start pb-16 pt-8 md:pb-10">
             <LinksNav activeClassName="font-medium text-primary" />

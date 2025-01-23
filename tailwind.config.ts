@@ -7,6 +7,7 @@ export default {
     "./components/**/*.{ts,tsx,md,mdx}",
     "./app/**/*.{ts,tsx,md,mdx}",
     "./src/**/*.{ts,tsx,md,mdx}",
+    './stories/**/*.{ts,tsx}',
   ],
   prefix: "",
   theme: {
