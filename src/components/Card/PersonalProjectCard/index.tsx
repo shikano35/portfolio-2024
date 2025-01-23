@@ -1,4 +1,3 @@
-// src/components/Card/WorkCard/index.tsx
 import { FadeIn } from "@/components/FadeIn";
 import { Heading } from "@/components/Heading";
 import { SkillList } from "@/components/Skill";
@@ -26,7 +25,7 @@ export default function PersonalProjectCard({
 }: WorkCardProps) {
   return (
     <FadeIn>
-      <div className="group relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 dark:bg-gray-800 dark:ring-white/15">
+      <div className="group relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 dark:bg-gray-800 dark:ring-white/15 h-full">
         <div className="relative h-80 shrink-0">
           <Image
             alt={`${title}'s thumbnail`}
