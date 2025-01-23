@@ -8,10 +8,10 @@ import { ContributionGraph } from "@/components/ContributionGraph";
 import { Border } from "@/components/Border";
 import { PersonalProjects } from "@/components/Projects";
 import { Zenn } from "@/components/Log/Zenn";
-import { Notion } from "@/components/Log/Notion";
 import { Container } from "@/components/Container";
 import { HeroImage } from "@/components/HeroImage";
 import { HeroMyIcon } from "@/components/Icons/HeroMyIcon";
+import NotionCard from "@/components/Card/NotionCard";
 
 export default function Home() {
   return (
@@ -72,7 +72,7 @@ export default function Home() {
                 Notion
               </Heading>
             </FadeIn>
-            <Notion />
+            <NotionCard />
           </div>
         </Container>
       </div>
