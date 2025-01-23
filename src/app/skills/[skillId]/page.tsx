@@ -5,7 +5,6 @@ import { getSkill, getSkills } from "@/lib/microcms";
 import { Heading } from "@/components/Heading";
 import { FadeIn } from "@/components/FadeIn";
 import { baseMetadata } from "@/lib/metadata";
-import { Container } from "@/components/Container";
 import { HeadGroup } from "@/components/HeadGroup";
 
 export async function generateMetadata({
@@ -13,18 +12,16 @@ export async function generateMetadata({
 }: {
   params: { skillId: string };
 }): Promise<Metadata> {
-  // paramsを非同期的に解決
   const { skillId } = await params;
   const skill = await getSkill(skillId, { fields: "name,description" });
 
   return {
     ...baseMetadata,
-    title: skill.name,
+    title: `${baseMetadata.title} - ${skill.name}`,
     description: skill.description,
   };
 }
 
-// Static Paramsの生成
 export async function generateStaticParams() {
   const skills = await getSkills({ fields: "id" });
   return skills.map((skill) => ({
@@ -32,18 +29,16 @@ export async function generateStaticParams() {
   }));
 }
 
-// ページのメインコンポーネント
 export default async function SkillDetailPage({
   params,
 }: {
   params: { skillId: string };
 }) {
-  // params.skillId を直接使用せず変数に代入
   const { skillId } = await params;
 
   const skill = await getSkill(skillId);
   return (
-    <Container>
+    <>
       <HeadGroup>
         <Heading>{skill.name}</Heading>
         <FadeIn>
@@ -58,6 +53,6 @@ export default async function SkillDetailPage({
         </Heading>
         <SkillList className="grid-cols-3 md:grid-cols-5 gap-16 justify-items-center" />
       </section>
-    </Container>
+    </>
   );
 }
