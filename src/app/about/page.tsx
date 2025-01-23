@@ -56,7 +56,7 @@ export default function AboutPage() {
       <Container>
         <div className="md:grid md:grid-cols-12">
           <HeadGroup className="relative z-10 md:col-span-12">
-            <Heading>About</Heading>
+            <Heading className="mb-12">About</Heading>
             <div className="flex items-center justify-center md:justify-start mb-8">
               <FadeIn>
                 <Logo
