@@ -88,13 +88,6 @@ export default function AboutPage() {
                 シンプルなデザイン、アニメーションが好きです。
               </p>
             </FadeIn>
-            <FadeIn>
-              <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10 mt-8">
-                Next.jsによるモダンなWebアプリケーション開発やTypeScriptによる型安全なコードの記述ができます。
-                <br />
-                また、Node.jsによるAPIの開発やDockerによる環境構築も行うことができます。
-              </p>
-            </FadeIn>
           </HeadGroup>
         </div>
         <Border className="my-16" />
