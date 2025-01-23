@@ -39,7 +39,7 @@ export default function PersonalProjectCard({
         </div>
         <div
           aria-hidden="true"
-          className="absolute inset-0 rounded-3xl bg-gradient-to-t from-background ring-1 ring-inset ring-border from-50%"
+          className="absolute inset-0 rounded-3xl bg-gradient-to-t from-background ring-1 ring-inset ring-border from-55%"
         ></div>
         <figure className="relative p-10">
           <blockquote className="font-semibold">
