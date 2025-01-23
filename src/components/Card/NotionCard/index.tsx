@@ -1,9 +1,9 @@
 import React from "react";
 
 export interface NotionCardProps {
-  icon: string;
-  title: string;
-  description: string;
+  icon?: string;
+  title?: string;
+  description?: string;
 }
 
 const NotionCard = ({ icon, title, description }: NotionCardProps) => {
