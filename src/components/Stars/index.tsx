@@ -10,10 +10,10 @@ type StarsProps = {
 
 const message = [
   "触れたことあり",
-  "興味あり",
+  "興味あり/少しだけわかる",
   "ちょっとわかる",
   "それなりにわかる",
-  "結構わかってきた",
+  "実務経験あり/結構わかってきた",
   "ちょっとできる",
 ];
 
@@ -48,7 +48,7 @@ export function StarMessage() {
         <div key={index} className="flex flex-col items-center mb-8">
           <FadeIn className="flex flex-col items-center">
             <p className="text-sm text-muted-foreground mb-1">{msg}</p>
-            <Stars level={index} />
+            <Stars level={index} className="h-3.5 w-3.5" />
           </FadeIn>
         </div>
       ))}
