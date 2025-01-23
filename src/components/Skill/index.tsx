@@ -131,7 +131,7 @@ export async function SkillList({
             <Link
               href={`/skills/${skill.id}`}
               aria-label={`View details about ${skill.name}`}
-              className="rounded-lg"
+              className="rounded-lg text-center"
             >
               {showClickMotion ? (
                 <ClickMotion>
