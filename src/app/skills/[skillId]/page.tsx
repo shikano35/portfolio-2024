@@ -55,7 +55,7 @@ export default async function SkillDetailPage({
         <Heading as="h2" className="mb-8">
           Skills
         </Heading>
-        <SkillList className="grid-cols-3 md:grid-cols-5 gap-16 justify-items-center" />
+        <SkillList className="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-16 justify-items-center" />
       </section>
     </>
   );
