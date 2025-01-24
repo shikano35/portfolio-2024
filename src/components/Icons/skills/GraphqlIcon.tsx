@@ -1,6 +1,6 @@
 import React from "react";
 
-export function GraphqlIcon(props: React.SVGProps<SVGSVGElement>) {
+export function GraphQLIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 128 128" {...props}>
       <g fill="#E434AA">

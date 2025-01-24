@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Icon(props: React.SVGProps<SVGSVGElement>) {
+export function SupabaseIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 128 128" {...props}>
       <defs>
