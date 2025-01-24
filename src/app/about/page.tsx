@@ -174,7 +174,7 @@ export default function AboutPage() {
         </Heading>
         <FadeIn>
           <p className="text-center md:text-start text-muted-foreground text-sm leading-6">
-            新しい知識を得たり、物事を深く考えることに幸せを感じます。
+            知識を得たり、物事を深く考えることに幸せを感じます。
           </p>
         </FadeIn>
       </Container>
