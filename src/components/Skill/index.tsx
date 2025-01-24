@@ -28,6 +28,19 @@ import { CSharpIcon } from "../Icons/skills/CSharpIcon";
 import { UnityIcon } from "../Icons/skills/UnityIcon";
 import { ArduinoIcon } from "../Icons/skills/ArduinoIcon";
 import { FadeIn } from "../FadeIn";
+import { StorybookIcon } from "../Icons/skills/StorybookIcon";
+import { UnrealEngineIcon } from "../Icons/skills/UnrealEngineIcon";
+import { AstroIcon } from "../Icons/skills/AstroIcon";
+import { FirebaseIcon } from "../Icons/skills/FirebaseIcon";
+import { AWSIcon } from "../Icons/skills/AWSIcon";
+import { FlutterIcon } from "../Icons/skills/FlutterIcon";
+import { DartIcon } from "../Icons/skills/DartIcon";
+import { SupabaseIcon } from "../Icons/skills/SupabaseIcon";
+import { GraphQLIcon } from "../Icons/skills/GraphQLIcon";
+import { PlaywriteIcon } from "../Icons/skills/PlaywrightIcon";
+import { PythonIcon } from "../Icons/skills/PythonIcon";
+import { SwaggerIcon } from "../Icons/skills/SwaggerIcon";
+import { VitestIcon } from "../Icons/skills/VitestIcon";
 
 type Skill = {
   name: string;
@@ -44,19 +57,32 @@ const Skills: Skill[] = [
   { name: "Next.js", icon: NextjsIcon },
   { name: "Tailwind CSS", icon: TailwindIcon },
   { name: "Prisma", icon: PrismaIcon },
+  { name: "Astro", icon: AstroIcon },
+  { name: "Storybook", icon: StorybookIcon },
+  { name: "Vitest", icon: VitestIcon },
+  { name: "Playwright", icon: PlaywriteIcon },
   { name: "microCMS", icon: MicroCMSIcon },
+  { name: "Swagger", icon: SwaggerIcon },
+  { name: "GraphQL", icon: GraphQLIcon },
   { name: "Node.js", icon: NodejsIcon },
   { name: "Go", icon: GoIcon },
-  { name: "Docker", icon: DockerIcon },
-  { name: "Github Actions", icon: GithubActionsIcon },
+  { name: "Firebase", icon: FirebaseIcon },
+  { name: "Supabase", icon: SupabaseIcon },
   { name: "MySQL", icon: MySQLIcon },
   { name: "PostgreSQL", icon: PostgreSQLIcon },
+  { name: "Docker", icon: DockerIcon },
+  { name: "Github Actions", icon: GithubActionsIcon },
+  { name: "AWS", icon: AWSIcon },
+  { name: "Dart", icon: DartIcon },
+  { name: "Flutter", icon: FlutterIcon },
   { name: "Rust", icon: RustIcon },
   { name: "C", icon: CIcon },
   { name: "C++", icon: CPlusIcon },
   { name: "C#", icon: CSharpIcon },
   { name: "Unity", icon: UnityIcon },
+  { name: "Unreal Engine", icon: UnrealEngineIcon },
   { name: "Arduino", icon: ArduinoIcon },
+  { name: "Python", icon: PythonIcon },
 ];
 
 type MergedSkill = {
@@ -140,7 +166,7 @@ export async function SkillList({
             <Link
               href={`/skills/${skill.id}`}
               aria-label={`View details about ${skill.name}`}
-              className="rounded-lg text-center"
+              className="rounded-lg flex flex-col items-center"
             >
               {showClickMotion ? (
                 <ClickMotion>
