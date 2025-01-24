@@ -141,7 +141,7 @@ export async function SkillList({
   showName = true,
   showStars = true,
   showBorder = true,
-  iconSize = "w-16 h-16",
+  iconSize = "w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16",
   className = "",
   showClickMotion = true,
   useFavorite = false,
