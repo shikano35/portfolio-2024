@@ -46,7 +46,8 @@ const timelineData: TimelineItem[] = [
     id: 6,
     year: "2024",
     month: "10月",
-    description: "Webプログラミングに興味を持ち、本格的に勉強し始める",
+    description:
+      "Web技術への興味をきっかけに、本格的にプログラミングの学習を開始する",
   },
 ];
 
@@ -56,7 +57,7 @@ export default function AboutPage() {
       <Container>
         <div className="md:grid md:grid-cols-12">
           <HeadGroup className="relative z-10 md:col-span-12">
-            <Heading className="mb-12">About</Heading>
+            <Heading>About</Heading>
             <div className="flex items-center justify-center md:justify-start mb-8">
               <FadeIn>
                 <Logo
