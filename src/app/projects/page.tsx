@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <div>
-      <Container className="mb-16">
+      <Container>
         <HeadGroup>
           <Heading>Projects</Heading>
           <FadeIn>
@@ -26,7 +26,7 @@ export default function ProjectsPage() {
           </FadeIn>
         </HeadGroup>
         <FadeIn>
-          <Heading as="h2" className="mt-64 mb-8">
+          <Heading as="h2" className="mt-48 mb-8">
             PersonalProjects
           </Heading>
         </FadeIn>
