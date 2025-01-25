@@ -1,19 +1,16 @@
-import React from "react";
-
-export interface NotionCardProps {
-  icon?: string;
-  title?: string;
+interface Article {
+  id: string;
+  title: string;
+  date?: string;
   description?: string;
 }
 
-const NotionCard = ({ icon, title, description }: NotionCardProps) => {
+export default function NotionCard({ article }: { article: Article }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-md transition-transform transform hover:-translate-y-1 hover:shadow-lg">
-      <div className="text-2xl mb-2">{icon}</div>
-      <h3 className="text-lg font-semibold text-gray-800 mb-1">{title}</h3>
-      <p className="text-sm text-gray-600">{description}</p>
+    <div className="border rounded-2xl shadow-md p-4 bg-white hover:shadow-lg transition-shadow">
+      <h2 className="text-lg font-semibold mb-2">{article.title}</h2>
+      {/* <p className="text-sm text-gray-500 mb-4">{new Date(article.date).toLocaleDateString()}</p> */}
+      <p className="text-gray-700">{article.description}</p>
     </div>
   );
-};
-
-export default NotionCard;
+}
