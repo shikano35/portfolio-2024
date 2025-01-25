@@ -164,7 +164,9 @@ export default function AboutPage() {
           </Heading>
           <FadeIn>
             <p className="text-center md:text-start text-muted-foreground text-sm leading-6">
-              趣味は読書、プログラミング、勉強です。
+              趣味は読書とプログラミングです。
+              <br />
+              小説と技術書をよく読みます。
               <br />
               長期的な休みは、一人旅やキャンプなどのアウトドアも楽しみます。
             </p>
@@ -177,7 +179,7 @@ export default function AboutPage() {
           </Heading>
           <FadeIn>
             <p className="text-center md:text-start text-muted-foreground text-sm leading-6">
-              知識を得たり、物事を深く考えることに幸せを感じます。
+              知識を得たり、物事を深く考えることが好きです。
             </p>
           </FadeIn>
         </section>
