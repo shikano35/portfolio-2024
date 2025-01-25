@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { FadeIn } from "../FadeIn";
+import { FadeIn } from "@/components/FadeIn";
 
 export function ThemeButton() {
   const { theme, setTheme } = useTheme();
@@ -20,12 +20,19 @@ export function ThemeButton() {
 
   return (
     <motion.button
+      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
       className="float-end md:block"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       whileTap={{ scale: 0.9 }}
     >
-      <SunIcon className="fill-muted-foreground hover:fill-highlight h-6 w-6 dark:hidden" />
-      <MoonIcon className="fill-muted-foreground hover:fill-highlight h-6 w-6 hidden dark:block" />
+      <SunIcon
+        className="fill-muted-foreground hover:fill-highlight h-6 w-6 dark:hidden"
+        aria-hidden={theme === "dark" ? "true" : "false"}
+      />
+      <MoonIcon
+        className="fill-muted-foreground hover:fill-highlight h-6 w-6 hidden dark:block"
+        aria-hidden={theme === "light" ? "true" : "false"}
+      />
     </motion.button>
   );
 }
@@ -50,8 +57,13 @@ export function ThemeSwitcher() {
       whileInView="visible"
       viewport={{ once: false, margin: "0px 0px -100px" }}
     >
-      <div className="flex items-center space-x-1 p-1 border-border border rounded-full">
+      <div
+        role="group"
+        aria-label="Theme switcher"
+        className="flex items-center space-x-1 p-1 border-border border rounded-full"
+      >
         <motion.button
+          aria-label="Switch to light mode"
           className={`${toggleClasses} ${
             theme === "light"
               ? "bg-border text-muted-foreground"
@@ -64,6 +76,7 @@ export function ThemeSwitcher() {
         </motion.button>
 
         <motion.button
+          aria-label="Switch to dark mode"
           className={`${toggleClasses} ${
             theme === "dark" ? "bg-muted-foreground text-background" : ""
           }`}
