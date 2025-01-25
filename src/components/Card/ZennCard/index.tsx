@@ -2,6 +2,7 @@ import { Zenn } from "@/components/Icons/social/Zenn";
 import Image from "next/image";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { ZennArticle } from "@/lib/zenn";
+import { FadeIn } from "@/components/FadeIn";
 
 export function ZennCard({
   title,
@@ -17,7 +18,7 @@ export function ZennCard({
   });
 
   return (
-    <div className="flex flex-col rounded-xl bg-white overflow-hidden border border-border">
+    <FadeIn className="flex flex-col rounded-xl bg-white overflow-hidden border border-border">
       <ZennCardHeader title={title} user={user} />
       <ZennCardFooter
         title={title}
@@ -25,7 +26,7 @@ export function ZennCard({
         formattedDate={formattedDate}
         likedCount={liked_count}
       />
-    </div>
+    </FadeIn>
   );
 }
 
