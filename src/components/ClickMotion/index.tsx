@@ -17,7 +17,7 @@ export function ClickMotion(
       }}
       whileTap={{ scale: 0.99, y: props.smallAnimation ? 0.5 : 1 }}
       transition={{
-        duration: props.smallAnimation ? 0.15 : 0.25,
+        duration: props.smallAnimation ? 0.15 : 0.225,
         ease: "easeInOut",
       }}
       {...props}
