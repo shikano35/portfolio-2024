@@ -128,7 +128,7 @@ export const groupByWeek = (contributions: Contribution[]) => {
   });
 
   if (week.length > 0) {
-    weeks.push(week); // 余った日を追加
+    weeks.push(week);
   }
 
   return weeks;
