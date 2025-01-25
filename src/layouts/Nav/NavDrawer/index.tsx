@@ -9,7 +9,7 @@ import { NavItem } from "@/layouts/Nav/NavItem";
 import { Logo } from "@/components/Logo";
 import { Border } from "@/components/Border";
 import { ThemeSwitcher } from "@/components/Theme";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 export function NavDrawer({
   activeClassName = "font-semibold text-highlight",
