@@ -10,8 +10,8 @@ import { Zenn } from "@/components/Log/Zenn";
 import { Container } from "@/components/Container";
 import { HeroImage } from "@/components/HeroImage";
 import { HeroMyIcon } from "@/components/Icons/HeroMyIcon";
-import NotionCard from "@/components/Card/NotionCard";
 import { SkillList } from "@/components/Skill";
+import Notion from "@/components/Log/Notion";
 
 export default function Home() {
   return (
@@ -32,7 +32,7 @@ export default function Home() {
             <HeroMyIcon />
           </HeroImage>
         </div>
-        <div className="flex flex-1 justify-center mt-24">
+        <div className="flex flex-1 justify-center mt-16">
           <div className="md:grid md:grid-cols-12 mt-32 md:mr-8">
             <div className="md:col-span-5 lg:mx-0">
               <FadeIn>
@@ -78,7 +78,7 @@ export default function Home() {
                 Notion
               </Heading>
             </FadeIn>
-            <NotionCard />
+            <Notion />
           </div>
         </Container>
       </div>
