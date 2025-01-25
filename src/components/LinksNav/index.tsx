@@ -25,7 +25,7 @@ const linksList: LinksNavProps[] = [
   },
   {
     label: "Zenn",
-    href: "https://zenn.dev/shiitake05",
+    href: "https://zenn.dev/shikano35",
     icon: ZennIcon,
   },
   {
