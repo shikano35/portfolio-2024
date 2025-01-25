@@ -2,7 +2,7 @@
 
 import React, { ElementType, ReactNode, ComponentPropsWithoutRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 type GithubCardProps<T extends ElementType = "div"> = {
   children: ReactNode;
