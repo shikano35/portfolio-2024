@@ -5,7 +5,6 @@ type ZennUser = {
   avatar_small_url: string;
 };
 
-// 記事データの型定義
 export type ZennArticle = {
   id: number;
   post_type: string;
@@ -31,11 +30,11 @@ export type ZennArticle = {
   };
 };
 
-export async function fetchZennArticles(username: string) {
+export async function fetchZennArticles() {
   const response = await fetch(
-    `https://zenn.dev/api/articles?username=${username}&order=latest`,
+    `https://zenn.dev/api/articles?username=shikano35&order=latest`,
     {
-      next: { revalidate: 60 },
+      next: { revalidate: 86400 },
     }
   );
   if (!response.ok) {
