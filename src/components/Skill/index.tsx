@@ -21,7 +21,7 @@ import { MicroCMSIcon } from "@/components/Icons/skills/microCMSIcon";
 import { getSkills } from "@/lib/microcms";
 import { Stars } from "@/components/Stars";
 import { SkillCard } from "@/components/Card/SkillCard";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { ClickMotion } from "../ClickMotion";
 import { CPlusIcon } from "../Icons/skills/CPlusIcon";
 import { CSharpIcon } from "../Icons/skills/CSharpIcon";
