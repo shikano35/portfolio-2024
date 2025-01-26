@@ -2,7 +2,7 @@ import React from "react";
 
 export function Zenn(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 4167 994" enable-background="new 0 0 4167 994" {...props}>
+    <svg viewBox="0 0 4167 994" {...props}>
       <path
         fill="#000000"
         opacity="1.000000"
