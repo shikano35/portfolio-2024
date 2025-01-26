@@ -16,7 +16,7 @@ import Notion from "@/components/Log/Notion";
 export default function Home() {
   return (
     <>
-      <Container className="relative flex flex-col">
+      <Container className="flex flex-col">
         <div className="md:grid md:grid-cols-12">
           <HeadGroup className="relative z-10 md:col-span-7">
             <Heading>Profile</Heading>
@@ -66,20 +66,18 @@ export default function Home() {
             <PersonalProjects />
             <Border className="my-16" />
           </div>
-          <div className="mb-16">
-            <FadeIn>
-              <Heading as="h4" className="mt-16 mb-4">
-                Zenn
-              </Heading>
-            </FadeIn>
-            <Zenn />
-            <FadeIn>
-              <Heading as="h4" className="mt-16 mb-4">
-                Notion
-              </Heading>
-            </FadeIn>
-            <Notion />
-          </div>
+          <FadeIn>
+            <Heading as="h3" className="mt-16 mb-4">
+              Zenn
+            </Heading>
+          </FadeIn>
+          <Zenn />
+          <FadeIn>
+            <Heading as="h3" className="mt-16 mb-4">
+              Notion
+            </Heading>
+          </FadeIn>
+          <Notion />
         </Container>
       </div>
     </>
