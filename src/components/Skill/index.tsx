@@ -21,7 +21,7 @@ import { MicroCMSIcon } from "@/components/Icons/skills/microCMSIcon";
 import { getSkills } from "@/lib/microcms";
 import { Stars } from "@/components/Stars";
 import { SkillCard } from "@/components/Card/SkillCard";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { ClickMotion } from "../ClickMotion";
 import { CPlusIcon } from "../Icons/skills/CPlusIcon";
 import { CSharpIcon } from "../Icons/skills/CSharpIcon";
@@ -131,8 +131,10 @@ const fetchMergedSkills = cache(
   }
 );
 
+const fetchMergedSkillsWithCache = cache(fetchMergedSkills);
+
 export const fetchFavoriteSkills = cache(async (): Promise<MergedSkill[]> => {
-  const allSkills = await fetchMergedSkills();
+  const allSkills = await fetchMergedSkillsWithCache({});
   return allSkills.filter((skill) => skill.isFavorite);
 });
 
@@ -157,7 +159,7 @@ export async function SkillList({
 }) {
   const allSkills = useFavorite
     ? await fetchFavoriteSkills()
-    : await fetchMergedSkills({ skills });
+    : await fetchMergedSkillsWithCache({ skills });
   return (
     <div className={cn("grid gap-2", className)}>
       {allSkills.map((skill) => (

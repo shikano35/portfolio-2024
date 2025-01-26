@@ -25,7 +25,7 @@ export const navList: NavItemProps[] = [
   },
 ];
 
-export function Nav({ activeClassName = "font-semibold text-highlight" }) {
+export function Nav() {
   return (
     <div className="hidden md:block">
       <div className="flex items-center">
@@ -35,7 +35,7 @@ export function Nav({ activeClassName = "font-semibold text-highlight" }) {
               label={item.label}
               href={item.href}
               className="text-base px-3 mx-3"
-              activeClassName={activeClassName}
+              activeClassName="font-semibold text-highlight"
             />
           </FadeIn>
         ))}

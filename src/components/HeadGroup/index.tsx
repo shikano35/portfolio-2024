@@ -1,5 +1,5 @@
 import React, { ElementType, ReactNode, ComponentPropsWithoutRef } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 type HeadGroupProps<T extends ElementType = "div"> = {
   as?: T;

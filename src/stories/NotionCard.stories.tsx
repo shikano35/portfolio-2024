@@ -1,26 +1,45 @@
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
-import NotionCard, { NotionCardProps } from "../components/Card/NotionCard";
+// src/components/Card/NotionCard/NotionCard.stories.tsx
+import type { Meta, StoryObj } from "@storybook/react";
+import NotionCard from "@/components/Card/NotionCard";
 
-const NotionCardStory: Meta<typeof NotionCard> = {
-  title: "Components/NotionCard",
+const meta: Meta<typeof NotionCard> = {
+  title: "Components/Card/NotionCard",
   component: NotionCard,
+  tags: ["autodocs"],
+  argTypes: {
+    article: {
+      description: "記事のデータ",
+      table: {
+        type: { summary: "Article" },
+      },
+    },
+  },
 };
 
-export default NotionCardStory;
+export default meta;
 
-const Template: StoryFn<NotionCardProps> = (args) => <NotionCard {...args} />;
+type Story = StoryObj<typeof NotionCard>;
 
-export const Default = Template.bind({});
-Default.args = {
-  icon: "📘",
-  title: "Notion Card Title",
-  description: "This is a description of the Notion card.",
+export const Default: Story = {
+  args: {
+    article: {
+      id: "1",
+      title: "Sample Notion Article",
+      date: "2025-01-25T12:40:00.000Z",
+      url: "https://www.notion.so/",
+      cover: "https://via.placeholder.com/500x300.png?text=Notion+Cover",
+    },
+  },
 };
 
-export const Custom = Template.bind({});
-Custom.args = {
-  icon: "✨",
-  title: "Custom Card",
-  description: "A custom card with a different icon and text.",
+export const WithoutCover: Story = {
+  args: {
+    article: {
+      id: "2",
+      title: "No Cover Article",
+      date: "2025-01-25T12:40:00.000Z",
+      url: "https://www.notion.so/test2",
+      cover: "No Cover",
+    },
+  },
 };

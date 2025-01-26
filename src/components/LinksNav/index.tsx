@@ -39,49 +39,52 @@ export function LinksNav({ activeClassName = "font-medium text-primary" }) {
   const { theme } = useTheme();
 
   return (
-    <div className="flex justify-between w-full flex-col md:flex-row">
-      <div className="flex items-center justify-center md:justify-start">
+    <nav
+      className="flex flex-col justify-between w-full  md:flex-row"
+      aria-label="Main navigation"
+    >
+      <ul className="flex items-center justify-center md:justify-start">
         {navList.map((item) => (
-          <FadeIn key={item.label}>
-            <NavItem
-              label={item.label}
-              href={item.href}
-              className="text-sm lg:text-base px-2 mx-3"
-              activeClassName={activeClassName}
-              hoverClassName="hover:text-primary"
-            />
-          </FadeIn>
-        ))}
-      </div>
-      <div className="flex mt-6 md:mt-0 justify-center md:justify-start">
-        {linksList.map((item) => (
-          <Link
-            key={item.label}
-            href={item.href}
-            className="px-2 py-2 mx-3 dark:mx-1"
-          >
+          <li key={item.label}>
             <FadeIn>
-              {theme === "dark" ? (
-                <ClickMotion>
-                  <SkillCard className="bg-background">
-                    <item.icon
-                      width={32}
-                      height={32}
-                      className="md:w-7 md:h-7 w-6 h-6"
-                    />
-                  </SkillCard>
-                </ClickMotion>
-              ) : (
-                <item.icon
-                  width={32}
-                  height={32}
-                  className="md:w-8 md:h-8 w-6 h-6"
-                />
-              )}
+              <NavItem
+                label={item.label}
+                href={item.href}
+                className="text-sm lg:text-base px-2 mx-3"
+                activeClassName={activeClassName}
+                hoverClassName="hover:text-primary"
+              />
             </FadeIn>
-          </Link>
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+      <ul className="flex mt-6 md:mt-0 items-center justify-center">
+        {linksList.map((item) => (
+          <li key={item.label} className="px-2 py-2 mx-3 dark:mx-1">
+            <Link href={item.href}>
+              <FadeIn>
+                {theme === "dark" ? (
+                  <ClickMotion>
+                    <SkillCard className="bg-background">
+                      <item.icon
+                        width={32}
+                        height={32}
+                        className="md:w-7 md:h-7 w-6 h-6"
+                      />
+                    </SkillCard>
+                  </ClickMotion>
+                ) : (
+                  <item.icon
+                    width={32}
+                    height={32}
+                    className="md:w-8 md:h-8 w-6 h-6"
+                  />
+                )}
+              </FadeIn>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }

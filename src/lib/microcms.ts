@@ -1,18 +1,14 @@
-import {
-  createClient,
-  type MicroCMSQueries,
-  MicroCMSImage,
-} from "microcms-js-sdk";
+import { createClient, MicroCMSQueries, MicroCMSImage } from "microcms-js-sdk";
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
-  throw new Error("MICROCMS_SERVICE_DOMAIN is required");
+  throw new Error("MICROCMS_SERVICE_DOMAINが見つかりません。");
 }
 
 if (!process.env.MICROCMS_API_KEY) {
-  throw new Error("MICROCMS_API_KEY is required");
+  throw new Error("MICROCMS_API_KEYが見つかりません。");
 }
 
-export const client = createClient({
+const client = createClient({
   serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
   apiKey: process.env.MICROCMS_API_KEY,
 });

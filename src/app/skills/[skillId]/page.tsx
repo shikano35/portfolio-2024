@@ -11,7 +11,7 @@ import { Border } from "@/components/Border";
 export async function generateMetadata({
   params,
 }: {
-  params: { skillId: string };
+  params: Promise<{ skillId: string }>;
 }): Promise<Metadata> {
   const { skillId } = await params;
   const skill = await getSkill(skillId, { fields: "name,description" });
@@ -33,7 +33,7 @@ export async function generateStaticParams() {
 export default async function SkillDetailPage({
   params,
 }: {
-  params: { skillId: string };
+  params: Promise<{ skillId: string }>;
 }) {
   const { skillId } = await params;
 
