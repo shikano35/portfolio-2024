@@ -21,7 +21,7 @@ export function SkillCard<T extends ElementType = "div">({
       className={cn(
         "p-2 transition",
         showBorder
-          ? "shadow-sm border-2 border-muted hover:border-border hover:shadow-md bg-popover rounded-xl active:shadow-sm"
+          ? "transition-shadow shadow-sm border-2 border-muted hover:border-border hover:shadow-md bg-popover rounded-xl active:shadow-sm"
           : "",
         className
       )}
