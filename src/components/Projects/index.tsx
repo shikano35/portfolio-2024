@@ -1,3 +1,4 @@
+import React from "react";
 import { getWorks } from "@/lib/microcms";
 import PersonalProjectCard from "@/components/Card/PersonalProjectCard";
 
