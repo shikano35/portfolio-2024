@@ -9,7 +9,7 @@ export default function NotionCard({ article }: { article: Article }) {
   return (
     <Link href={article.url}>
       <ClickMotion smallAnimation={true}>
-        <div className="block border rounded-xl shadow-sm bg-background hover:shadow-md active:shadow-sm transition-shadow h-full overflow-hidden">
+        <div className="block border border-border rounded-xl shadow-sm bg-background hover:shadow-md active:shadow-sm transition-shadow h-full overflow-hidden">
           <div className="h-40">
             {article.cover && article.cover !== "No Cover" && (
               <Image
