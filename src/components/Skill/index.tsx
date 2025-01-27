@@ -41,6 +41,7 @@ import { PlaywriteIcon } from "../Icons/skills/PlaywrightIcon";
 import { PythonIcon } from "../Icons/skills/PythonIcon";
 import { SwaggerIcon } from "../Icons/skills/SwaggerIcon";
 import { VitestIcon } from "../Icons/skills/VitestIcon";
+import { AnimatedTooltip } from "@/components/AnimatedTooltip";
 
 type Skill = {
   name: string;
@@ -93,35 +94,41 @@ type MergedSkill = {
   isFavorite: boolean;
 };
 
+type SkillItemProps = {
+  skill: MergedSkill;
+  showClickMotion?: boolean;
+  showName?: boolean;
+  showStars?: boolean;
+  showBorder?: boolean;
+  iconSize?: string;
+};
+
 function DefaultIcon() {
   return (
     <div className="w-16 h-16 bg-popover rounded-full" aria-hidden="true" />
   );
 }
-
-async function fetchSkills(): Promise<MergedSkill[]> {
-  const cmsSkills = await getSkills({
-    limit: 50,
-    fields: "id,name,level,isFavorite",
-  });
-
-  const skillMap = new Map(Skills.map((s) => [s.name, s]));
-
-  return cmsSkills
-    .filter((cmsSkill) => skillMap.has(cmsSkill.name))
-    .map((cmsSkill) => {
-      const skill = skillMap.get(cmsSkill.name);
-
-      return {
-        ...cmsSkill,
-        icon: skill?.icon || DefaultIcon,
-      };
-    });
-}
-
+let count = 0;
 const fetchMergedSkills = cache(
   async ({ skills }: { skills?: string[] } = {}): Promise<MergedSkill[]> => {
-    const allSkills = await fetchSkills();
+    console.log((count += 1));
+    const cmsSkills = await getSkills({
+      limit: 50,
+      fields: "id,name,level,isFavorite",
+    });
+
+    const skillMap = new Map(Skills.map((s) => [s.name, s]));
+
+    const allSkills = cmsSkills
+      .filter((cmsSkill) => skillMap.has(cmsSkill.name))
+      .map((cmsSkill) => {
+        const skill = skillMap.get(cmsSkill.name);
+
+        return {
+          ...cmsSkill,
+          icon: skill?.icon || DefaultIcon,
+        };
+      });
 
     if (skills && skills.length > 0) {
       return allSkills.filter((skill) => skills.includes(skill.name));
@@ -131,19 +138,48 @@ const fetchMergedSkills = cache(
   }
 );
 
-const fetchMergedSkillsWithCache = cache(fetchMergedSkills);
-
-export const fetchFavoriteSkills = cache(async (): Promise<MergedSkill[]> => {
-  const allSkills = await fetchMergedSkillsWithCache({});
+export const fetchFavoriteSkills = async (): Promise<MergedSkill[]> => {
+  const allSkills = await fetchMergedSkills({});
   return allSkills.filter((skill) => skill.isFavorite);
-});
+};
+
+const SkillItem = ({
+  skill,
+  showClickMotion = true,
+  showName = true,
+  showStars = true,
+  showBorder = true,
+  iconSize = "size-12 sm:size-14 md:size-16",
+}: SkillItemProps) => {
+  return (
+    <>
+      {showClickMotion ? (
+        <ClickMotion>
+          <SkillCard showBorder={showBorder}>
+            <skill.icon className={iconSize} />
+          </SkillCard>
+        </ClickMotion>
+      ) : (
+        <SkillCard showBorder={showBorder}>
+          <skill.icon className={iconSize} />
+        </SkillCard>
+      )}
+      {showName && (
+        <span className="mt-2 text-sm text-muted-foreground font-medium">
+          {skill.name}
+        </span>
+      )}
+      {showStars && <Stars level={skill.level} />}
+    </>
+  );
+};
 
 export async function SkillList({
   skills,
   showName = true,
   showStars = true,
   showBorder = true,
-  iconSize = "w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16",
+  iconSize = "size-12 sm:size-14 md:size-16",
   className = "",
   showClickMotion = true,
   useFavorite = false,
@@ -159,7 +195,7 @@ export async function SkillList({
 }) {
   const allSkills = useFavorite
     ? await fetchFavoriteSkills()
-    : await fetchMergedSkillsWithCache({ skills });
+    : await fetchMergedSkills({ skills });
   return (
     <div className={cn("grid gap-2", className)}>
       {allSkills.map((skill) => (
@@ -170,23 +206,27 @@ export async function SkillList({
               aria-label={`View details about ${skill.name}`}
               className="rounded-lg flex flex-col items-center"
             >
-              {showClickMotion ? (
-                <ClickMotion>
-                  <SkillCard showBorder={showBorder}>
-                    <skill.icon className={iconSize} />
-                  </SkillCard>
-                </ClickMotion>
+              {skills ? (
+                <AnimatedTooltip name={skill.name}>
+                  <SkillItem
+                    skill={skill}
+                    showClickMotion={showClickMotion}
+                    showName={showName}
+                    showStars={showStars}
+                    showBorder={showBorder}
+                    iconSize={iconSize}
+                  />
+                </AnimatedTooltip>
               ) : (
-                <SkillCard showBorder={showBorder}>
-                  <skill.icon className={iconSize} />
-                </SkillCard>
+                <SkillItem
+                  skill={skill}
+                  showClickMotion={showClickMotion}
+                  showName={showName}
+                  showStars={showStars}
+                  showBorder={showBorder}
+                  iconSize={iconSize}
+                />
               )}
-              {showName && (
-                <span className="mt-2 text-sm text-muted-foreground font-medium">
-                  {skill.name}
-                </span>
-              )}
-              {showStars && <Stars level={skill.level} />}
             </Link>
           </FadeIn>
         </div>
