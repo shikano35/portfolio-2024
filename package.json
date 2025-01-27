@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "cache": "rm -rf .next/cache/fetch-cache",
     "lint": "next lint",
     "format": "prettier --write . & eslint --fix .",
     "prepare": "husky install",

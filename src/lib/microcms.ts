@@ -38,6 +38,12 @@ export async function getSkills(queries?: MicroCMSQueries): Promise<Skill[]> {
   const data = await client.getList<Skill>({
     endpoint: "skills",
     queries,
+    customRequestInit: {
+      cache: "force-cache",
+      next: {
+        revalidate: 86400,
+      },
+    },
   });
   return data.contents;
 }
@@ -50,6 +56,12 @@ export async function getSkill(
     endpoint: "skills",
     contentId: id,
     queries,
+    customRequestInit: {
+      cache: "force-cache",
+      next: {
+        revalidate: 86400,
+      },
+    },
   });
   return data;
 }
@@ -58,6 +70,12 @@ export async function getWorks(queries?: MicroCMSQueries): Promise<Work[]> {
   const data = await client.getList<Work>({
     endpoint: "projects",
     queries,
+    customRequestInit: {
+      cache: "force-cache",
+      next: {
+        revalidate: 86400,
+      },
+    },
   });
   return data.contents;
 }

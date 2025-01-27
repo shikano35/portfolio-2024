@@ -44,8 +44,8 @@ const timelineData: TimelineItem[] = [
   {
     id: 6,
     year: "2024",
-    month: "10月",
-    description: "Web技術に興味を持ちプログラミングを本格的に学習開始",
+    month: "10月 -",
+    description: "Web技術に興味を持ち、プログラミングを本格的に学習し始める",
   },
 ];
 
@@ -164,9 +164,7 @@ export default function AboutPage() {
           </Heading>
           <FadeIn>
             <p className="text-center md:text-start text-muted-foreground text-sm leading-6">
-              趣味は読書とプログラミングです。
-              <br />
-              小説と技術書をよく読みます。
+              趣味は読書とプログラミングです。小説と技術書をよく読みます。
               <br />
               長期的な休みは、一人旅やキャンプなどのアウトドアも楽しみます。
             </p>
