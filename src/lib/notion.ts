@@ -44,7 +44,7 @@ export async function fetchNotionArticles(): Promise<Article[]> {
 
     const articles: Article[] = response.results.map((item) => {
       if (!("properties" in item) || !("url" in item)) {
-        throw new Error("Item is not a valid page object.");
+        throw new Error("Notion APIのデータ形式が正しくありません。");
       }
 
       const page = item as PageObjectResponse;
