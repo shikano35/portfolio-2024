@@ -7,6 +7,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { baseMetadata } from "@/lib/metadata";
 import { HeadGroup } from "@/components/HeadGroup";
 import { Border } from "@/components/Border";
+import { StarMessage } from "@/components/Stars";
 
 export async function generateMetadata({
   params,
@@ -51,7 +52,8 @@ export default async function SkillDetailPage({
         </FadeIn>
       </HeadGroup>
       <Border className="my-24" />
-      <section>
+      <StarMessage />
+      <section className="mt-16">
         <Heading as="h2" className="mb-8">
           Skills
         </Heading>
