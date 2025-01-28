@@ -108,7 +108,7 @@ export default function AboutPage() {
                     aria-hidden="true"
                   />
                   <time
-                    className="flex items-center justify-center -ml-28 md:-ml-32 font-bold text-4xl primary-foreground opacity-15"
+                    className="flex items-center justify-center -ml-28 md:-ml-32 font-bold text-4xl text-gray-300 dark:text-gray-700"
                     dateTime={item.year}
                   >
                     <FadeIn>{item.year}</FadeIn>
