@@ -108,10 +108,9 @@ function DefaultIcon() {
     <div className="w-16 h-16 bg-popover rounded-full" aria-hidden="true" />
   );
 }
-let count = 0;
+
 const fetchMergedSkills = cache(
   async ({ skills }: { skills?: string[] } = {}): Promise<MergedSkill[]> => {
-    console.log((count += 1));
     const cmsSkills = await getSkills({
       limit: 50,
       fields: "id,name,level,isFavorite",
