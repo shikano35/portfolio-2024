@@ -45,4 +45,5 @@ next-env.d.ts
 /.open-next
 wrangler.toml
 /.wrangler
+
 open-next.config.ts
