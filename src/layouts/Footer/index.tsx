@@ -1,3 +1,4 @@
+import React from "react";
 import { Border } from "@/components/Border";
 import { FadeIn, FadeInWithStagger } from "@/components/FadeIn";
 import { LinksNav } from "@/components/LinksNav";
