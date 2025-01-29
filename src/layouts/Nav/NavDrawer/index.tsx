@@ -1,50 +1,21 @@
-"use client";
-
-import { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { Bars3Icon, ChevronUpIcon } from "@heroicons/react/24/solid";
+import { ChevronUpIcon } from "@heroicons/react/24/solid";
 import { motion, AnimatePresence } from "motion/react";
 import { navList } from "@/layouts/Nav";
 import { NavItem } from "@/layouts/Nav/NavItem";
 import { Logo } from "@/components/Logo";
 import { Border } from "@/components/Border";
 import { ThemeSwitcher } from "@/components/Theme";
-import { cn } from "@/lib/cn";
 
-export function NavDrawer({
-  activeClassName = "font-semibold text-highlight",
-}) {
-  const [isOpen, setIsOpen] = useState(false);
+type NavDrawerProps = {
+  isOpen: boolean;
+  toggleDrawer: () => void;
+};
 
-  const toggleDrawer = () => {
-    setIsOpen((prev) => !prev);
-  };
-
+export function NavDrawer({ isOpen, toggleDrawer }: NavDrawerProps) {
   return (
-    <div className="relative z-50 md:hidden flex justify-center">
-      <button
-        className={cn(
-          "z-50 inline-flex items-center rounded-lg p-2 hover:bg-gray-200/50",
-          isOpen ? "fixed mr-6 -mt-5" : "relative -m-2"
-        )}
-        aria-label="Toggle site navigation"
-        type="button"
-        aria-expanded={isOpen}
-        onClick={toggleDrawer}
-      >
-        {isOpen ? (
-          <ChevronUpIcon
-            className="h-6 w-6 text-muted-foreground"
-            aria-hidden="true"
-          />
-        ) : (
-          <Bars3Icon
-            className="h-6 w-6 text-muted-foreground"
-            aria-hidden="true"
-          />
-        )}
-      </button>
-
+    <div className="fixed z-50 md:hidden flex justify-center">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -62,7 +33,7 @@ export function NavDrawer({
               backdropFilter: "blur(0px)",
             }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            onClick={() => setIsOpen(false)}
+            onClick={toggleDrawer}
           >
             <motion.div
               className="absolute top-0 pt-24 px-6 w-full bg-background shadow-md rounded-b-lg"
@@ -72,27 +43,40 @@ export function NavDrawer({
               transition={{ duration: 0.4, ease: "easeInOut" }}
               onClick={(e) => e.stopPropagation()}
             >
-              <Link
-                href="/"
-                className="flex items-center rounded-full"
-                aria-label="Home"
-                onClick={() => setIsOpen(false)}
-                style={{ maxWidth: "44px" }}
-              >
-                <Logo
-                  alt="My Logo"
-                  width={44}
-                  height={44}
-                  className="dark:hidden"
-                />
-                <Logo
-                  alt="My Logo"
-                  width={44}
-                  height={44}
-                  src="/my-icon-dark.webp"
-                  className="hidden dark:block"
-                />
-              </Link>
+              <div className="flex justify-between items-center px-4">
+                <Link
+                  href="/"
+                  className="flex items-center rounded-full"
+                  aria-label="Home"
+                  onClick={(e) => e.stopPropagation()}
+                  style={{ maxWidth: "44px" }}
+                >
+                  <Logo
+                    alt="My Logo"
+                    width={44}
+                    height={44}
+                    className="dark:hidden"
+                  />
+                  <Logo
+                    alt="My Logo"
+                    width={44}
+                    height={44}
+                    src="/my-icon-dark.webp"
+                    className="hidden dark:block"
+                  />
+                </Link>
+                <button
+                  className="z-50 rounded-lg p-2 hover:bg-input "
+                  aria-label="Close site navigation"
+                  type="button"
+                  onClick={toggleDrawer}
+                >
+                  <ChevronUpIcon
+                    className="size-6 text-muted-foreground"
+                    aria-hidden="true"
+                  />
+                </button>
+              </div>
 
               <motion.nav
                 className="flex flex-col gap-3 mt-8"
@@ -106,13 +90,13 @@ export function NavDrawer({
                     label={item.label}
                     href={item.href}
                     className="text-base"
-                    activeClassName={activeClassName}
-                    onClick={() => setIsOpen(false)}
+                    activeClassName="font-semibold text-highlight"
+                    onClick={toggleDrawer}
                   />
                 ))}
                 <Border />
 
-                <div className="flex items-center space-x-8 mb-2">
+                <div className="flex items-center space-x-8 mb-2 px-3">
                   <p className="my-4 text-muted-foreground">Theme</p>
                   <ThemeSwitcher />
                 </div>
