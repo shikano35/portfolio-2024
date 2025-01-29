@@ -1,3 +1,4 @@
+import React from "react";
 import { FadeIn } from "@/components/FadeIn";
 import { NavItem, NavItemProps } from "./NavItem";
 import { ThemeButton } from "@/components/Theme";

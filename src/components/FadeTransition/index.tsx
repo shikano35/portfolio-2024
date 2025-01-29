@@ -1,4 +1,3 @@
-// 勉強後導入する
 "use client";
 
 import React from "react";

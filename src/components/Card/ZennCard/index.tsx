@@ -1,3 +1,4 @@
+import React from "react";
 import { Zenn } from "@/components/Icons/social/Zenn";
 import Image from "next/image";
 import { HeartIcon } from "@heroicons/react/24/solid";

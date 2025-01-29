@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { NavItem } from "@/layouts/Nav/NavItem";
 import { CosenseIcon } from "@/components/Icons/social/CosenseIcon";
 import { ZennIcon } from "@/components/Icons/social/ZennIcon";
@@ -35,7 +36,7 @@ const linksList: LinksNavProps[] = [
   },
 ];
 
-export function LinksNav({ activeClassName = "font-medium text-primary" }) {
+export function LinksNav() {
   const { theme } = useTheme();
 
   return (
@@ -51,7 +52,7 @@ export function LinksNav({ activeClassName = "font-medium text-primary" }) {
                 label={item.label}
                 href={item.href}
                 className="text-sm lg:text-base px-2 mx-3"
-                activeClassName={activeClassName}
+                activeClassName="font-medium text-primary"
                 hoverClassName="hover:text-primary"
               />
             </FadeIn>

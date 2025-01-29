@@ -28,7 +28,7 @@ export default function Home() {
               </p>
             </FadeIn>
           </HeadGroup>
-          <HeroImage className="absolute top-2/3 -translate-y-1/2 -translate-x-[14rem] sm:-translate-x-24 md:-translate-x-80 lg:-translate-x-64 opacity-20 md:opacity-30">
+          <HeroImage className="absolute top-2/3 -translate-y-1/2 -translate-x-[15rem] sm:-translate-x-24 md:-translate-x-80 lg:-translate-x-64 opacity-20 md:opacity-30">
             <HeroMyIcon />
           </HeroImage>
         </div>

@@ -1,8 +1,14 @@
 "use client";
 
-import React, { ElementType, ReactNode, ComponentPropsWithoutRef } from "react";
+import React, {
+  ElementType,
+  ReactNode,
+  ComponentPropsWithoutRef,
+  Suspense,
+} from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/cn";
+import { SkeletonCard } from "../SkeletonCard";
 
 type GithubCardProps<T extends ElementType = "div"> = {
   children: ReactNode;
@@ -46,7 +52,9 @@ export function GithubCard<T extends ElementType = "div">({
       }}
       viewport={viewport}
     >
-      <Component>{children}</Component>
+      <Component>
+        <Suspense fallback={<SkeletonCard />}>{children}</Suspense>
+      </Component>
     </motion.div>
   );
 }

@@ -13,7 +13,7 @@ const message = [
   "興味あり",
   "少しだけわかる",
   "ちょっとわかる",
-  "実務経験あり/それなりにわかる",
+  "それなりにわかる",
   "ちょっとできる",
 ];
 
@@ -35,7 +35,7 @@ export function Stars({ level, className }: StarsProps) {
         <StarIcon
           key={index}
           className={cn(
-            "h-3 w-3 mx-0.5",
+            "size-3 mx-0.5",
             className,
             index < level ? starColor : "text-gray-300 dark:text-gray-700"
           )}

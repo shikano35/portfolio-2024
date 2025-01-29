@@ -7,3 +7,4 @@ postcss.config.mjs
 *.config.ts
 next-env.d.ts
 .open-next
+/.wrangler

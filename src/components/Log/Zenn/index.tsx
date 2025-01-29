@@ -9,6 +9,7 @@ export async function Zenn() {
   try {
     articles = await fetchZennArticles();
   } catch (error) {
+    console.error(error);
     return (
       <FadeIn className="text-destructive text-center">
         記事データの取得中にエラーが発生しました
