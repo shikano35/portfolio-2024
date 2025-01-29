@@ -43,7 +43,7 @@ export function Header() {
             <Nav />
             <NavDrawer isOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
             <button
-              className="md:hidden z-0 inline-flex items-center rounded-lg p-2 hover:bg-background dark:hover:bg-input"
+              className="md:hidden z-0 inline-flex items-center rounded-lg p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
               type="button"
               onClick={toggleDrawer}
               aria-label="Open navigation"
