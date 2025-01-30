@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { ZennCard } from "@/components/Card/ZennCard";
 import { ZennArticle } from "@/lib/zenn";
+import React from "react";
 
 export default {
   title: "Components/ZennCard",
