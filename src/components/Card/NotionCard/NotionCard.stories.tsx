@@ -1,4 +1,3 @@
-// src/components/Card/NotionCard/NotionCard.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react";
 import NotionCard from "@/components/Card/NotionCard";
 

@@ -3,7 +3,6 @@ import Notion from "@/components/Log/Notion";
 import { ComponentProps } from "react";
 import React from "react";
 
-// モックデータ
 const mockArticles = [
   {
     id: "1",
@@ -30,7 +29,6 @@ const mockArticles = [
   },
 ];
 
-// デコレーターでContextを提供
 const meta: Meta<typeof Notion> = {
   title: "Components/Log/Notion",
   component: Notion,
@@ -41,7 +39,6 @@ const meta: Meta<typeof Notion> = {
     },
   ],
   parameters: {
-    // 任意で設定可能なStorybookのパラメーター
     backgrounds: {
       default: "light",
     },
