@@ -1,9 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Notion from "@/components/Log/Notion";
 import { ComponentProps } from "react";
-import React from "react";
 
-const mockArticles = [
+type Article = {
+  id: string;
+  title: string;
+  date: string;
+  url: string;
+  cover: string;
+};
+
+const mockArticles: Article[] = [
   {
     id: "1",
     title: "Sample Article 1",
@@ -30,19 +37,9 @@ const mockArticles = [
 ];
 
 const meta: Meta<typeof Notion> = {
-  title: "Components/Log/Notion",
   component: Notion,
+  title: "Components/Log/Notion",
   tags: ["autodocs"],
-  decorators: [
-    (Story) => {
-      return <Story />;
-    },
-  ],
-  parameters: {
-    backgrounds: {
-      default: "light",
-    },
-  },
 };
 
 export default meta;
