@@ -6,17 +6,7 @@ import React from "react";
 export default {
   title: "Components/ZennCard",
   component: ZennCard,
-  argTypes: {
-    title: { control: "text" },
-    emoji: { control: "text" },
-    publishedAt: { control: "date" },
-    likedCount: { control: "number" },
-    commentsCount: { control: "number" },
-    user: {
-      control: "object",
-    },
-  },
-} as Meta;
+} satisfies Meta<typeof ZennCard>;
 
 const Template: StoryFn<ZennArticle> = (args: ZennArticle) => (
   <ZennCard {...args} />

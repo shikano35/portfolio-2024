@@ -5,15 +5,7 @@ const meta: Meta<typeof NotionCard> = {
   title: "Components/Card/NotionCard",
   component: NotionCard,
   tags: ["autodocs"],
-  argTypes: {
-    article: {
-      description: "記事のデータ",
-      table: {
-        type: { summary: "Article" },
-      },
-    },
-  },
-};
+} satisfies Meta<typeof NotionCard>;
 
 export default meta;
 
