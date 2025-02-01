@@ -66,3 +66,36 @@ export function FadeInWithStagger({
     </StaggerContext.Provider>
   );
 }
+
+export function FadeTransition({
+  children,
+  slow = false,
+}: {
+  children: React.ReactNode;
+  slow?: boolean;
+}) {
+  const shouldReduceMotion = useReducedMotion();
+  const duration = slow ? 2.0 : 1.0;
+
+  if (shouldReduceMotion) {
+    return <div>{children}</div>;
+  }
+
+  const variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
+  return (
+    <motion.div
+      viewport={{ once: true, margin: "0px 0px -100px" }}
+      initial="hidden"
+      whileInView="visible"
+      transition={{ duration, ease: "easeInOut" }}
+      variants={variants}
+      aria-live="polite"
+    >
+      {children}
+    </motion.div>
+  );
+}

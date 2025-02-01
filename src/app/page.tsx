@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Container className="flex flex-col">
-        <div className="md:grid md:grid-cols-12">
+        <div className="md:grid md:grid-cols-12 mb-40">
           <HeadGroup className="relative z-10 md:col-span-7">
             <Heading>Profile</Heading>
             <FadeIn>
@@ -32,31 +32,9 @@ export default function Home() {
             <HeroMyIcon />
           </HeroImage>
         </div>
-        <div className="flex flex-1 justify-center mt-16">
-          <div className="md:grid md:grid-cols-12 mt-32 md:mr-8">
-            <div className="md:col-span-5 lg:mx-0">
-              <FadeIn>
-                <Heading as="h6">My Favorite Tech Stack</Heading>
-                <SkillList
-                  className="mt-8 grid grid-cols-3 gap-6 justify-items-center md:justify-items-start"
-                  showName={false}
-                  showStars={false}
-                  iconSize="w-12 h-12"
-                  useFavorite={true}
-                />
-              </FadeIn>
-            </div>
-            <div className="md:flex md:flex-auto md:-ml-8 lg:ml-0 md:col-start-7 lg:col-start-8 mt-32 md:mt-0 ">
-              <GithubCard>
-                <ContributionGraph />
-              </GithubCard>
-            </div>
-          </div>
-        </div>
       </Container>
       <div>
         <Container>
-          <Border className="my-24" />
           <div>
             <FadeIn>
               <Heading as="h2" className="mt-16 mb-8">
@@ -78,6 +56,30 @@ export default function Home() {
             </Heading>
           </FadeIn>
           <Notion />
+        </Container>
+        <Container>
+          <Border className="my-16" />
+          <div className="flex flex-1 justify-center mt-16">
+            <div className="md:grid md:grid-cols-12 md:mr-8">
+              <div className="md:col-span-5 lg:mx-0">
+                <FadeIn>
+                  <Heading as="h6">My Favorite Tech Stack</Heading>
+                  <SkillList
+                    className="mt-8 grid grid-cols-3 gap-6 justify-items-center md:justify-items-start"
+                    showName={false}
+                    showStars={false}
+                    iconSize="w-12 h-12"
+                    useFavorite={true}
+                  />
+                </FadeIn>
+              </div>
+              <div className="md:flex md:flex-auto md:-ml-8 lg:ml-0 md:col-start-7 lg:col-start-8 mt-32 md:mt-0 ">
+                <GithubCard>
+                  <ContributionGraph />
+                </GithubCard>
+              </div>
+            </div>
+          </div>
         </Container>
       </div>
     </>

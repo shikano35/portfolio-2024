@@ -61,14 +61,14 @@ export default function AboutPage() {
                 alt="My Logo"
                 width={96}
                 height={96}
-                className="dark:hidden h-12 w-12 md:h-16 md:w-16 border border-border rounded-full"
+                className="flex-shrink-0 dark:hidden h-12 w-12 md:h-16 md:w-16 border border-border rounded-full"
               />
               <Logo
                 alt="My Logo"
                 width={96}
                 height={96}
                 src="/my-icon-dark.webp"
-                className="hidden dark:block h-12 w-12 md:h-16 md:w-16 border border-border rounded-full"
+                className="flex-shrink-0 hidden dark:block h-12 w-12 md:h-16 md:w-16 border border-border rounded-full"
               />
             </FadeIn>
             <Heading as="h3" className="tracking-wide m-4 whitespace-nowrap">

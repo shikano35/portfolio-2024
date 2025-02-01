@@ -43,7 +43,7 @@ export function NavDrawer({ isOpen, toggleDrawer }: NavDrawerProps) {
               transition={{ duration: 0.4, ease: "easeInOut" }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex justify-between items-center px-4">
+              <div className="flex justify-between items-center px-6">
                 <Link
                   href="/"
                   className="flex items-center rounded-full"
@@ -89,15 +89,15 @@ export function NavDrawer({ isOpen, toggleDrawer }: NavDrawerProps) {
                     key={item.href}
                     label={item.label}
                     href={item.href}
-                    className="text-base"
+                    className="text-base mx-2"
                     activeClassName="font-semibold text-highlight"
                     onClick={toggleDrawer}
                   />
                 ))}
                 <Border />
 
-                <div className="flex items-center space-x-8 mb-2 px-3">
-                  <p className="my-4 text-muted-foreground">Theme</p>
+                <div className="flex items-center space-x-8 mb-2">
+                  <p className="my-4 ml-5 text-muted-foreground">Theme</p>
                   <ThemeSwitcher />
                 </div>
               </motion.nav>
