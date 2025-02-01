@@ -17,13 +17,13 @@ export function Header() {
   };
 
   return (
-    <Container as="header" className="mt-24">
+    <Container as="header" className="mt-24 px-4 sm:px-12">
       <nav>
         <FadeInWithStagger>
-          <div className="flex items-center w-full justify-between">
+          <div className="flex items-center justify-between">
             <Link
               href="/"
-              className="flex items-center gap-8"
+              className="flex items-center rounded-full ml-2 sm:ml-0"
               aria-label="Home"
             >
               <MyIcon className="size-12" />

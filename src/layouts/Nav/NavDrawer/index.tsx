@@ -4,9 +4,9 @@ import { ChevronUpIcon } from "@heroicons/react/24/solid";
 import { motion, AnimatePresence } from "motion/react";
 import { navList } from "@/layouts/Nav";
 import { NavItem } from "@/layouts/Nav/NavItem";
-import { Logo } from "@/components/Logo";
 import { Border } from "@/components/Border";
 import { ThemeSwitcher } from "@/components/Theme";
+import { MyIcon } from "@/components/Icons/MyIcon";
 
 type NavDrawerProps = {
   isOpen: boolean;
@@ -43,30 +43,17 @@ export function NavDrawer({ isOpen, toggleDrawer }: NavDrawerProps) {
               transition={{ duration: 0.4, ease: "easeInOut" }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex justify-between items-center px-6">
+              <div className="flex justify-between items-center sm:px-6">
                 <Link
                   href="/"
                   className="flex items-center rounded-full"
                   aria-label="Home"
                   onClick={(e) => e.stopPropagation()}
-                  style={{ maxWidth: "44px" }}
                 >
-                  <Logo
-                    alt="My Logo"
-                    width={44}
-                    height={44}
-                    className="dark:hidden"
-                  />
-                  <Logo
-                    alt="My Logo"
-                    width={44}
-                    height={44}
-                    src="/my-icon-dark.webp"
-                    className="hidden dark:block"
-                  />
+                  <MyIcon className="size-12" />
                 </Link>
                 <button
-                  className="z-50 rounded-lg p-2 hover:bg-input "
+                  className="z-50 rounded-lg -mr-2 sm:mr-0 p-2 hover:bg-input "
                   aria-label="Close site navigation"
                   type="button"
                   onClick={toggleDrawer}
@@ -89,7 +76,7 @@ export function NavDrawer({ isOpen, toggleDrawer }: NavDrawerProps) {
                     key={item.href}
                     label={item.label}
                     href={item.href}
-                    className="text-base mx-2"
+                    className="text-base sm:mx-4"
                     activeClassName="font-semibold text-highlight"
                     onClick={toggleDrawer}
                   />
@@ -97,7 +84,9 @@ export function NavDrawer({ isOpen, toggleDrawer }: NavDrawerProps) {
                 <Border />
 
                 <div className="flex items-center space-x-8 mb-2">
-                  <p className="my-4 ml-5 text-muted-foreground">Theme</p>
+                  <p className="my-4 sm:ml-4 px-4 text-muted-foreground">
+                    Theme
+                  </p>
                   <ThemeSwitcher />
                 </div>
               </motion.nav>

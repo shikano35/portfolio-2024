@@ -37,7 +37,7 @@ export default function Home() {
         <Container>
           <div>
             <FadeIn>
-              <Heading as="h2" className="mt-16 mb-8">
+              <Heading as="h2" className="mt-32 md:mt-16 mb-8">
                 PersonalProjects
               </Heading>
             </FadeIn>
