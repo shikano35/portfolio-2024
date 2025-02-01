@@ -164,7 +164,7 @@ const SkillItem = ({
         </SkillCard>
       )}
       {showName && (
-        <span className="mt-2 text-sm text-muted-foreground font-medium">
+        <span className="mt-2 text-xs sm:text-sm text-muted-foreground font-medium line-clamp-1">
           {skill.name}
         </span>
       )}
