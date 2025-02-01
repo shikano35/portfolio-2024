@@ -38,23 +38,25 @@ export function GithubCard<T extends ElementType = "div">({
   };
 
   return (
-    <motion.div
-      className={cn(
-        "p-4 border border-border bg-background rounded-xl md:mx-0 h-[278px]",
-        className
-      )}
-      initial="hidden"
-      whileInView="visible"
-      variants={variants}
-      transition={{
-        duration: 1,
-        ease: "easeInOut",
-      }}
-      viewport={viewport}
-    >
-      <Component>
-        <Suspense fallback={<SkeletonCard />}>{children}</Suspense>
-      </Component>
-    </motion.div>
+    <Component>
+      <Suspense fallback={<SkeletonCard />}>
+        <motion.div
+          className={cn(
+            "p-4 border border-border bg-background rounded-xl md:mx-0 h-[278px]",
+            className
+          )}
+          initial="hidden"
+          whileInView="visible"
+          variants={variants}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+          }}
+          viewport={viewport}
+        >
+          {children}
+        </motion.div>
+      </Suspense>
+    </Component>
   );
 }

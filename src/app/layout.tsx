@@ -4,6 +4,7 @@ import { cn } from "@/lib/cn";
 import { baseMetadata } from "@/lib/metadata";
 import { Layout } from "@/layouts";
 import "@/style/globals.css";
+import React from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
