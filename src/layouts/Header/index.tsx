@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
-import { Logo } from "@/components/Logo";
 import { Nav } from "@/layouts/Nav";
 import { NavDrawer } from "@/layouts/Nav/NavDrawer";
 import { FadeInWithStagger } from "@/components/FadeIn";
 import { Container } from "@/components/Container";
 import { Bars3Icon } from "@heroicons/react/24/solid";
+import { MyIcon } from "@/components/Icons/MyIcon";
 
 export function Header() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -26,19 +26,7 @@ export function Header() {
               className="flex items-center gap-8"
               aria-label="Home"
             >
-              <Logo
-                alt="My Logo"
-                width={44}
-                height={44}
-                className="dark:hidden"
-              />
-              <Logo
-                alt="My Logo"
-                width={44}
-                height={44}
-                src="/my-icon-dark.webp"
-                className="hidden dark:block"
-              />
+              <MyIcon className="size-12" />
             </Link>
             <Nav />
             <NavDrawer isOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
