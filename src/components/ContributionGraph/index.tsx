@@ -6,7 +6,7 @@ import {
 } from "@/lib/github";
 import clsx from "clsx";
 import React from "react";
-import { FadeIn } from "../FadeIn";
+import { FadeIn, FadeTransition } from "../FadeIn";
 import { GithubIcon } from "../Icons/social/GithubIcon";
 import { Heading } from "../Heading";
 import Link from "next/link";
@@ -79,7 +79,7 @@ function ContributionGraphContent({
           </Link>
         </header>
       </FadeIn>
-      <FadeIn>
+      <FadeTransition>
         <div className="mt-4 px-4 overflow-x-hidden">
           {contributions.length > 0 ? (
             <table className="flex flex-col">
@@ -131,7 +131,7 @@ function ContributionGraphContent({
             <div className="h-[164px]"></div>
           )}
         </div>
-      </FadeIn>
+      </FadeTransition>
     </>
   );
 }

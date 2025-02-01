@@ -1,4 +1,4 @@
-import { FadeIn } from "@/components/FadeIn";
+import { FadeIn, FadeTransition } from "@/components/FadeIn";
 import { Heading } from "@/components/Heading";
 import { SkillList } from "@/components/Skill";
 import Image from "next/image";
@@ -24,7 +24,7 @@ export default function PersonalProjectCard({
   skills,
 }: WorkCardProps) {
   return (
-    <FadeIn>
+    <FadeTransition>
       <div className="group relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 dark:bg-gray-800 dark:ring-white/15 h-full">
         <div className="relative h-80 shrink-0">
           <Image
@@ -82,6 +82,6 @@ export default function PersonalProjectCard({
           </figcaption>
         </figure>
       </div>
-    </FadeIn>
+    </FadeTransition>
   );
 }
