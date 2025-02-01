@@ -36,20 +36,14 @@ export async function ContributionGraph() {
   });
 
   const months = Array.from({ length: 5 }, (_, i) => {
-    const date = new Date(today.getFullYear(), today.getMonth() - i);
+    const date = new Date(today.getFullYear(), today.getMonth() - 4 + i);
     return date.toLocaleString("en-US", { month: "short" });
-  }).reverse();
-
-  const currentMonthIndex = today.getMonth();
-  const adjustedMonths = [
-    ...months.slice(currentMonthIndex),
-    ...months.slice(0, currentMonthIndex),
-  ];
+  });
 
   return (
     <ContributionGraphContent
       contributions={contributions}
-      months={adjustedMonths}
+      months={months}
       totalContributions={totalContributions}
     />
   );
