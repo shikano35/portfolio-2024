@@ -1,26 +1,28 @@
 "use client";
 
-import { ComponentPropsWithoutRef } from "react";
 import { motion } from "motion/react";
-import React from "react";
+import React, { ComponentPropsWithoutRef } from "react";
 
-export function ClickMotion(
-  props: ComponentPropsWithoutRef<typeof motion.div> & {
-    smallAnimation?: boolean;
-  }
-) {
+type ClickMotionProps = ComponentPropsWithoutRef<typeof motion.div> & {
+  smallAnimation?: boolean;
+};
+
+export function ClickMotion({
+  smallAnimation = false,
+  ...rest
+}: ClickMotionProps) {
   return (
     <motion.div
-      whileHover={{
-        scale: props.smallAnimation ? 1 : 1.01,
-        y: props.smallAnimation ? -0.5 : -1.5,
-      }}
-      whileTap={{ scale: 0.99, y: props.smallAnimation ? 0.5 : 1 }}
       transition={{
-        duration: props.smallAnimation ? 0.15 : 0.225,
+        duration: smallAnimation ? 0.15 : 0.225,
         ease: "easeInOut",
       }}
-      {...props}
+      whileHover={{
+        scale: smallAnimation ? 1 : 1.01,
+        y: smallAnimation ? -0.5 : -1.5,
+      }}
+      whileTap={{ scale: 0.99, y: smallAnimation ? 0.5 : 1 }}
+      {...rest}
     />
   );
 }
