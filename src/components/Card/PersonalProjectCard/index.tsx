@@ -1,4 +1,4 @@
-import { FadeIn, FadeTransition } from "@/components/FadeIn";
+import { FadeInWithStagger, FadeTransition } from "@/components/FadeIn";
 import { Heading } from "@/components/Heading";
 import { SkillList } from "@/components/Skill";
 import Image from "next/image";
@@ -47,7 +47,7 @@ export default function PersonalProjectCard({
             </Heading>
           </blockquote>
           <figcaption className="mt-4 border-t border-border pt-4">
-            <FadeIn>
+            <FadeTransition>
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <div className="text-xs font-medium text-muted-foreground border border-muted-foreground rounded-full px-2 tracking-tighter">
@@ -63,22 +63,24 @@ export default function PersonalProjectCard({
                   {duration}
                 </div>
               </div>
-            </FadeIn>
-            <FadeIn className="">
+            </FadeTransition>
+            <FadeTransition>
               <div
                 className="mt-4 mb-8 max-w-[600px] text-sm text-muted-foreground md:h-28 lg:h-20"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
-            </FadeIn>
-            <SkillList
-              skills={skills}
-              showName={false}
-              showStars={false}
-              showBorder={false}
-              showClickMotion={false}
-              iconSize="size-7"
-              className="grid-cols-5 gap-2 mt-14"
-            />
+            </FadeTransition>
+            <FadeInWithStagger>
+              <SkillList
+                skills={skills}
+                showName={false}
+                showStars={false}
+                showBorder={false}
+                showClickMotion={false}
+                iconSize="size-7"
+                className="grid-cols-5 gap-2 mt-14"
+              />
+            </FadeInWithStagger>
           </figcaption>
         </figure>
       </div>

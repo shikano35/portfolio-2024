@@ -1,6 +1,6 @@
 import { Border } from "@/components/Border";
 import { Container } from "@/components/Container";
-import { FadeIn } from "@/components/FadeIn";
+import { FadeTransition } from "@/components/FadeIn";
 import { HeadGroup } from "@/components/HeadGroup";
 import { Heading } from "@/components/Heading";
 import Notion from "@/components/Log/Notion";
@@ -21,24 +21,20 @@ export default function LogPage() {
       <Container>
         <HeadGroup>
           <Heading>Log</Heading>
-          <FadeIn>
+          <FadeTransition>
             <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
               記事と学習記録一覧です。
             </p>
-          </FadeIn>
+          </FadeTransition>
         </HeadGroup>
-        <FadeIn>
-          <Heading as="h2" className="mt-48 mb-8">
-            Zenn
-          </Heading>
-        </FadeIn>
+        <Heading as="h2" className="mt-48 mb-8">
+          Zenn
+        </Heading>
         <Zenn />
         <Border className="my-24" />
-        <FadeIn>
-          <Heading as="h2" className="mb-8">
-            Notion
-          </Heading>
-        </FadeIn>
+        <Heading as="h2" className="mb-8">
+          Notion
+        </Heading>
         <Notion />
       </Container>
     </div>

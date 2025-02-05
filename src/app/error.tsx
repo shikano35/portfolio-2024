@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Container } from "@/components/Container";
-import { FadeIn } from "@/components/FadeIn";
+import { FadeTransition } from "@/components/FadeIn";
 import { HeadGroup } from "@/components/HeadGroup";
 import { Heading } from "@/components/Heading";
 
@@ -11,11 +11,11 @@ export default function NotFound() {
     <Container>
       <HeadGroup className="mb-24">
         <Heading>Error</Heading>
-        <FadeIn>
+        <FadeTransition>
           <p className="flex items-center justify-center md:justify-start">
             エラーが発生しました。
           </p>
-        </FadeIn>
+        </FadeTransition>
       </HeadGroup>
     </Container>
   );
