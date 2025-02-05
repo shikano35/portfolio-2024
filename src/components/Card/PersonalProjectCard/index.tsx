@@ -44,7 +44,10 @@ export default function PersonalProjectCard({
         />
         <figure className="relative p-10">
           <blockquote className="font-semibold">
-            <Heading as="h4" className="relative justify-items-center">
+            <Heading
+              as="h4"
+              className="relative justify-items-center line-clamp-1"
+            >
               {title}
             </Heading>
           </blockquote>
