@@ -77,6 +77,7 @@ export default function PersonalProjectCard({
                 showStars={false}
                 showBorder={false}
                 showClickMotion={false}
+                showAllLevels={true}
                 iconSize="size-7"
                 className="grid-cols-5 gap-2 mt-14"
               />
