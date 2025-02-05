@@ -1,5 +1,5 @@
 import React from "react";
-import { FadeIn } from "@/components/FadeIn";
+import { FadeInWithStagger, FadeTransition } from "@/components/FadeIn";
 import { Heading } from "@/components/Heading";
 import { HeadGroup } from "@/components/HeadGroup";
 import { GithubCard } from "@/components/Card/GithubCard";
@@ -20,13 +20,13 @@ export default function Home() {
         <div className="md:grid md:grid-cols-12 mb-40">
           <HeadGroup className="relative z-10 md:col-span-7">
             <Heading>Profile</Heading>
-            <FadeIn>
+            <FadeTransition>
               <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
                 エンジニアです。
                 <br />
                 深く考えながら、少しずつ学んでいます。
               </p>
-            </FadeIn>
+            </FadeTransition>
           </HeadGroup>
           <HeroImage className="absolute top-2/3 -translate-y-1/2 -translate-x-[15rem] sm:-translate-x-24 md:-translate-x-80 lg:-translate-x-64 opacity-20 md:opacity-30">
             <HeroMyIcon />
@@ -36,25 +36,25 @@ export default function Home() {
       <div>
         <Container>
           <div>
-            <FadeIn>
+            <FadeTransition>
               <Heading as="h2" className="mt-32 md:mt-16 mb-8">
                 PersonalProjects
               </Heading>
-            </FadeIn>
+            </FadeTransition>
             <PersonalProjects />
             <Border className="my-16" />
           </div>
-          <FadeIn>
+          <FadeTransition>
             <Heading as="h3" className="mt-16 mb-4">
               Zenn
             </Heading>
-          </FadeIn>
+          </FadeTransition>
           <Zenn />
-          <FadeIn>
+          <FadeTransition>
             <Heading as="h3" className="mt-16 mb-4">
               Notion
             </Heading>
-          </FadeIn>
+          </FadeTransition>
           <Notion />
         </Container>
         <Container>
@@ -62,8 +62,8 @@ export default function Home() {
           <div className="flex flex-1 justify-center mt-16">
             <div className="md:grid md:grid-cols-12 md:mr-8">
               <div className="md:col-span-5 lg:mx-0">
-                <FadeIn>
-                  <Heading as="h6">My Favorite Tech Stack</Heading>
+                <Heading as="h6">My Favorite Tech Stack</Heading>
+                <FadeInWithStagger>
                   <SkillList
                     className="mt-8 grid grid-cols-3 gap-6 justify-items-center md:justify-items-start"
                     showName={false}
@@ -71,7 +71,7 @@ export default function Home() {
                     iconSize="w-12 h-12"
                     useFavorite={true}
                   />
-                </FadeIn>
+                </FadeInWithStagger>
               </div>
               <div className="md:flex md:flex-auto md:-ml-8 lg:ml-0 md:col-start-7 lg:col-start-8 mt-32 md:mt-0 ">
                 <GithubCard>

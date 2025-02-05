@@ -69,16 +69,18 @@ export function FadeInWithStagger({
 
 export function FadeTransition({
   children,
+  className,
   slow = false,
 }: {
   children: React.ReactNode;
+  className?: string;
   slow?: boolean;
 }) {
   const shouldReduceMotion = useReducedMotion();
-  const duration = slow ? 2.0 : 1.0;
+  const duration = slow ? 2.0 : 0.6;
 
   if (shouldReduceMotion) {
-    return <div>{children}</div>;
+    return <div className={className}>{children}</div>;
   }
 
   const variants = {
@@ -94,6 +96,7 @@ export function FadeTransition({
       transition={{ duration, ease: "easeInOut" }}
       variants={variants}
       aria-live="polite"
+      className={className}
     >
       {children}
     </motion.div>

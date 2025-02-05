@@ -1,7 +1,7 @@
 import React from "react";
 import { ZennCard } from "@/components/Card/ZennCard";
 import { fetchZennArticles } from "@/lib/zenn";
-import { FadeIn } from "@/components/FadeIn";
+import { FadeTransition } from "@/components/FadeIn";
 
 export async function Zenn() {
   let articles;
@@ -11,25 +11,25 @@ export async function Zenn() {
   } catch (error) {
     console.error(error);
     return (
-      <FadeIn className="text-destructive text-center">
+      <FadeTransition className="text-destructive text-center">
         記事データの取得中にエラーが発生しました
-      </FadeIn>
+      </FadeTransition>
     );
   }
 
   if (articles.length === 0) {
     return (
-      <FadeIn className="text-muted-foreground text-center">
+      <FadeTransition className="text-muted-foreground text-center">
         まだ記事を投稿していません
-      </FadeIn>
+      </FadeTransition>
     );
   }
 
   if (!articles) {
     return (
-      <FadeIn className="text-muted-foreground text-center">
+      <FadeTransition className="text-muted-foreground text-center">
         記事がありません
-      </FadeIn>
+      </FadeTransition>
     );
   }
 

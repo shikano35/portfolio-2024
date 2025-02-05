@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { SkillList } from "@/components/Skill";
 import { getSkill, getSkills } from "@/lib/microcms";
 import { Heading } from "@/components/Heading";
-import { FadeIn } from "@/components/FadeIn";
+import { FadeTransition } from "@/components/FadeIn";
 import { baseMetadata } from "@/lib/metadata";
 import { HeadGroup } from "@/components/HeadGroup";
 import { Border } from "@/components/Border";
@@ -45,11 +45,11 @@ export default async function SkillDetailPage({
         <Heading as="h2" className="mb-8 tracking-wide">
           {skill.name}
         </Heading>
-        <FadeIn>
+        <FadeTransition>
           <p className="text-center md:text-start text-muted-foreground text-base leading-7">
             {skill.description}
           </p>
-        </FadeIn>
+        </FadeTransition>
       </HeadGroup>
       <Border className="my-24" />
       <StarMessage />

@@ -4,7 +4,7 @@ import { Heading } from "@/components/Heading";
 import { baseMetadata } from "@/lib/metadata";
 import { Metadata } from "next";
 import { Container } from "@/components/Container";
-import { FadeIn } from "@/components/FadeIn";
+import { FadeTransition } from "@/components/FadeIn";
 import { PersonalProjects } from "@/components/Projects";
 
 export const metadata: Metadata = {
@@ -19,17 +19,15 @@ export default function ProjectsPage() {
       <Container>
         <HeadGroup>
           <Heading>Projects</Heading>
-          <FadeIn>
+          <FadeTransition>
             <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
               制作物一覧です。
             </p>
-          </FadeIn>
+          </FadeTransition>
         </HeadGroup>
-        <FadeIn>
-          <Heading as="h2" className="mt-48 mb-8">
-            PersonalProjects
-          </Heading>
-        </FadeIn>
+        <Heading as="h2" className="mt-48 mb-8">
+          PersonalProjects
+        </Heading>
         <PersonalProjects />
       </Container>
     </div>

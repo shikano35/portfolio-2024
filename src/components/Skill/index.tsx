@@ -42,6 +42,9 @@ import { PythonIcon } from "../Icons/skills/PythonIcon";
 import { SwaggerIcon } from "../Icons/skills/SwaggerIcon";
 import { VitestIcon } from "../Icons/skills/VitestIcon";
 import { AnimatedTooltip } from "@/components/AnimatedTooltip";
+import { BunIcon } from "../Icons/skills/Bun";
+import { BiomeIcon } from "../Icons/skills/Biome";
+import { HonoIcon } from "../Icons/skills/Hono";
 
 type Skill = {
   name: string;
@@ -59,14 +62,17 @@ const Skills: Skill[] = [
   { name: "Tailwind CSS", icon: TailwindIcon },
   { name: "Prisma", icon: PrismaIcon },
   { name: "Astro", icon: AstroIcon },
+  { name: "Biome", icon: BiomeIcon },
   { name: "Storybook", icon: StorybookIcon },
   { name: "Vitest", icon: VitestIcon },
   { name: "Playwright", icon: PlaywriteIcon },
   { name: "microCMS", icon: MicroCMSIcon },
   { name: "Swagger", icon: SwaggerIcon },
   { name: "GraphQL", icon: GraphQLIcon },
+  { name: "Bun", icon: BunIcon },
   { name: "Node.js", icon: NodejsIcon },
   { name: "Go", icon: GoIcon },
+  { name: "Hono", icon: HonoIcon },
   { name: "Firebase", icon: FirebaseIcon },
   { name: "Supabase", icon: SupabaseIcon },
   { name: "MySQL", icon: MySQLIcon },
@@ -182,6 +188,7 @@ export async function SkillList({
   className = "",
   showClickMotion = true,
   useFavorite = false,
+  showAllLevels = false,
 }: {
   skills?: string[];
   showName?: boolean;
@@ -191,13 +198,19 @@ export async function SkillList({
   className?: string;
   showClickMotion?: boolean;
   useFavorite?: boolean;
+  showAllLevels?: boolean;
 }) {
   const allSkills = useFavorite
     ? await fetchFavoriteSkills()
     : await fetchMergedSkills({ skills });
+
+  const filteredSkills = allSkills.filter(
+    (skill) => showAllLevels || skill.level > 0
+  );
+
   return (
     <div className={cn("grid gap-2", className)}>
-      {allSkills.map((skill) => (
+      {filteredSkills.map((skill) => (
         <div key={skill.id} className="flex flex-col items-center">
           <FadeIn>
             <Link

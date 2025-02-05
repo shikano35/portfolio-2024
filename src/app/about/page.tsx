@@ -4,7 +4,7 @@ import { Container } from "@/components/Container";
 import { HeadGroup } from "@/components/HeadGroup";
 import { Heading } from "@/components/Heading";
 import { baseMetadata } from "@/lib/metadata";
-import { FadeIn } from "@/components/FadeIn";
+import { FadeIn, FadeInWithStagger, FadeTransition } from "@/components/FadeIn";
 import { Border } from "@/components/Border";
 import { GithubCard } from "@/components/Card/GithubCard";
 import { ContributionGraph } from "@/components/ContributionGraph";
@@ -56,7 +56,7 @@ export default function AboutPage() {
         <HeadGroup>
           <Heading>About</Heading>
           <div className="flex items-center justify-center md:justify-start mb-8">
-            <FadeIn>
+            <FadeTransition>
               <Logo
                 alt="My Logo"
                 width={96}
@@ -70,12 +70,12 @@ export default function AboutPage() {
                 src="/my-icon-dark.webp"
                 className="flex-shrink-0 hidden dark:block h-12 w-12 md:h-16 md:w-16 border border-border rounded-full"
               />
-            </FadeIn>
+            </FadeTransition>
             <Heading as="h3" className="tracking-wide m-4 whitespace-nowrap">
               Shin Takemura
             </Heading>
           </div>
-          <FadeIn>
+          <FadeTransition>
             <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
               エンジニアです。
               <br />
@@ -85,7 +85,7 @@ export default function AboutPage() {
               <br />
               シンプルなデザインとシンプルなアニメーションが好きです。
             </p>
-          </FadeIn>
+          </FadeTransition>
         </HeadGroup>
       </header>
 
@@ -137,8 +137,8 @@ export default function AboutPage() {
           <div className="flex flex-1 justify-center">
             <div className="md:grid md:grid-cols-12 md:mr-8">
               <div className="md:col-span-5 lg:mx-0">
-                <FadeIn>
-                  <Heading as="h6">My Favorite Tech Stack</Heading>
+                <Heading as="h6">My Favorite Tech Stack</Heading>
+                <FadeInWithStagger>
                   <SkillList
                     className="mt-8 grid grid-cols-3 gap-6 justify-items-center md:justify-items-start"
                     showName={false}
@@ -146,7 +146,7 @@ export default function AboutPage() {
                     iconSize="w-12 h-12"
                     useFavorite={true}
                   />
-                </FadeIn>
+                </FadeInWithStagger>
               </div>
               <div className="md:flex md:flex-auto md:-ml-8 lg:ml-0 md:col-start-7 lg:col-start-8 mt-32 md:mt-0">
                 <GithubCard>
@@ -162,24 +162,26 @@ export default function AboutPage() {
           <Heading as="h4" className="mt-16 mb-4">
             Hobbies
           </Heading>
-          <FadeIn>
+          <FadeTransition>
             <p className="text-center md:text-start text-muted-foreground text-sm leading-6">
-              趣味は読書とプログラミングです。小説と技術書をよく読みます。
+              趣味は読書とプログラミングです。
+              <br />
+              小説と技術書をよく読みます。
               <br />
               長期的な休みは、一人旅やキャンプなどのアウトドアも楽しみます。
             </p>
-          </FadeIn>
+          </FadeTransition>
         </section>
 
         <section aria-labelledby="curiosity-heading">
           <Heading as="h4" className="mt-12 mb-4">
             Curiosity
           </Heading>
-          <FadeIn>
+          <FadeTransition>
             <p className="text-center md:text-start text-muted-foreground text-sm leading-6">
               知識を得たり、物事を深く考えることが好きです。
             </p>
-          </FadeIn>
+          </FadeTransition>
         </section>
       </main>
     </Container>

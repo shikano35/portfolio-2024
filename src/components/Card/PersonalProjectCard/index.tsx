@@ -1,8 +1,8 @@
-import { FadeIn, FadeTransition } from "@/components/FadeIn";
-import { Heading } from "@/components/Heading";
-import { SkillList } from "@/components/Skill";
 import Image from "next/image";
 import React from "react";
+import { FadeInWithStagger, FadeTransition } from "@/components/FadeIn";
+import { Heading } from "@/components/Heading";
+import { SkillList } from "@/components/Skill";
 
 type WorkCardProps = {
   imageSrc: string;
@@ -29,17 +29,19 @@ export default function PersonalProjectCard({
         <div className="relative h-80 shrink-0">
           <Image
             alt={`${title}'s thumbnail`}
-            src={imageSrc}
-            layout="fill"
-            objectFit="cover"
             className="absolute inset-x-0 top-0 w-full h-full object-cover"
+            fill
+            priority
+            sizes="50vw"
+            src={imageSrc}
+            style={{ objectFit: "cover" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white to-10% dark:from-gray-800 dark:from-[-25%]"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-white to-10% dark:from-gray-800 dark:from-[-25%]" />
         </div>
         <div
           aria-hidden="true"
           className="absolute inset-0 rounded-3xl bg-gradient-to-t from-background ring-1 ring-inset ring-border from-55%"
-        ></div>
+        />
         <figure className="relative p-10">
           <blockquote className="font-semibold">
             <Heading as="h4" className="relative justify-items-center">
@@ -47,7 +49,7 @@ export default function PersonalProjectCard({
             </Heading>
           </blockquote>
           <figcaption className="mt-4 border-t border-border pt-4">
-            <FadeIn>
+            <FadeTransition>
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <div className="text-xs font-medium text-muted-foreground border border-muted-foreground rounded-full px-2 tracking-tighter">
@@ -63,22 +65,25 @@ export default function PersonalProjectCard({
                   {duration}
                 </div>
               </div>
-            </FadeIn>
-            <FadeIn className="">
+            </FadeTransition>
+            <FadeTransition>
               <div
                 className="mt-4 mb-8 max-w-[600px] text-sm text-muted-foreground md:h-28 lg:h-20"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
-            </FadeIn>
-            <SkillList
-              skills={skills}
-              showName={false}
-              showStars={false}
-              showBorder={false}
-              showClickMotion={false}
-              iconSize="size-7"
-              className="grid-cols-5 gap-2 mt-14"
-            />
+            </FadeTransition>
+            <FadeInWithStagger>
+              <SkillList
+                className="grid-cols-5 gap-2 mt-14"
+                iconSize="size-7"
+                showAllLevels
+                showBorder={false}
+                showClickMotion={false}
+                showName={false}
+                showStars={false}
+                skills={skills}
+              />
+            </FadeInWithStagger>
           </figcaption>
         </figure>
       </div>

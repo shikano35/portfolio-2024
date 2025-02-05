@@ -34,8 +34,10 @@
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
     "no-console": "warn",
     "react/jsx-sort-props": "error",
+    "import/extensions": "off",
     "react/prop-types": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
@@ -58,6 +60,12 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {},
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
   }
 }

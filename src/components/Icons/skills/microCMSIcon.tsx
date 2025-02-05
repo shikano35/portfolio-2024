@@ -1,16 +1,24 @@
 "use client";
 
-import React from "react";
 import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
 
 export function MicroCMSIcon(props: React.SVGProps<SVGSVGElement>) {
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  // lightモードのSVG
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   const lightSVG = (
     <svg
-      viewBox="0 0 200 200"
       fill="none"
+      viewBox="0 0 200 200"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -33,11 +41,10 @@ export function MicroCMSIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 
-  // darkモードのSVG
   const darkSVG = (
     <svg
-      viewBox="0 0 201 200"
       fill="none"
+      viewBox="0 0 201 200"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -47,6 +54,8 @@ export function MicroCMSIcon(props: React.SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
+
+  if (!theme) return null;
 
   return theme === "dark" ? darkSVG : lightSVG;
 }
