@@ -1,8 +1,8 @@
+import Image from "next/image";
+import React from "react";
 import { FadeInWithStagger, FadeTransition } from "@/components/FadeIn";
 import { Heading } from "@/components/Heading";
 import { SkillList } from "@/components/Skill";
-import Image from "next/image";
-import React from "react";
 
 type WorkCardProps = {
   imageSrc: string;
@@ -29,17 +29,19 @@ export default function PersonalProjectCard({
         <div className="relative h-80 shrink-0">
           <Image
             alt={`${title}'s thumbnail`}
-            src={imageSrc}
-            layout="fill"
-            objectFit="cover"
             className="absolute inset-x-0 top-0 w-full h-full object-cover"
+            fill
+            priority
+            sizes="50vw"
+            src={imageSrc}
+            style={{ objectFit: "cover" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white to-10% dark:from-gray-800 dark:from-[-25%]"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-white to-10% dark:from-gray-800 dark:from-[-25%]" />
         </div>
         <div
           aria-hidden="true"
           className="absolute inset-0 rounded-3xl bg-gradient-to-t from-background ring-1 ring-inset ring-border from-55%"
-        ></div>
+        />
         <figure className="relative p-10">
           <blockquote className="font-semibold">
             <Heading as="h4" className="relative justify-items-center">
@@ -72,14 +74,14 @@ export default function PersonalProjectCard({
             </FadeTransition>
             <FadeInWithStagger>
               <SkillList
-                skills={skills}
-                showName={false}
-                showStars={false}
+                className="grid-cols-5 gap-2 mt-14"
+                iconSize="size-7"
+                showAllLevels
                 showBorder={false}
                 showClickMotion={false}
-                showAllLevels={true}
-                iconSize="size-7"
-                className="grid-cols-5 gap-2 mt-14"
+                showName={false}
+                showStars={false}
+                skills={skills}
               />
             </FadeInWithStagger>
           </figcaption>
