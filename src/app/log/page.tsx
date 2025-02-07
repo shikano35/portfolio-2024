@@ -22,7 +22,7 @@ export default function LogPage() {
         <HeadGroup>
           <Heading>Log</Heading>
           <FadeTransition>
-            <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
+            <p className="text-center md:text-start text-muted-foreground text-sm md:text-base leading-8 md:leading-10">
               記事と学習記録一覧です。
             </p>
           </FadeTransition>

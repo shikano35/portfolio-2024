@@ -76,7 +76,7 @@ export default function AboutPage() {
             </Heading>
           </div>
           <FadeTransition>
-            <p className="text-center md:text-start text-muted-foreground text-base leading-8 md:leading-10">
+            <p className="text-center md:text-start text-muted-foreground text-sm md:text-base leading-8 md:leading-10">
               エンジニアです。
               <br />
               モダンなWeb技術を中心に学んでいます。
