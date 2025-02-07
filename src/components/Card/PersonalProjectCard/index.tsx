@@ -44,7 +44,10 @@ export default function PersonalProjectCard({
         />
         <figure className="relative p-10">
           <blockquote className="font-semibold">
-            <Heading as="h4" className="relative justify-items-center">
+            <Heading
+              as="h4"
+              className="relative justify-items-center sm:line-clamp-1"
+            >
               {title}
             </Heading>
           </blockquote>
@@ -74,8 +77,8 @@ export default function PersonalProjectCard({
             </FadeTransition>
             <FadeInWithStagger>
               <SkillList
-                className="grid-cols-5 gap-2 mt-14"
-                iconSize="size-7"
+                className="grid-cols-5 gap-2 mt-0 md:mt-14 lg:mt-0"
+                iconSize="size-6 md:size-7"
                 showAllLevels
                 showBorder={false}
                 showClickMotion={false}
