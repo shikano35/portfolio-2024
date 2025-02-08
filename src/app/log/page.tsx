@@ -27,7 +27,7 @@ export default function LogPage() {
             </p>
           </FadeTransition>
         </HeadGroup>
-        <Heading as="h2" className="mt-48 mb-8">
+        <Heading as="h2" className="mt-64 mb-8">
           Zenn
         </Heading>
         <Zenn />
