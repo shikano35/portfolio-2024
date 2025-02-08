@@ -78,7 +78,7 @@ export default function PersonalProjectCard({
             <FadeInWithStagger>
               <SkillList
                 className="grid-cols-5 gap-2 mt-0 md:mt-14 lg:mt-0"
-                iconSize="size-6 md:size-7"
+                iconSize="size-6 sm:size-7"
                 showAllLevels
                 showBorder={false}
                 showClickMotion={false}
