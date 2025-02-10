@@ -14,7 +14,7 @@ import { SkillList } from "@/components/Skill";
 export const metadata: Metadata = {
   ...baseMetadata,
   title: "About",
-  description: "自己紹介ページです。",
+  description: "Shin Takemuraの自己紹介ページです。",
 };
 
 type TimelineItem = {
@@ -168,7 +168,7 @@ export default function AboutPage() {
               <br />
               小説と技術書をよく読みます。
               <br />
-              長期的な休みは、一人旅やキャンプなどのアウトドアも楽しみます。
+              長期的な休みはアウトドアも楽しみます。多趣味です。
             </p>
           </FadeTransition>
         </section>
@@ -180,6 +180,8 @@ export default function AboutPage() {
           <FadeTransition>
             <p className="text-center md:text-start text-muted-foreground text-sm leading-6">
               知識を得たり、物事を深く考えることが好きです。
+              <br />
+              様々な学問分野に興味があります。
             </p>
           </FadeTransition>
         </section>

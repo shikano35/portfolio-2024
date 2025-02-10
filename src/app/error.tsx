@@ -6,7 +6,7 @@ import { FadeTransition } from "@/components/FadeIn";
 import { HeadGroup } from "@/components/HeadGroup";
 import { Heading } from "@/components/Heading";
 
-export default function NotFound() {
+export default function Error() {
   return (
     <Container>
       <HeadGroup className="mb-24">

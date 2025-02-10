@@ -12,7 +12,7 @@ import React from "react";
 export const metadata: Metadata = {
   ...baseMetadata,
   title: "Log",
-  description: "記事と学習記録一覧です。",
+  description: "公開している記事と学習記録一覧です。",
 };
 
 export default function LogPage() {
