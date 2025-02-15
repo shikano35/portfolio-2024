@@ -46,7 +46,7 @@ export default async function SkillDetailPage({
           {skill.name}
         </Heading>
         <FadeTransition>
-          <p className="text-center md:text-start text-muted-foreground text-base leading-7">
+          <p className="text-center md:text-start text-muted-foreground text-sm md:text-base leading-7">
             {skill.description}
           </p>
         </FadeTransition>

@@ -118,7 +118,7 @@ export default function AboutPage() {
                       <h3 className="text-sm font-semibold text-primary text-left">
                         {item.month}
                       </h3>
-                      <p className="text-muted-foreground text-left">
+                      <p className="text-muted-foreground text-left text-sm md:text-base">
                         {item.description}
                       </p>
                     </FadeIn>
@@ -163,12 +163,14 @@ export default function AboutPage() {
             Hobbies
           </Heading>
           <FadeTransition>
-            <p className="text-center md:text-start text-muted-foreground text-sm leading-6">
+            <p className="text-center md:text-start text-muted-foreground text-xs md:text-sm leading-6">
               趣味は読書とプログラミングです。
               <br />
               小説と技術書をよく読みます。
               <br />
-              長期的な休みはアウトドアも楽しみます。多趣味です。
+              長期的な休みはアウトドアも楽しみます。
+              <br />
+              多趣味です。
             </p>
           </FadeTransition>
         </section>
@@ -178,7 +180,7 @@ export default function AboutPage() {
             Curiosity
           </Heading>
           <FadeTransition>
-            <p className="text-center md:text-start text-muted-foreground text-sm leading-6">
+            <p className="text-center md:text-start text-muted-foreground text-xs md:text-sm leading-6">
               知識を得たり、物事を深く考えることが好きです。
               <br />
               様々な学問分野に興味があります。
