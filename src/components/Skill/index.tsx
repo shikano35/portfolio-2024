@@ -45,6 +45,7 @@ import { AnimatedTooltip } from "@/components/AnimatedTooltip";
 import { BunIcon } from "../Icons/skills/Bun";
 import { BiomeIcon } from "../Icons/skills/Biome";
 import { HonoIcon } from "../Icons/skills/Hono";
+import { DrizzleORMIcon } from "../Icons/skills/DrizzleORMIcon";
 
 type Skill = {
   name: string;
@@ -61,6 +62,7 @@ const Skills: Skill[] = [
   { name: "Next.js", icon: NextjsIcon },
   { name: "Tailwind CSS", icon: TailwindIcon },
   { name: "Prisma", icon: PrismaIcon },
+  { name: "Drizzle ORM", icon: DrizzleORMIcon },
   { name: "Astro", icon: AstroIcon },
   { name: "Biome", icon: BiomeIcon },
   { name: "Storybook", icon: StorybookIcon },

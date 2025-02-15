@@ -71,14 +71,14 @@ export default function PersonalProjectCard({
             </FadeTransition>
             <FadeTransition>
               <div
-                className="mt-4 mb-8 max-w-[600px] text-sm text-muted-foreground md:h-28 lg:h-20"
+                className="mt-4 mb-8 max-w-[600px] text-sm text-muted-foreground md:h-32 lg:h-28"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             </FadeTransition>
             <FadeInWithStagger>
               <SkillList
                 className="grid-cols-5 gap-2 mt-0 md:mt-14 lg:mt-0"
-                iconSize="size-6 sm:size-7"
+                iconSize="size-6 sm:size-7 md:size-6 lg:size-7"
                 showAllLevels
                 showBorder={false}
                 showClickMotion={false}
