@@ -30,7 +30,11 @@ export type ZennArticle = {
   };
 };
 
-export async function fetchZennArticles() {
+type ZennArticlesResponse = {
+  articles: ZennArticle[];
+};
+
+export async function fetchZennArticles(): Promise<ZennArticle[]> {
   const response = await fetch(
     `https://zenn.dev/api/articles?username=shikano35&order=latest`,
     {
@@ -40,6 +44,6 @@ export async function fetchZennArticles() {
   if (!response.ok) {
     throw new Error("Zennの記事データの取得に失敗しました");
   }
-  const data = await response.json();
-  return data.articles as ZennArticle[];
+  const data: ZennArticlesResponse = await response.json();
+  return data.articles;
 }
