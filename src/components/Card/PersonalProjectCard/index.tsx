@@ -71,7 +71,7 @@ export default function PersonalProjectCard({
             </FadeTransition>
             <FadeTransition>
               <div
-                className="mt-4 mb-8 max-w-[600px] text-sm text-muted-foreground md:h-32 lg:h-28"
+                className="mt-4 mb-8 max-w-[600px] text-sm text-muted-foreground md:h-36 lg:h-28"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             </FadeTransition>
