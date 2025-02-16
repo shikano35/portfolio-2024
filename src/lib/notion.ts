@@ -13,9 +13,9 @@ export type Article = {
 };
 
 type NameProperty = {
-  type: string;
+  type: "title";
   title: {
-    type: string;
+    type: "text";
     text: {
       content: string;
     };
@@ -23,11 +23,49 @@ type NameProperty = {
 };
 
 type CoverProperty = {
-  type: string;
+  type: "external";
   external: {
     url: string;
   };
 };
+
+function isPageObjectResponse(item: unknown): item is PageObjectResponse {
+  return (
+    typeof item === "object" &&
+    item !== null &&
+    "object" in item &&
+    item.object === "page" &&
+    "properties" in item &&
+    "id" in item &&
+    "created_time" in item &&
+    "url" in item
+  );
+}
+
+function isNameProperty(property: unknown): property is NameProperty {
+  return (
+    typeof property === "object" &&
+    property !== null &&
+    "type" in property &&
+    property.type === "title" &&
+    "title" in property &&
+    Array.isArray(property.title) &&
+    property.title.length > 0 &&
+    "text" in property.title[0] &&
+    "content" in property.title[0].text
+  );
+}
+
+function isCoverProperty(cover: unknown): cover is CoverProperty {
+  return (
+    typeof cover === "object" &&
+    cover !== null &&
+    "type" in cover &&
+    cover.type === "external" &&
+    "external" in cover &&
+    typeof (cover as CoverProperty).external.url === "string"
+  );
+}
 
 export async function fetchNotionArticles(): Promise<Article[]> {
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -43,28 +81,20 @@ export async function fetchNotionArticles(): Promise<Article[]> {
     });
 
     const articles: Article[] = response.results.map((item) => {
-      if (!("properties" in item) || !("url" in item)) {
+      if (!isPageObjectResponse(item)) {
         throw new Error("Notion APIのデータ形式が正しくありません。");
       }
 
-      const page = item as PageObjectResponse;
-      const properties = page.properties;
-      const nameProperty = properties.Name as NameProperty;
-      const CoverProperty = page.cover as CoverProperty;
+      const { id, created_time: date, url, properties, cover } = item;
 
-      const id = page.id;
-      const title = nameProperty?.title?.[0].text.content || "No Title";
-      const date = page.created_time;
-      const cover = CoverProperty?.external?.url || "No Cover";
-      const url = page.url;
+      if (!isNameProperty(properties.Name)) {
+        throw new Error("Notion APIのNameプロパティの形式が正しくありません。");
+      }
 
-      return {
-        id,
-        title,
-        date,
-        cover,
-        url,
-      };
+      const title = properties.Name.title[0].text.content || "No Title";
+      const coverUrl = isCoverProperty(cover) ? cover.external.url : "No Cover";
+
+      return { id, title, date, url, cover: coverUrl };
     });
 
     return articles;
