@@ -3,6 +3,7 @@ import React from "react";
 import { FadeInWithStagger, FadeTransition } from "@/components/FadeIn";
 import { Heading } from "@/components/Heading";
 import { SkillList } from "@/components/Skill";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 
 type WorkCardProps = {
   imageSrc: string;
@@ -11,6 +12,7 @@ type WorkCardProps = {
   devType: string;
   status: string;
   duration: string;
+  link: string;
   skills: string[];
 };
 
@@ -21,6 +23,7 @@ export default function PersonalProjectCard({
   devType,
   status,
   duration,
+  link,
   skills,
 }: WorkCardProps) {
   return (
@@ -63,10 +66,29 @@ export default function PersonalProjectCard({
                       {status}
                     </div>
                   )}
+                  {link && (
+                    <div className=" font-mono text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                      {duration}
+                    </div>
+                  )}
                 </div>
-                <div className="flex justify-between items-center font-mono text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400">
-                  {duration}
-                </div>
+                {link ? (
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-sm font-medium text-muted-foreground underline"
+                  >
+                    <span className="text-xs font-medium text-muted-foreground">
+                      View Project
+                    </span>
+                    <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block ml-1" />
+                  </a>
+                ) : (
+                  <div className=" font-mono text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                    {duration}
+                  </div>
+                )}
               </div>
             </FadeTransition>
             <FadeTransition>
