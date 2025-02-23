@@ -40,9 +40,6 @@ export async function getSkills(queries?: MicroCMSQueries): Promise<Skill[]> {
     queries,
     customRequestInit: {
       cache: "force-cache",
-      next: {
-        revalidate: 86400,
-      },
     },
   });
   return data.contents;
@@ -58,9 +55,6 @@ export async function getSkill(
     queries,
     customRequestInit: {
       cache: "force-cache",
-      next: {
-        revalidate: 86400,
-      },
     },
   });
   return data;
@@ -72,9 +66,6 @@ export async function getWorks(queries?: MicroCMSQueries): Promise<Work[]> {
     queries,
     customRequestInit: {
       cache: "force-cache",
-      next: {
-        revalidate: 86400,
-      },
     },
   });
   return data.contents;

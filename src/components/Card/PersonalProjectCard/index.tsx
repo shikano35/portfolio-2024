@@ -3,6 +3,7 @@ import React from "react";
 import { FadeInWithStagger, FadeTransition } from "@/components/FadeIn";
 import { Heading } from "@/components/Heading";
 import { SkillList } from "@/components/Skill";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 
 type WorkCardProps = {
   imageSrc: string;
@@ -11,6 +12,7 @@ type WorkCardProps = {
   devType: string;
   status: string;
   duration: string;
+  link: string;
   skills: string[];
 };
 
@@ -21,6 +23,7 @@ export default function PersonalProjectCard({
   devType,
   status,
   duration,
+  link,
   skills,
 }: WorkCardProps) {
   return (
@@ -51,7 +54,7 @@ export default function PersonalProjectCard({
               {title}
             </Heading>
           </blockquote>
-          <figcaption className="mt-4 border-t border-border pt-4">
+          <figcaption className="mt-4 border-t border-border pt-4 h-52 sm:h-48 lg:h-56">
             <FadeTransition>
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
@@ -63,31 +66,50 @@ export default function PersonalProjectCard({
                       {status}
                     </div>
                   )}
+                  {link && (
+                    <div className=" font-mono text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                      {duration}
+                    </div>
+                  )}
                 </div>
-                <div className="flex justify-between items-center font-mono text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400">
-                  {duration}
-                </div>
+                {link ? (
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-sm font-medium text-muted-foreground underline"
+                  >
+                    <span className="text-xs font-medium text-muted-foreground">
+                      View Project
+                    </span>
+                    <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block ml-1" />
+                  </a>
+                ) : (
+                  <div className=" font-mono text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                    {duration}
+                  </div>
+                )}
               </div>
             </FadeTransition>
             <FadeTransition>
               <div
-                className="mt-4 mb-8 max-w-[600px] text-sm text-muted-foreground md:h-36 lg:h-28"
+                className="mt-4 mb-8 max-w-[600px] text-sm text-muted-foreground"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             </FadeTransition>
-            <FadeInWithStagger>
-              <SkillList
-                className="grid-cols-5 gap-2 mt-0 md:mt-14 lg:mt-0"
-                iconSize="size-6 sm:size-7 md:size-6 lg:size-7"
-                showAllLevels
-                showBorder={false}
-                showClickMotion={false}
-                showName={false}
-                showStars={false}
-                skills={skills}
-              />
-            </FadeInWithStagger>
           </figcaption>
+          <FadeInWithStagger>
+            <SkillList
+              className="grid-cols-5 gap-2 mt-0 md:mt-14 lg:mt-0"
+              iconSize="size-6 sm:size-7 md:size-6 lg:size-7"
+              showAllLevels
+              showBorder={false}
+              showClickMotion={false}
+              showName={false}
+              showStars={false}
+              skills={skills}
+            />
+          </FadeInWithStagger>
         </figure>
       </div>
     </FadeTransition>

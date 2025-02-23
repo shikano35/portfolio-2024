@@ -24,7 +24,7 @@ export default function Home() {
               <p className="text-center md:text-start text-muted-foreground text-sm md:text-base leading-8 md:leading-10">
                 エンジニアです。
                 <br />
-                深く考えながら、少しずつ学んでいます。
+                深く考え、視野を広く持つことを大切にしています。
               </p>
             </FadeTransition>
           </HeadGroup>

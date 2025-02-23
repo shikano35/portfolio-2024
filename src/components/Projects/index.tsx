@@ -15,6 +15,7 @@ export async function WorkProjects() {
           description={work.description}
           devType={work.devType.join(", ")}
           status={work.status.join(", ")}
+          link={work.link}
           duration={work.duration}
           skills={work.skills}
         />
@@ -36,6 +37,7 @@ export async function PersonalProjects() {
           description={work.description}
           devType={work.devType.join(", ")}
           status={work.status.join(", ")}
+          link={work.link}
           duration={work.duration}
           skills={work.skills}
         />
