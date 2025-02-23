@@ -1,5 +1,6 @@
 import React from "react";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
+import ImageProps from "next/image";
 
 export function Logo({
   src = "/my-icon.webp",
