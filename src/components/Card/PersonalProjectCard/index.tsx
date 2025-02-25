@@ -77,7 +77,7 @@ export default function PersonalProjectCard({
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-sm font-medium text-muted-foreground underline"
+                    className="flex items-center text-sm font-medium text-muted-foreground hover:text-primary underline"
                   >
                     <span className="text-xs font-medium text-muted-foreground">
                       View Project
