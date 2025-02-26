@@ -80,7 +80,7 @@ export default function PersonalProjectCard({
                     className="flex items-center text-sm font-medium text-muted-foreground hover:text-primary underline"
                   >
                     <span className="text-xs font-medium text-muted-foreground">
-                      View Project
+                      View
                     </span>
                     <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block ml-1" />
                   </a>
