@@ -4,6 +4,7 @@ import { FadeInWithStagger, FadeTransition } from "@/components/FadeIn";
 import { Heading } from "@/components/Heading";
 import { SkillList } from "@/components/Skill";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
+import { Badge } from "@/components/Badge";
 
 type WorkCardProps = {
   imageSrc: string;
@@ -28,7 +29,7 @@ export default function PersonalProjectCard({
 }: WorkCardProps) {
   return (
     <FadeTransition>
-      <div className="group relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 dark:bg-gray-800 dark:ring-white/15 h-full">
+      <div className="group relative flex flex-col overflow-hidden rounded-3xl shadow-sm ring-1 ring-black/5 dark:bg-gray-800 dark:ring-white/15 h-full">
         <div className="relative h-80 shrink-0">
           <Image
             alt={`${title}'s thumbnail`}
@@ -45,7 +46,7 @@ export default function PersonalProjectCard({
           aria-hidden="true"
           className="absolute inset-0 rounded-3xl bg-gradient-to-t from-background ring-1 ring-inset ring-border from-55%"
         />
-        <figure className="relative p-10">
+        <figure className="relative p-10 flex flex-col h-full">
           <blockquote className="font-semibold">
             <Heading
               as="h4"
@@ -54,18 +55,12 @@ export default function PersonalProjectCard({
               {title}
             </Heading>
           </blockquote>
-          <figcaption className="mt-4 border-t border-border pt-4 h-52 sm:h-48 lg:h-56">
+          <figcaption className="mt-4 border-t border-border pt-4 h-full">
             <FadeTransition>
               <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <div className="text-xs font-medium text-muted-foreground border border-muted-foreground rounded-full px-2 tracking-tighter">
-                    {devType}
-                  </div>
-                  {status && (
-                    <div className="text-xs font-medium text-muted-foreground border border-muted-foreground rounded-full px-2 tracking-tighter">
-                      {status}
-                    </div>
-                  )}
+                <div className="flex items-center space-x-1.5 sm:space-x-2">
+                  <Badge>{devType}</Badge>
+                  {status && <Badge>{status}</Badge>}
                   {link && (
                     <div className=" font-mono text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400">
                       {duration}
@@ -93,14 +88,14 @@ export default function PersonalProjectCard({
             </FadeTransition>
             <FadeTransition>
               <div
-                className="mt-4 mb-8 max-w-[600px] text-sm text-muted-foreground"
+                className="mt-4 max-w-[600px] text-sm text-muted-foreground bg-slate-400"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             </FadeTransition>
           </figcaption>
           <FadeInWithStagger>
             <SkillList
-              className="grid-cols-5 gap-2 mt-0 md:mt-14 lg:mt-0"
+              className="grid grid-cols-5 gap-2 mt-4 place-items-start"
               iconSize="size-6 sm:size-7 md:size-6 lg:size-7"
               showAllLevels
               showBorder={false}
