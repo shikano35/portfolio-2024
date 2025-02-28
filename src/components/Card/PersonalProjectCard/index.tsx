@@ -102,7 +102,7 @@ export default function PersonalProjectCard({
               </FadeTransition>
             </figcaption>
           </div>
-          <div className="mt-6 min-h-[100px] -mb-8">
+          <div className="mt-6 min-h-[100px] -mb-4">
             <FadeInWithStagger>
               <SkillList
                 className="grid grid-cols-5 gap-2 place-items-start"
