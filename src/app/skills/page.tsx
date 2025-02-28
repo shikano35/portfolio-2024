@@ -19,7 +19,7 @@ export default function SkillsPage() {
         <Heading className="mb-12">Skills</Heading>
         <StarMessage />
       </HeadGroup>
-      <SkillList className="grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-16 mb-16 justify-items-center" />
+      <SkillList className="grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-16 mb-16 justify-items-center" />
     </div>
   );
 }
