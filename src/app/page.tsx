@@ -22,7 +22,7 @@ export default function Home() {
             <Heading>Profile</Heading>
             <FadeTransition>
               <p className="text-center md:text-start text-muted-foreground text-sm md:text-base leading-8 md:leading-10">
-                エンジニアです。
+                『面白い』を創るエンジニアです。
                 <br />
                 深く考え、視野を広く持つことを大切にしています。
               </p>
