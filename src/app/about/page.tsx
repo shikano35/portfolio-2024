@@ -46,7 +46,7 @@ const timelineData: TimelineItem[] = [
     id: 6,
     year: "2024",
     month: "10月 -",
-    description: "Web技術に興味を持ち、プログラミングを本格的に学習し始める",
+    description: "プログラミングを本格的に学習し始める",
   },
 ];
 
@@ -80,9 +80,7 @@ export default function AboutPage() {
             <p className="text-center md:text-start text-muted-foreground text-sm md:text-base leading-8 md:leading-10">
               エンジニアです。
               <br />
-              モダンなWeb技術を中心に学んでいます。
-              <br />
-              CI/CDの構築やバックエンド開発も勉強しています。
+              幅広い技術を学んでいます。
               <br />
               シンプルなデザインとシンプルなアニメーションが好きです。
             </p>
