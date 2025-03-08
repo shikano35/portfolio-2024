@@ -45,7 +45,7 @@ export function ExternalLink({
       target={target ? "_blank" : undefined}
       rel="noopener noreferrer"
       className={clsx(
-        "flex items-center text-xs md:text-sm font-normal text-muted-foreground hover:text-highlight transform",
+        "flex items-center text-xs md:text-sm font-normal text-muted-foreground hover:text-highlight transform hover:underline underline-offset-2",
         className
       )}
       aria-label={ariaLabel || label}
