@@ -1,4 +1,5 @@
-import React, { cache } from "react";
+import type React from "react";
+import { cache } from "react";
 import Link from "next/link";
 import { MySQLIcon } from "@/components/Icons/skills/MySQLIcon";
 import { PostgreSQLIcon } from "@/components/Icons/skills/PostgreSQLIcon";
@@ -46,6 +47,10 @@ import { BunIcon } from "../Icons/skills/Bun";
 import { BiomeIcon } from "../Icons/skills/Biome";
 import { HonoIcon } from "../Icons/skills/Hono";
 import { DrizzleORMIcon } from "../Icons/skills/DrizzleORMIcon";
+import { CloudflareWorkersIcon } from "../Icons/skills/CloudflareWorkersIcon";
+import { GoogleCloudIcon } from "../Icons/skills/GoogleCloudIcon";
+import { CloudRunIcon } from "../Icons/skills/CloudRunIcon";
+import { VertexAIIcon } from "../Icons/skills/VertexAIIcon";
 
 type Skill = {
   name: string;
@@ -82,6 +87,10 @@ const Skills: Skill[] = [
   { name: "Docker", icon: DockerIcon },
   { name: "Github Actions", icon: GithubActionsIcon },
   { name: "AWS", icon: AWSIcon },
+  { name: "Cloud Run", icon: CloudRunIcon },
+  { name: "Vertex AI", icon: VertexAIIcon },
+  { name: "Google Cloud", icon: GoogleCloudIcon },
+  { name: "Cloudflare Workers", icon: CloudflareWorkersIcon },
   { name: "Dart", icon: DartIcon },
   { name: "Flutter", icon: FlutterIcon },
   { name: "Rust", icon: RustIcon },
