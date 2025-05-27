@@ -10,7 +10,6 @@ import { GithubCard } from "@/components/Card/GithubCard";
 import { ContributionGraph } from "@/components/ContributionGraph";
 import { Logo } from "@/components/Logo";
 import { SkillList } from "@/components/Skill";
-import { ExternalLink } from "@/components/Link";
 
 export const metadata: Metadata = {
   ...baseMetadata,
@@ -84,12 +83,6 @@ export default function AboutPage() {
               <br />
               シンプルなデザインとシンプルなアニメーションが好きです。
             </p>
-            <div className="flex justify-center md:justify-start mt-4">
-              <ExternalLink
-                href="https://www.notion.so/1a8a0a44494480d2aaa2dd2d1c74eb03"
-                label="私についてもっと詳しく"
-              />
-            </div>
           </FadeTransition>
         </HeadGroup>
       </header>

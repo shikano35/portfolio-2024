@@ -51,6 +51,9 @@ import { CloudflareWorkersIcon } from "../Icons/skills/CloudflareWorkersIcon";
 import { GoogleCloudIcon } from "../Icons/skills/GoogleCloudIcon";
 import { CloudRunIcon } from "../Icons/skills/CloudRunIcon";
 import { VertexAIIcon } from "../Icons/skills/VertexAIIcon";
+import { TanStackQueryIcon } from "../Icons/skills/TanStackQueryIcon";
+import { ZustandIcon } from "../Icons/skills/ZustandIcon";
+import { MSWIcon } from "../Icons/skills/MSW";
 
 type Skill = {
   name: string;
@@ -101,6 +104,9 @@ const Skills: Skill[] = [
   { name: "Unreal Engine", icon: UnrealEngineIcon },
   { name: "Arduino", icon: ArduinoIcon },
   { name: "Python", icon: PythonIcon },
+  { name: "TanStack Query", icon: TanStackQueryIcon },
+  { name: "Zustand", icon: ZustandIcon },
+  { name: "MSW", icon: MSWIcon },
 ];
 
 type MergedSkill = {

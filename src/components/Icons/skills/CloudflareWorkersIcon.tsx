@@ -2,139 +2,124 @@ import type React from "react";
 
 export function CloudflareWorkersIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 128 128" {...props}>
-      <title>{"Cloudflare Workers"}</title>
-      <linearGradient
-        id="a"
-        x1="-.556"
-        x2="-.628"
-        y1="128.705"
-        y2="128.977"
-        gradientTransform="matrix(155.9359 0 0 -364.3 119.128 47001.098)"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#eb6f07" />
-        <stop offset="1" stopColor="#fab743" />
-      </linearGradient>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416 375" {...props}>
+      <title>Cloudflare Workers logo</title>
+      <defs>
+        <linearGradient
+          id="CloudflareWorkersLogo--gradient-a"
+          x1="50%"
+          x2="25.7%"
+          y1="100%"
+          y2="8.7%"
+        >
+          <stop offset="0%" stopColor="#eb6f07" />
+          <stop offset="100%" stopColor="#fab743" />
+        </linearGradient>
+        <linearGradient
+          id="CloudflareWorkersLogo--gradient-b"
+          x1="81%"
+          x2="40.5%"
+          y1="83.7%"
+          y2="29.5%"
+        >
+          <stop offset="0%" stopColor="#d96504" />
+          <stop offset="100%" stopColor="#d96504" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient
+          id="CloudflareWorkersLogo--gradient-c"
+          x1="42%"
+          x2="84%"
+          y1="8.7%"
+          y2="79.9%"
+        >
+          <stop offset="0%" stopColor="#eb6f07" />
+          <stop offset="100%" stopColor="#eb720a" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient
+          id="CloudflareWorkersLogo--gradient-d"
+          x1="50%"
+          x2="25.7%"
+          y1="100%"
+          y2="8.7%"
+        >
+          <stop offset="0%" stopColor="#ee6f05" />
+          <stop offset="100%" stopColor="#fab743" />
+        </linearGradient>
+        <linearGradient
+          id="CloudflareWorkersLogo--gradient-e"
+          x1="-33.2%"
+          x2="91.7%"
+          y1="100%"
+          y2="0%"
+        >
+          <stop offset="0%" stopColor="#d96504" stopOpacity=".8" />
+          <stop offset="49.8%" stopColor="#d96504" stopOpacity=".2" />
+          <stop offset="100%" stopColor="#d96504" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient
+          id="CloudflareWorkersLogo--gradient-f"
+          x1="50%"
+          x2="25.7%"
+          y1="100%"
+          y2="8.7%"
+        >
+          <stop offset="0%" stopColor="#ffa95f" />
+          <stop offset="100%" stopColor="#ffebc8" />
+        </linearGradient>
+        <linearGradient
+          id="CloudflareWorkersLogo--gradient-g"
+          x1="8.1%"
+          x2="96.5%"
+          y1="1.1%"
+          y2="48.8%"
+        >
+          <stop offset="0%" stopColor="#fff" stopOpacity=".5" />
+          <stop offset="100%" stopColor="#fff" stopOpacity=".1" />
+        </linearGradient>
+        <linearGradient
+          id="CloudflareWorkersLogo--gradient-h"
+          x1="-13.7%"
+          y1="104.2%"
+          y2="46.2%"
+        >
+          <stop offset="0%" stopColor="#fff" stopOpacity=".5" />
+          <stop offset="100%" stopColor="#fff" stopOpacity=".1" />
+        </linearGradient>
+      </defs>
       <path
-        fill="url(#a)"
-        d="M33.882 9.694 48.491 36.05 35.075 60.199a7.75 7.75 0 0 0 0 7.543l13.416 24.209-14.609 26.356a15.501 15.501 0 0 1-6.559-6.172L4.068 71.737a15.563 15.563 0 0 1 0-15.503l23.255-40.398a15.501 15.501 0 0 1 6.559-6.142z"
+        fill="url(#CloudflareWorkersLogo--gradient-a)"
+        d="M107 5.4l49 88.4-45 81a26 26 0 0 0 0 25.3l45 81.2-49 88.4A52 52 0 0 1 85 349L7 213.5a52.2 52.2 0 0 1 0-52L85 26a52 52 0 0 1 22-20.6z"
       />
-      <linearGradient
-        id="b"
-        x1="-.594"
-        x2="-.715"
-        y1="129.358"
-        y2="129.519"
-        gradientTransform="matrix(149.7049 0 0 -194.8 131.59 25305.098)"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#d96504" />
-        <stop offset="1" stopColor="#d96504" stopOpacity="0" />
-      </linearGradient>
       <path
-        fill="url(#b)"
-        d="M35.075 60.229a7.75 7.75 0 0 0 0 7.513l13.416 24.209-14.609 26.356a15.501 15.501 0 0 1-6.559-6.172L4.068 71.737c-1.848-3.19 8.497-7.006 31.007-11.478v-.03z"
+        fill="url(#CloudflareWorkersLogo--gradient-b)"
+        d="M111 174.9a26 26 0 0 0 0 25.2l45 81.2-49 88.4A52 52 0 0 1 85 349L7 213.5C.8 202.8 35.5 190 111 175z"
         opacity=".7"
       />
-      <linearGradient
-        id="c"
-        x1="-2.234"
-        x2="-2.109"
-        y1="128.901"
-        y2="128.689"
-        gradientTransform="matrix(95.8 0 0 -101.1 239.4 13048.3)"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#eb6f07" />
-        <stop offset="1" stopColor="#eb720a" stopOpacity="0" />
-      </linearGradient>
       <path
-        fill="url(#c)"
-        d="m35.373 12.347 13.118 23.702-2.176 3.786-11.568-19.587c-3.339-5.456-8.437-2.624-14.818 8.408l.954-1.64 6.44-11.18a15.51 15.51 0 0 1 6.499-6.142l1.521 2.653h.03z"
+        fill="url(#CloudflareWorkersLogo--gradient-c)"
+        d="M112 14.3l44 79.5-7.3 12.7-38.8-65.7C98.7 22.5 81.6 32 60.2 69l3.2-5.5L85 26a52 52 0 0 1 21.8-20.6l5.1 8.9z"
         opacity=".5"
       />
-      <linearGradient
-        id="d"
-        x1="-.847"
-        x2="-.919"
-        y1="128.688"
-        y2="128.96"
-        gradientTransform="matrix(207.975 0 0 -375 275.025 48376)"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#ee6f05" />
-        <stop offset="1" stopColor="#fab743" />
-      </linearGradient>
       <path
-        fill="url(#d)"
-        d="m100.665 15.835 23.255 40.398a15.485 15.485 0 0 1 0 15.503l-23.255 40.398a15.504 15.504 0 0 1-13.416 7.752H63.994l28.92-52.145a7.75 7.75 0 0 0 0-7.513L63.994 8.084h23.255a15.502 15.502 0 0 1 13.416 7.751z"
+        fill="url(#CloudflareWorkersLogo--gradient-d)"
+        d="M331 26l78 135.5c9.3 16 9.3 36 0 52L331 349a52 52 0 0 1-45 26h-78l97-174.9a26 26 0 0 0 0-25.2L208 0h78a52 52 0 0 1 45 26z"
       />
-      <linearGradient
-        id="e"
-        x1="-2.602"
-        x2="-2.229"
-        y1="128.679"
-        y2="128.977"
-        gradientTransform="matrix(118.9101 0 0 -375.1 361.09 48388.902)"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#d96504" stopOpacity=".8" />
-        <stop offset=".498" stopColor="#d96504" stopOpacity=".2" />
-        <stop offset="1" stopColor="#d96504" stopOpacity="0" />
-      </linearGradient>
       <path
-        fill="url(#e)"
-        d="m86.057 119.708-22.957.208 27.787-52.413a8.053 8.053 0 0 0 0-7.573L63.1 8.084h5.247l29.158 51.608a8.048 8.048 0 0 1-.03 7.99 4670.283 4670.283 0 0 0-18.693 32.796c-5.665 9.957-3.22 16.367 7.275 19.23z"
+        fill="url(#CloudflareWorkersLogo--gradient-e)"
+        d="M282 374.4l-77 .7 93.2-175.8a27 27 0 0 0 0-25.4L205 0h17.6l97.8 173.1a27 27 0 0 1-.1 26.8 15624 15624 0 0 0-62.7 110c-19 33.4-10.8 54.9 24.4 64.5z"
       />
-      <linearGradient
-        id="f"
-        x1="-.561"
-        x2="-.634"
-        y1="128.688"
-        y2="128.96"
-        gradientTransform="matrix(201.2571 0 0 -375 180.743 48376)"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#ffa95f" />
-        <stop offset="1" stopColor="#ffebc8" />
-      </linearGradient>
       <path
-        fill="url(#f)"
-        d="M40.739 119.886c-2.385 0-4.77-.566-6.857-1.58l28.681-51.727a5.353 5.353 0 0 0 0-5.188L33.882 9.694a15.492 15.492 0 0 1 6.857-1.61h23.255l28.92 52.145a7.75 7.75 0 0 1 0 7.513l-28.92 52.145H40.739z"
+        fill="url(#CloudflareWorkersLogo--gradient-f)"
+        d="M130 375c-8 0-16-1.9-23-5.3l96.2-173.5c3-5.4 3-12 0-17.4L107 5.4A52 52 0 0 1 130 0h78l97 174.9a26 26 0 0 1 0 25.2L208 375h-78z"
       />
-      <linearGradient
-        id="g"
-        x1="-2.816"
-        x2="-2.552"
-        y1="128.861"
-        y2="128.719"
-        gradientTransform="matrix(109.2571 0 0 -375 364.743 48376)"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#fff" stopOpacity=".5" />
-        <stop offset="1" stopColor="#fff" stopOpacity=".1" />
-      </linearGradient>
       <path
-        fill="url(#g)"
-        d="M90.886 61.391 61.311 8.084h2.683l28.92 52.145a7.75 7.75 0 0 1 0 7.513l-28.92 52.145h-2.683l29.576-53.308a5.35 5.35 0 0 0-.001-5.188z"
+        fill="url(#CloudflareWorkersLogo--gradient-g)"
+        d="M298.2 178.8L199 0h9l97 174.9a26 26 0 0 1 0 25.2L208 375h-9l99.2-178.8c3-5.4 3-12 0-17.4z"
         opacity=".6"
       />
-      <linearGradient
-        id="h"
-        x1="-2.34"
-        x2="-2.001"
-        y1="128.779"
-        y2="128.952"
-        gradientTransform="matrix(107.2571 0 0 -371.4 274.743 47913.2)"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#fff" stopOpacity=".5" />
-        <stop offset="1" stopColor="#fff" stopOpacity=".1" />
-      </linearGradient>
       <path
-        fill="url(#h)"
-        d="M62.563 61.391 33.882 9.694c.894-.477 1.968-.835 2.981-1.133 6.321 11.359 15.652 28.592 28.025 51.668a7.75 7.75 0 0 1 0 7.513L36.416 119.29c-1.014-.298-1.55-.507-2.504-.954l28.622-51.727a5.353 5.353 0 0 0 0-5.188l.029-.03z"
+        fill="url(#CloudflareWorkersLogo--gradient-h)"
+        d="M203.2 178.8L107 5.4c3-1.6 6.6-2.8 10-3.8 21.2 38.1 52.5 95.9 94 173.3a26 26 0 0 1 0 25.2L115.5 373c-3.4-1-5.2-1.7-8.4-3.2l96-173.5c3-5.4 3-12 0-17.4z"
         opacity=".6"
       />
     </svg>
