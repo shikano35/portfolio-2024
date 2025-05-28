@@ -17,6 +17,7 @@ export async function WorkProjects() {
           status={work.status.join(", ")}
           link={work.link}
           duration={work.duration}
+          codeLink={work.code}
           skills={work.skills}
         />
       ))}
@@ -38,6 +39,7 @@ export async function PersonalProjects() {
           devType={work.devType.join(", ")}
           status={work.status.join(", ")}
           link={work.link}
+          codeLink={work.code}
           duration={work.duration}
           skills={work.skills}
         />
