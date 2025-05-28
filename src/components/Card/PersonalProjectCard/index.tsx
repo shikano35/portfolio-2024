@@ -5,6 +5,7 @@ import { Heading } from "@/components/Heading";
 import { SkillList } from "@/components/Skill";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import { Badge } from "@/components/Badge";
+import { cn } from "@/lib/cn";
 
 type WorkCardProps = {
   imageSrc: string;
@@ -14,6 +15,7 @@ type WorkCardProps = {
   status: string;
   duration: string;
   link: string;
+  codeLink: string;
   skills: string[];
 };
 
@@ -25,11 +27,21 @@ export default function PersonalProjectCard({
   status,
   duration,
   link,
+  codeLink,
   skills,
 }: WorkCardProps) {
+  const maxCols = 8;
+  const myRows = Math.ceil(skills.length / maxCols);
+  const rowClass = `grid-rows-${Math.min(myRows, 3)}`;
+  const wrapperHeight = myRows * 45 + (myRows - 1) * 8;
   return (
     <FadeTransition>
-      <div className="group relative flex flex-col overflow-hidden rounded-3xl shadow-sm ring-1 ring-black/5 dark:bg-gray-800 dark:ring-white/15 h-full">
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative flex flex-col overflow-hidden rounded-3xl shadow-sm ring-1 ring-black/5 dark:bg-gray-800 dark:ring-white/15 h-full hover:shadow-lg transition-shadow active:shadow-none"
+      >
         <div className="relative h-80 shrink-0">
           <Image
             alt={`${title}のサムネイル`}
@@ -71,16 +83,19 @@ export default function PersonalProjectCard({
                       </div>
                     )}
                   </div>
-                  {link ? (
+                  {codeLink ? (
                     <a
-                      href={link}
+                      href={codeLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center text-sm font-medium text-muted-foreground hover:text-primary underline"
                       aria-label={`${title}のプロジェクトページへ`}
                     >
-                      <span className="text-xs font-medium text-muted-foreground">
-                        View
+                      <span className="block md:hidden lg:block text-xs font-medium text-muted-foreground">
+                        Source Code
+                      </span>
+                      <span className="hidden md:block lg:hidden text-xs font-medium text-muted-foreground">
+                        Code
                       </span>
                       <ArrowTopRightOnSquareIcon
                         className="w-4 h-4 inline-block ml-1"
@@ -102,10 +117,13 @@ export default function PersonalProjectCard({
               </FadeTransition>
             </figcaption>
           </div>
-          <div className="mt-6 min-h-[100px] -mb-4">
+          <div className="mt-6" style={{ height: `${wrapperHeight}px` }}>
             <FadeInWithStagger>
               <SkillList
-                className="grid grid-cols-5 gap-2 place-items-start"
+                className={cn(
+                  "grid grid-cols-5 gap-2 place-content-start place-items-start",
+                  rowClass
+                )}
                 iconSize="size-6 sm:size-7 md:size-6 lg:size-7"
                 showAllLevels
                 showBorder={false}
@@ -117,7 +135,7 @@ export default function PersonalProjectCard({
             </FadeInWithStagger>
           </div>
         </figure>
-      </div>
+      </a>
     </FadeTransition>
   );
 }

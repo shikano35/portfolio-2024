@@ -31,6 +31,7 @@ export type Work = {
   skills: string[];
   status: string[];
   link: string;
+  code: string;
   duration: string;
 };
 
